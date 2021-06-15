@@ -1,10 +1,31 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { InicioComponent } from './components/inicio/inicio.component';
+import { BienvenidaComponent } from './components/inicio/bienvenida/bienvenida.component';
+import { LoginComponent } from './components/inicio/login/login.component';
+import { RegisterComponent } from './components/inicio/register/register.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { CuestionariosComponent } from './components/dashboard/cuestionarios/cuestionarios.component';
+import { CambiarPasswordComponent } from './components/dashboard/cambiar-password/cambiar-password.component';
 
-const routes: Routes = [];
+
+const routes: Routes = [
+  { path: '', redirectTo: '/inicio/bienvenidos', pathMatch: 'full' },
+  { path:'inicio', component: InicioComponent, children: [
+    { path: 'bienvenidos', component: BienvenidaComponent },
+    { path: 'register', component: RegisterComponent },
+    { path: 'login', component: LoginComponent }
+  ]},
+  { path: 'dashboard', component: DashboardComponent, children: [
+      { path: '', component: CuestionariosComponent },
+      { path: 'cambiarPassword', component: CambiarPasswordComponent }
+  ]},
+  { path: '**', redirectTo: '/inicio/bienvenidos', pathMatch: 'full' }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
