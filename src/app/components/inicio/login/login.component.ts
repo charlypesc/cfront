@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { LoginService } from 'src/app/services/login.service';
 import { Usuario } from '../../../models/usuario'
 
 @Component({
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder, 
                       private toastr: ToastrService, 
-                      private route: Router) { 
+                      private route: Router,
+                      private loginService: LoginService) { 
     this.login = this.fb.group({
       usuario: [null, Validators.required],
       password: [null, Validators.required]
@@ -25,13 +27,25 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   log(){
-    console.log(this.login)
       const usuario: Usuario = {
       nombreUsuario :this.login.value.usuario,
       password      :this.login.value.password
     }
     this.loading= true
-    setTimeout(() => {
+    this.loginService.login(usuario).subscribe(data => {
+      console.log(data);
+      this.loading=false;
+      this.loginService.setLocalStorage(data.token);
+      this.toastr.success('Login Correcto')  
+      this.route.navigate(['/dashboard'])
+      this.login.reset();
+    },error => {
+      console.log(error);
+      this.loading=false;
+      this.toastr.error('Usuario o contraseña erroneos', 'Intentar de nuevo')
+  
+  })
+/*     setTimeout(() => {
       
       if(usuario.nombreUsuario === 'cparedes' && usuario.password === '123'){
   
@@ -42,8 +56,8 @@ export class LoginComponent implements OnInit {
         this.toastr.error('usuario o contraseña erroneos')
       }
       this.loading=false
-    },1000)
-    console.log(usuario)
+    },1000) */
+
   }
     
 }
