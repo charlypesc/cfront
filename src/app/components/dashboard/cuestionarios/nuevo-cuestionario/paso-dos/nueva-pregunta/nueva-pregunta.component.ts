@@ -1,7 +1,8 @@
 //Paso a paso para declarar formulario con controles dinamicos
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';//paso 1 importar la clase formarray
 import { ToastrService } from 'ngx-toastr';
+import { Cuestionario } from 'src/app/models/cuestionario';
 import { Pregunta } from 'src/app/models/pregunta';
 import { Respuesta } from 'src/app/models/respuesta';
 
@@ -14,6 +15,7 @@ export class NuevaPreguntaComponent implements OnInit {
   nuevaPregunta: FormGroup;
   pregunta: Pregunta;
   rtaCorrecta = 0;
+  @Output ()enviarPregunta = new EventEmitter<Pregunta>();
 
   constructor(private fb:FormBuilder,
               private toastr: ToastrService) {
@@ -78,7 +80,7 @@ export class NuevaPreguntaComponent implements OnInit {
       });
       //SE CREA EL OBJETO QUE VA A LA VISTA
       const pregunta: Pregunta = new Pregunta(descripcionPregunta, arrayRta);
-      console.log(pregunta);
+      this.enviarPregunta.emit(pregunta);
       this.reset();
     }
 
@@ -88,6 +90,5 @@ export class NuevaPreguntaComponent implements OnInit {
       this.getRespuestas.clear();
       this.agregarRespuestaPorDefecto();
     }
-
+ 
 }
-

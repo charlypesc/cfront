@@ -5,3 +5,12 @@
     margin-bottom: 50px;
     margin-right:20px;
 }
+
+.material-icons{
+    float:right;
+}
+.list-group-item {
+    padding:.20rem;
+    padding-left:20px;
+
+}
