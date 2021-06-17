@@ -23,6 +23,8 @@ export class PasoUnoComponent implements OnInit {
   }
 
   pasoUno():void{
+    this.cuestionarioService.tituloCuestionario=this.datosCuestionario.value.titulo;
+    this.cuestionarioService.descripcion=this.datosCuestionario.value.descripcion;
     this.router.navigate(['dashboard/nuevoCuestionario/pasoDos']);
   }
 
