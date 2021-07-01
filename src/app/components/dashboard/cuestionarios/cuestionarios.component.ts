@@ -35,7 +35,7 @@ export class CuestionariosComponent implements OnInit {
   //v105 iterar todos los objetos del usuario.
   getCuestionarios():void {
     this.loading = true;
-    this.cuestionarioService.getListCuestionario().subscribe(data =>{
+    this.cuestionarioService.getListCuestionarioByUser().subscribe(data =>{
       console.log(data)
       this.listCuestionarios = data;
       this.loading=false;

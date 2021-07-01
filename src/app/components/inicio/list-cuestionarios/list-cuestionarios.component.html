@@ -1,1 +1,24 @@
-<p>list-cuestionarios works!</p>
+<div class="container">
+    <div class="row" style="width: 100%;">
+        <div class="card text-center" style="width: 100%;">
+            <br>
+            <h3>Bienvenidos al cuestionario</h3>
+            <app-loading *ngIf="loading" style="padding-bottom: 10px;"></app-loading>
+            <h4 *ngIf="listCuestionarios.length == 0 && loading==false;">No hay cuestinarios para mostrar</h4>
+            <div class="card-columns" style="">
+                <div class="card bg-light"*ngFor="let cuestionario of listCuestionarios" >
+                    <div class="card-body text-center">
+                        <h4 class="card-title">{{ cuestionario.nombre}}</h4>
+                        <p class="card-text">{{ cuestionario.descripcion }}</p>
+                        <div style="font-size: 13px;">
+                            <strong>Creador: </strong>{{ cuestionario.usuario.nombreUsuario }}
+                        </div>
+                        <div style="font-size: 13px;">
+                            <strong>Fecha creacion: </strong> {{ cuestionario.fechaCreacion | date: "dd/MM/yy" }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

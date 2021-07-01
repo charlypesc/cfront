@@ -11,6 +11,7 @@ import { NuevoCuestionarioComponent } from './components/dashboard/cuestionarios
 import { PasoUnoComponent } from './components/dashboard/cuestionarios/nuevo-cuestionario/paso-uno/paso-uno.component';
 import { PasoDosComponent } from './components/dashboard/cuestionarios/nuevo-cuestionario/paso-dos/paso-dos.component';
 import { CuestionarioComponent } from './components/dashboard/cuestionarios/cuestionario/cuestionario.component';
+import { ListCuestionariosComponent } from './components/inicio/list-cuestionarios/list-cuestionarios.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path:'inicio', component: InicioComponent, children: [
     { path: 'bienvenidos', component: BienvenidaComponent },
     { path: 'register', component: RegisterComponent },
-    { path: 'login', component: LoginComponent }
+    { path: 'login', component: LoginComponent },
+    { path: 'listCuestionarios', component:ListCuestionariosComponent }
   ]},
   { path: 'dashboard', component: DashboardComponent, children: [
       { path: '', component: CuestionariosComponent },
