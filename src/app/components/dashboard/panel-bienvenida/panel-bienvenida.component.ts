@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { faCoffee, faCogs, faFileAlt, faGavel, faHandshake, faHome, faSearch, faUserCog, faUserPlus, faUsers } from '@fortawesome/free-solid-svg-icons';
-
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: 'app-panel-bienvenida',
+  templateUrl: './panel-bienvenida.component.html',
+  styleUrls: ['./panel-bienvenida.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class PanelBienvenidaComponent implements OnInit {
   faCoffee = faCoffee;
   faSearch=faSearch;
   faUserCog=faUserCog;

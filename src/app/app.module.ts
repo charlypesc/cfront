@@ -6,9 +6,11 @@ import{ AddTokenInterceptor } from '../app/helpers/add-token.interceptor'
 //modulos
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'  
 import { ToastrModule } from 'ngx-toastr';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule } from '@angular/forms'; 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 // componentes
 import { AppComponent } from './app.component';
 import { InicioComponent } from './components/inicio/inicio.component';
@@ -29,6 +31,11 @@ import { ListCuestionariosComponent } from './components/inicio/list-cuestionari
 import { IngresarNombreComponent } from './components/inicio/list-cuestionarios/ingresar-nombre/ingresar-nombre.component';
 import { PreguntaComponent } from './components/inicio/list-cuestionarios/pregunta/pregunta.component';
 import { RespuestaCuestionarioComponent } from './components/inicio/list-cuestionarios/respuesta-cuestionario/respuesta-cuestionario.component';
+import { AdministracionComponent } from './components/dashboard/administracion/administracion.component';
+import { IngresosComponent } from './components/dashboard/administracion/ingresos/ingresos.component';
+import { PanelBienvenidaComponent } from './components/dashboard/panel-bienvenida/panel-bienvenida.component';
+import { FuncionarioComponent } from './components/dashboard/administracion/ingresos/funcionario/funcionario.component';
+import { EstudianteComponent } from './components/dashboard/administracion/ingresos/estudiante/estudiante.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +57,12 @@ import { RespuestaCuestionarioComponent } from './components/inicio/list-cuestio
     ListCuestionariosComponent,
     IngresarNombreComponent,
     PreguntaComponent,
-    RespuestaCuestionarioComponent
+    RespuestaCuestionarioComponent,
+    AdministracionComponent,
+    IngresosComponent,
+    PanelBienvenidaComponent,
+    FuncionarioComponent,
+    EstudianteComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +70,9 @@ import { RespuestaCuestionarioComponent } from './components/inicio/list-cuestio
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    FontAwesomeModule
     
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AddTokenInterceptor, multi:true}],
