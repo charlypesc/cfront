@@ -19,6 +19,7 @@ import { PanelBienvenidaComponent } from './components/dashboard/panel-bienvenid
 import { AdministracionComponent } from './components/dashboard/administracion/administracion.component';
 import { IngresosComponent } from './components/dashboard/administracion/ingresos/ingresos.component';
 import { FuncionarioComponent } from './components/dashboard/administracion/ingresos/funcionario/funcionario.component';
+import { EstudianteComponent } from './components/dashboard/administracion/ingresos/estudiante/estudiante.component';
 
 
 const routes: Routes = [
@@ -44,6 +45,7 @@ const routes: Routes = [
       { path: 'administracion', component: AdministracionComponent},
       { path: 'administracion/ingresos', component: IngresosComponent},
       { path: 'administracion/ingresos/funcionario', component: FuncionarioComponent},
+      { path: 'administracion/ingresos/estudiante', component:EstudianteComponent },
 
       
   ]},
