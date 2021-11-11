@@ -5,25 +5,29 @@
         <h4 class="mt-4 mb-4">Datos Personales</h4>
         <div class="form-row">
             <div class="col">
-                <input type="text" class="form-control" placeholder="Nombre" formControlName="nombre">
+                <p class="ml-1 text-secondary">Nombre</p>
+                <input type="text" class="form-control" formControlName="nombre">
                 <div class="text-danger" *ngIf= "datosEstudiantes.get('nombre').hasError('required') && datosEstudiantes.get('nombre').touched">El nombre es requerido</div>
             </div>
             <div class="col">
-                <input type="text" class="form-control" placeholder="Apellido" formControlName="apellido">
+                <p class="ml-1 text-secondary">Apellido</p>
+                <input type="text" class="form-control" formControlName="apellido">
                 <div class="text-danger" *ngIf= "datosEstudiantes.get('apellido').hasError('required') && datosEstudiantes.get('apellido').touched">El apellido es requerido</div>
             </div>
         </div>
         <div class="form-row d-flex mt-3">
             <div class="col">
-                <input type="text" class="form-control" placeholder="Rut" formControlName="run">
+                <p class="ml-1 text-secondary">RUT</p>
+                <input type="text" class="form-control" placeholder="Ej: 17948322-K" formControlName="run">
                 <div class="text-danger" *ngIf= "datosEstudiantes.get('run').hasError('required') && datosEstudiantes.get('run').touched">El RUT es requerido</div>
             </div>
-            <div class="col-2 d-flex align-items-center"><label for="fechaNac" class="text-secondary">Fecha de Nacimiento</label></div>
-            <div class="col-4"><input type="date" class="form-control" id="fechaNac" formControlName="nacimiento"></div>
-        </div>
-        <div class="form-row mt-3 ml-1">
-            <div class="col-lg-3 d-flex align-items-baseline">
-                <p class="text-secondary mr-3">Sexo</p>
+            <div class="col">
+                <p class="ml-1 text-secondary">Fecha de Nacimiento</p>   
+                <input type="date" class="form-control" id="fechaNac" formControlName="nacimiento">
+                <div class="text-danger" *ngIf= "datosEstudiantes.get('nacimiento').hasError('required') && datosEstudiantes.get('nacimiento').touched">Debe ingresar fecha de Nacimiento</div>
+            </div>
+            <div class="col">
+                <p class="text-secondary">Sexo</p>
                 <select class="custom-select">
                     <option selected>Elegir...</option>
                     <option>Masculino</option>
@@ -31,66 +35,130 @@
                 </select>
             </div>
         </div>
+        <div class="form-row mt-3 ml-1">
+            
+        </div>
         <div class="form-row">
-            <div class="col"><input type="text" class="form-control" placeholder="Dirección" formControlName="direccion"></div>
-            <div class="col"><input type="text" class="form-control" placeholder="Comuna" formControlName="comuna"></div>
+            <div class="col">
+                <p class="text-secondary ml-1">Dirección</p>   
+                <input type="text" class="form-control" formControlName="direccion">
+            </div>
+            <div class="col">
+                <p class="text-secondary ml-1">Comuna</p>
+                <input type="text" class="form-control" formControlName="comuna">
+            </div>
         </div>
         <div class="form-row mt-3">
-            <div class="col"><input type="text" class="form-control" placeholder="Correo Electrónico" formControlName="correo"></div>
-            <div class="col"><input type="text" class="form-control" placeholder="Numero Teléfono" formControlName="telefono"></div>
+            <div class="col">
+                <p class="text-secondary ml-1">Correo Electrónico</p>
+                <input type="text" class="form-control" formControlName="correo">
+            </div>
+            <div class="col">
+                <p class="text-secondary ml-1">Teléfono</p>
+                <input type="text" class="form-control" formControlName="telefono">
+            </div>
         </div>
         <div class="form-row mt-3">
-            <div class="col"><input type="text" class="form-control" placeholder="Curso" formControlName="curso"></div>
-            <div class="col"><input type="text" class="form-control" placeholder="Establecimiento" formControlName="establecimiento"></div>
-            <div class="col"><input type="text" class="form-control" placeholder="RBD" formControlName="rbd"></div>
+            <div class="col">
+                <p class="text-secondary ml-1">Curso</p>
+                <input type="text" class="form-control" formControlName="curso">
+            </div>
+            <div class="col">
+                <p class="text-secondary ml-1">Establecimiento</p>
+                <input type="text" class="form-control" formControlName="establecimiento">
+            </div>
+            <div class="col">
+                <p class="text-secondary ml-1">RBD</p>
+                <input type="text" class="form-control" formControlName="rbd">
+                <div class="text-danger" *ngIf= "datosEstudiantes.get('rbd').hasError('required') && datosEstudiantes.get('rbd').touched">El RBD es requerido</div>
+            </div>
         </div>
         <div class="form-row mt-3 ml-1">
             <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="customCheck1" formControlName="pie" formControlName="pie">
-                <label class="custom-control-label" for="customCheck1">Forma parte del Programa de Integracion</label>
+                <label class="custom-control-label" for="customCheck1">Forma parte del Programa de Integración</label>
               </div>
-        </div> 
-        <h4 class="mt-4">Contacto Emergencia</h4>
-        <div class="form-row mt-3">
-            <div class="col"><input type="text" class="form-control" placeholder="Contacto Emergencia" formControlName="contactoEmergencia"></div>
-            <div class="col"><input type="text" class="form-control" placeholder="Telefono Emergencia" formControlName="telefonoEmergencia"></div>
-        </div>
-        <h4 class="mt-4">Datos Salud (Opcional)</h4>
-        <div class="form-row mt-3">
-            <div class="col"><input type="text" class="form-control" placeholder="Grupo Sanguineo" formControlName="grupoSanguineo"></div>
-            <div class="col"><input type="text" class="form-control" placeholder="Prevision" formControlName="prevision"></div>
-        </div>    
-        <div class="form-row mt-3">
-            <div class="col"><input type="text" class="form-control" placeholder="Medicamentos Contraindicados" formControlName="medicamentosContraindicados"></div>
-            <div class="col"><input type="text" class="form-control" placeholder="Enfermedades Cronicas" formControlName="enfermedadesCronicas"></div>
-            <div class="col"><input type="text" class="form-control" placeholder="Alergias" formControlName="alergias"></div>
         </div>
         <h4 class="mt-4">Datos Apoderado</h4>
         <div class="form-row mt-3">
             <div class="col">
-                <input type="text" class="form-control" placeholder="Nombre y Apellido" formControlName="apoderado">
+                <p class="text-secondary ml-1">Nombre y Apellido</p>
+                <input type="text" class="form-control" formControlName="apoderado">
                 <div class="text-danger" *ngIf= "datosEstudiantes.get('apoderado').hasError('required') && datosEstudiantes.get('apoderado').touched">El nombre y apellido es requerido</div>
             </div>
             <div class="col">
-                <input type="text" class="form-control" placeholder="Direccion Apoderado" formControlName="direccionApoderado">
+                <p class="text-secondary ml-1">Dirección Apoderado</p>
+                <input type="text" class="form-control" formControlName="direccionApoderado">
                 <div class="text-danger" *ngIf= "datosEstudiantes.get('direccionApoderado').hasError('required') && datosEstudiantes.get('direccionApoderado').touched">La dirección es requerida</div>
             </div>
         </div>
         <div class="form-row mt-3">
             <div class="col">
-                <input type="text" class="form-control" placeholder="Teléfono Apoderado" formControlName="telefonoApoderado">
+                <p class="text-secondary ml-1">Teléfono Apoderado</p> 
+                <input type="text" class="form-control" formControlName="telefonoApoderado">
                 <div class="text-danger" *ngIf= "datosEstudiantes.get('telefonoApoderado').hasError('required') && datosEstudiantes.get('telefonoApoderado').touched">El teléfono es requerido</div>
             </div>
-            <div class="col"><input type="text" class="form-control" placeholder="Correo Electrónico Apoderado" formControlName="correoApoderado"></div>
+            <div class="col">
+                <p class="text-secondary ml-1">Correo Electrónico Apoderado</p>
+                <input type="text" class="form-control" formControlName="correoApoderado">
+            </div>
+        </div>
+        <h4 class="mt-4">Contacto Emergencia (Opcional)</h4>
+        <div class="form-row mt-3">
+            <div class="col">
+                <p class="text-secondary ml-1">Contacto Emergencia</p>
+                <input type="text" class="form-control" formControlName="contactoEmergencia">
+            </div>
+            <div class="col">
+                <p class="text-secondary ml-1">Teléfono Emergencia</p>     
+                <input type="text" class="form-control" formControlName="telefonoEmergencia">
+            </div>
+        </div>
+        <h4 class="mt-4">Datos Salud (Opcional)</h4>
+        <div class="form-row mt-3">
+            <div class="col">
+                <p class="text-secondary ml-1">Grupo Sanguineo</p>
+                <input type="text" class="form-control" formControlName="grupoSanguineo">
+            </div>
+            <div class="col">
+                <p class="text-secondary ml-1">Prevision</p>
+                <input type="text" class="form-control" formControlName="prevision">
+            </div>
+        </div>    
+        <div class="form-row mt-3">
+            <div class="col">
+                <p class="text-secondary ml-1">Medicamentos Contraindicados</p>
+                <input type="text" class="form-control" formControlName="medicamentosContraindicados"
+                ></div>
+            <div class="col">
+                <p class="text-secondary ml-1">Enfermedades Crónicas</p>
+                <input type="text" class="form-control" formControlName="enfermedadesCronicas">
+            </div>
+            <div class="col">
+                <p class="text-secondary ml-1">Alergias</p>
+                <input type="text" class="form-control" formControlName="alergias">
+            </div>
         </div>
         <h4 class="mt-4">Datos Apoderado Suplente (Opcional)</h4>
         <div class="form-row mt-3">
-            <div class="col"><input type="text" class="form-control" placeholder="Nombre y Apellido Suplente" formControlName="apoderadoSuplente"></div>
-            <div class="col"><input type="text" class="form-control" placeholder="Dirección Apoderado Suplente" formControlName="direccionApoderadoSuplente"></div>
+            <div class="col">
+                <p class="text-secondary ml-1">Nombre y Apellido Suplente</p>
+                <input type="text" class="form-control" formControlName="apoderadoSuplente">
+            </div>
+            <div class="col">
+                <p class="text-secondary ml-1">Dirección Apoderado Suplente</p>
+                <input type="text" class="form-control" formControlName="direccionApoderadoSuplente">
+            </div>
         </div>
         <div class="form-row mt-3">
-            <div class="col"><input type="text" class="form-control" placeholder="Telefono Apoderado Suplente" formControlName="telefonoApoderadoSuplente"></div>
-            <div class="col"><input type="text" class="form-control" placeholder="Correo Electrónico Apoderado Suplente" formControlName="correoApoderadoSuplente"></div>
+            <div class="col">
+                <p class="text-secondary ml-1">Teléfono Apoderado Suplente</p>
+                <input type="text" class="form-control" formControlName="telefonoApoderadoSuplente">
+            </div>
+            <div class="col">
+                <p class="text-secondary ml-1">Correo Electrónico Apoderado Suplente</p>
+                <input type="text" class="form-control" formControlName="correoApoderadoSuplente">
+            </div>
         </div>
         <div class="form-row mt-4 mb-4 justify-content-center">
             <button class="btn btn-primary" routerLink="/dashboard/administracion">Volver</button>

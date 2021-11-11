@@ -32,7 +32,14 @@ export class RegisterComponent implements OnInit {
     console.log(this.register);
     const usuario: Usuario ={
       nombreUsuario:this.register.value.usuario,
-      password:this.register.value.password
+      password:this.register.value.password,
+      nivel:null,
+      nombre:null,
+      apellido:null,
+      rut:null,
+      correoElectronico:null,
+      establecimiento:null,
+      rbd:null
     }
     this.loading = true;
     this.usuarioService.saveUser(usuario).subscribe(data => {

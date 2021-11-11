@@ -20,6 +20,9 @@ import { AdministracionComponent } from './components/dashboard/administracion/a
 import { IngresosComponent } from './components/dashboard/administracion/ingresos/ingresos.component';
 import { FuncionarioComponent } from './components/dashboard/administracion/ingresos/funcionario/funcionario.component';
 import { EstudianteComponent } from './components/dashboard/administracion/ingresos/estudiante/estudiante.component';
+import { EstablecimientoComponent } from './components/dashboard/administracion/ingresos/establecimiento/establecimiento.component';
+import { Usuario } from './models/usuario';
+import { UsuarioComponent } from './components/dashboard/administracion/ingresos/usuario/usuario.component';
 
 
 const routes: Routes = [
@@ -46,6 +49,8 @@ const routes: Routes = [
       { path: 'administracion/ingresos', component: IngresosComponent},
       { path: 'administracion/ingresos/funcionario', component: FuncionarioComponent},
       { path: 'administracion/ingresos/estudiante', component:EstudianteComponent },
+      { path: 'administracion/ingresos/establecimiento', component:EstablecimientoComponent },
+      { path: 'administracion/ingresos/usuario', component:UsuarioComponent},
 
       
   ]},

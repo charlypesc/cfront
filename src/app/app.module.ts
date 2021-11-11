@@ -36,6 +36,9 @@ import { IngresosComponent } from './components/dashboard/administracion/ingreso
 import { PanelBienvenidaComponent } from './components/dashboard/panel-bienvenida/panel-bienvenida.component';
 import { FuncionarioComponent } from './components/dashboard/administracion/ingresos/funcionario/funcionario.component';
 import { EstudianteComponent } from './components/dashboard/administracion/ingresos/estudiante/estudiante.component';
+import { EstablecimientoComponent } from './components/dashboard/administracion/ingresos/establecimiento/establecimiento.component';
+import { UsuarioComponent } from './components/dashboard/administracion/ingresos/usuario/usuario.component';
+
 
 @NgModule({
   declarations: [
@@ -63,6 +66,9 @@ import { EstudianteComponent } from './components/dashboard/administracion/ingre
     PanelBienvenidaComponent,
     FuncionarioComponent,
     EstudianteComponent,
+    EstablecimientoComponent,
+    UsuarioComponent,
+
   ],
   imports: [
     BrowserModule,

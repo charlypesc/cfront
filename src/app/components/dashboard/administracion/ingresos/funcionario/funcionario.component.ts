@@ -51,6 +51,7 @@ export class FuncionarioComponent implements OnInit {
       
       this.funcionarioService.guardarFuncionario(funcionario).subscribe(data=> {
         this.toastr.success('El Funcionario fue ingresado con exito','Funcionario registrado')
+        this.datosFuncionario.reset();
         console.log(data);
       });
 
