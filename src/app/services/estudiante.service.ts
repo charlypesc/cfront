@@ -13,10 +13,13 @@ export class EstudianteService {
 
   constructor(private http: HttpClient) {
     this.myAppUrl = environment.endpoint;
-    this.myApiUrl = '/api/Estudiante'
+    this.myApiUrl = '/api/Estudiante/'
    }
 
    guardarEstudiante(estudiante: Estudiante): Observable<any>{
      return this.http.post(this.myAppUrl + this.myApiUrl, estudiante);
+   }
+   getEstudianteByRut(rutEstudiante:string):Observable<any>{
+     return this.http.get(this.myAppUrl + this.myApiUrl + rutEstudiante)
    }
 }

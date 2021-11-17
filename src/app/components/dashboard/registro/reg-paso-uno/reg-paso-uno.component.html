@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row" style="width: 100%;">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card text-left p-4">
+                <h3 class="text-black-60 mt-4">Ingreso de Registro</h3>
+                <p class="text-secondary mt-4">Indica los datos requeridos y pasa al segundo paso</p>
+                <form [formGroup]="datosRegistro" (ngSubmit)="pasoUno()">
+                    <div class="form-row justify-content-between">
+                        <div class="col-3">
+                            <p class="text-secondary mt-2">Profesional</p>
+                        </div>
+                        <div class="col-8"><input type="text" class="form-control" value="{{ usuario }}" disabled></div>
+                    </div>
+                    <div class="form-row justify-content-between">
+                        <div class="col-3">
+                            <p class="text-secondary mr-3 mt-2">Asunto</p>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" class="form-control" placeholder="Ej: Pelea en Recreo" formControlName="asunto">
+                            <div class="mt-2 text-danger" *ngIf= "datosRegistro.get('asunto').hasError('required') && datosRegistro.get('asunto').touched"><p>Debes ingresar el asunto</p></div>
+                        </div>
+                    </div>
+                    <div class="form-row justify-content-between">
+                        <div class="col-3">
+                            <p class="text-secondary mr-3 mt-2">Fecha</p>
+                        </div>
+                        <div class="col-8">
+                            <input type="date" class="form-control" formControlName="fecha">
+                            <div class="mt-2 text-danger" *ngIf= "datosRegistro.get('fecha').hasError('required') && datosRegistro.get('fecha').touched"><p>Debes ingresar la fecha</p></div>   
+                        </div>
+                    </div>
+                    <div class="row mt-4 ">
+                        <div class="col-lg-6 offset-lg-3 ">
+                            <button class="btn btn-primary text-white mr-3" routerLink="/dashboard">Volver</button>
+                            <button class="btn btn-warning text-white" [disabled]="datosRegistro.invalid">Ir a registro</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

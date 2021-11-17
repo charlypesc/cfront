@@ -94,10 +94,9 @@ export class EstudianteComponent implements OnInit {
 			rbd:this.datosEstudiantes.value.rbd,
 			pie:this.pieBool
 		}
-		console.log(estudiante);
+
 		this.estudianteService.guardarEstudiante(estudiante).subscribe(data => {
 			this.toastr.success('El estudiante ha sido ingresado correctamente, Estudiante registrado')
-			console.log(this.pieBool)	
 
 		})
 	}

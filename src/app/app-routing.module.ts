@@ -23,6 +23,9 @@ import { EstudianteComponent } from './components/dashboard/administracion/ingre
 import { EstablecimientoComponent } from './components/dashboard/administracion/ingresos/establecimiento/establecimiento.component';
 import { Usuario } from './models/usuario';
 import { UsuarioComponent } from './components/dashboard/administracion/ingresos/usuario/usuario.component';
+import { RegPasoUnoComponent } from './components/dashboard/registro/reg-paso-uno/reg-paso-uno.component';
+import { RegistroComponent } from './components/dashboard/registro/registro.component';
+import { RegPasoDosComponent } from './components/dashboard/registro/reg-paso-dos/reg-paso-dos.component';
 
 
 const routes: Routes = [
@@ -43,6 +46,10 @@ const routes: Routes = [
       { path: 'nuevoCuestionario', component: NuevoCuestionarioComponent, children:[
         { path: 'pasoUno', component: PasoUnoComponent },
         { path: 'pasoDos', component:PasoDosComponent }
+      ]},
+      {path:'registro', component:RegistroComponent, children:[
+        { path:'regPasoUno', component:RegPasoUnoComponent },
+        { path: 'regPasoDos', component:RegPasoDosComponent }
       ]},
       { path: 'panelBienvenida', component: PanelBienvenidaComponent }, 
       { path: 'administracion', component: AdministracionComponent},

@@ -1,0 +1,43 @@
+        <div>
+            <form [formGroup]="nuevoParticipante">
+                <div class="form-row"><h3>Agregar Participante</h3></div>   
+                <div class="form-row mt-4">
+                    <div class="col-lg-7 d-flex">
+                        <p class="text-secondary mr-4">Agregar por RUT</p>
+                        <input type="text" class="form-control col mr-4" placeholder="Ingresar sin puntos ni guiones Ej: 17043222K" formControlName="rut">
+                    </div>
+                    <div class="col-1">
+                        <button class="btn btn-primary" (click)="agregarRutParticipante();">Agregar</button>
+                    </div>
+                    <div class="col d-flex">
+                        <p class="text-danger" *ngIf="rtaNuevoParticipante.codigo === 0">No existe RUT</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="form-row pt-4 mt-2">
+            <table class="table table-bordered">
+                <thead class="thead">
+                    
+                    <tr>
+                        <th scope="col">N Participantes</th>
+                        <th>Nombre Participante</th>
+                        <th>Numero RUT</th>
+                    </tr>
+                    <tr *ngIf="nuevoRutArray.length==0" >
+                        <td colspan="3">
+                            No hay participantes
+                        </td>
+                    </tr>
+                </thead>
+                <tr *ngFor="let item of nuevoRutArray.controls; let i=index">
+                    <td>{{i+1}}</td>
+                    <td>{{item.value.nombre}}</td>
+                    <td>{{item.value.run}}</td>
+                    <td><span class="material-icons delete-icon text-danger" (click)="eliminaRut(i)">delete</span></td>
+                    
+                </tr>
+            </table>
+        </div>
+
+                

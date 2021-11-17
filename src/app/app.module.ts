@@ -38,6 +38,10 @@ import { FuncionarioComponent } from './components/dashboard/administracion/ingr
 import { EstudianteComponent } from './components/dashboard/administracion/ingresos/estudiante/estudiante.component';
 import { EstablecimientoComponent } from './components/dashboard/administracion/ingresos/establecimiento/establecimiento.component';
 import { UsuarioComponent } from './components/dashboard/administracion/ingresos/usuario/usuario.component';
+import { RegistroComponent } from './components/dashboard/registro/registro.component';
+import { RegPasoUnoComponent } from './components/dashboard/registro/reg-paso-uno/reg-paso-uno.component';
+import { RegPasoDosComponent } from './components/dashboard/registro/reg-paso-dos/reg-paso-dos.component';
+import { BusquedaRutComponent } from './shared/busqueda-rut/busqueda-rut.component';
 
 
 @NgModule({
@@ -68,6 +72,10 @@ import { UsuarioComponent } from './components/dashboard/administracion/ingresos
     EstudianteComponent,
     EstablecimientoComponent,
     UsuarioComponent,
+    RegistroComponent,
+    RegPasoUnoComponent,
+    RegPasoDosComponent,
+    BusquedaRutComponent,
 
   ],
   imports: [
