@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { ParticipanteReg } from 'src/app/models/participanteReg';
 import { EstudianteService } from 'src/app/services/estudiante.service';
 import { RutParticipanteService } from 'src/app/services/rut-participante.service';
 
@@ -34,18 +35,17 @@ codigoRtaRut:boolean;
     return this.nuevoParticipante.get('rutArray') as FormArray;
   }
 
-//paso 1
+//paso 1 - trae el rut del formulario
   agregarRutParticipante()
   {
     const rutParticipante = this.nuevoParticipante.get('rut').value;
-    console.log(rutParticipante)
     this.nuevaConsultaRut=rutParticipante;
     this.getRut(this.nuevaConsultaRut);
   }
-//paso 2
+//paso 2 - consulta si el rut existe, y si existe, trae los datos del estudiante.
   getRut(nuevaConsultaRut){
     this.estudianteService.getEstudianteByRut(nuevaConsultaRut).subscribe(data=>{
-      console.log(data);
+  
       this.rtaNuevoParticipante= data;
       if(this.rtaNuevoParticipante.codigo!==0){
         this.addAlias();
@@ -55,22 +55,24 @@ codigoRtaRut:boolean;
 
     })
   }
-  //paso 3
+  //paso 3 se genera el participante que se muestra a la vista, aun no se genera el objeto final
   addAlias() {
     this.nuevoRutArray.push(this.fb.control(this.rtaNuevoParticipante));
     this.arrayRutService.arrayRutParticipante=this.nuevoRutArray;
-    console.log("del componente A al servicio");
-    console.log(this.arrayRutService.arrayRutParticipante)
+
   }
+//elimina
   eliminaRut(index:number):void{
     if(this.nuevoRutArray.length == 1){
       this.toastr.error('Debe haber al menos 1 participante')
     }else{
       this.nuevoRutArray.removeAt(index)
       this.arrayRutService.arrayRutParticipante=this.nuevoRutArray;
-      console.log("Del componente A al servicio, pero de eliminar");
-      console.log(this.arrayRutService.arrayRutParticipante)
+
+
     }
   }
+
+
 
 }

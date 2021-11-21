@@ -46,7 +46,7 @@ export class PasoDosComponent implements OnInit {
 		this.loading =true
 		//enviamos cuestionario al back
 
-		this.CuestionarioService.guardarCuestionario(cuestionario).subscribe(data =>{
+		this.CuestionarioService.saveCuestionario(cuestionario).subscribe(data =>{
 			this.toastr.success('El cuestionario fue registrado con exito', 'Registro Exitoso');
 			this.router.navigate(['/dashboard']);
 			this.loading =false

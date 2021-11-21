@@ -22,7 +22,9 @@ export class CuestionarioService {
     this.myApiUrl='/api/Cuestionario/';
    }
 
-   guardarCuestionario(cuestionario: Cuestionario): Observable<any>{
+   saveCuestionario(cuestionario: Cuestionario): Observable<any>{
+    console.log('llegamos al service del cuestionario')
+    console.log(cuestionario)
     return this.http.post(this.myAppUrl+this.myApiUrl, cuestionario);
    }
 

@@ -1,7 +1,12 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { Registro } from 'src/app/models/registro';
 import { Estudiante } from 'src/app/models/estudiante';
+import { ParticipanteReg } from 'src/app/models/participanteReg';
 import { EstudianteService } from 'src/app/services/estudiante.service';
+import { LoginService } from 'src/app/services/login.service';
 import { RegistroService } from 'src/app/services/registro.service';
 import { RutParticipanteService } from 'src/app/services/rut-participante.service';
 
@@ -14,34 +19,82 @@ export class RegPasoDosComponent implements OnInit {
   profesional:string;
   asunto:string;
   fecha:Date;
+  antecedentes:string;
+  acuerdos:string;
+  usuarioId:number;
+  registro: any;
+  
+  // stringifiedData: any; 
+
   numRut:string;
   datosRegFaltantes:FormGroup;
+  listParticipantes: ParticipanteReg[]=[]
+
+
   constructor(private fb:FormBuilder,
-              private registro: RegistroService,
+              private registroService: RegistroService,
               private estudianteService: EstudianteService,
-              private arrayRutParticipantes: RutParticipanteService ) {
+              private arrayRutParticipantesService: RutParticipanteService,
+              private toastr: ToastrService,
+			        private loginService:LoginService) 
+				{
                 this.datosRegFaltantes=this.fb.group({
-                  profesional:[this.registro.profesional, Validators.required],
-                  asunto:[this.registro.asunto, Validators.required],
-                  fecha:[this.registro.fecha, Validators.required],
-                  antecedentes:['', Validators.required],
-                  acuerdos:['', Validators.required]
+                  profesional:[this.profesional],
+                  asunto:[''],
+                  fecha:['', Validators.required],
+                  antecedentes:['',Validators.required],
+                  acuerdos:['']
                 })  
                }
 
-  ngOnInit(): void {
-    this.profesional=this.registro.profesional;
-    this.asunto=this.registro.asunto;
-    this.fecha=this.registro.fecha;
-    
+  ngOnInit(): void 
 
+  {
+    
+    this.asunto=this.registroService.asunto;
+    this.fecha=this.registroService.fecha;
+	  this.profesional = this.loginService.getTokenDecoded().sub;
   }
 
 
 
-  saveRegistro(){
-    console.log('desde el servicio a componente B')
-    console.log(this.arrayRutParticipantes.arrayRutParticipante)
+  saveRegistro():void{
+    const arrayRuts= this.arrayRutParticipantesService.arrayRutParticipante
+    const arrayPart: ParticipanteReg[] = []
+    
+    
+    for(let i=0; i < arrayRuts.length;i++){
+      const arrayParticipantes: ParticipanteReg = new ParticipanteReg()
+	  	arrayParticipantes.rut=arrayRuts.controls[i].value.run;
+		  arrayParticipantes.nombreParticipante=arrayRuts.controls[i].value.nombre
+		  arrayParticipantes.fechaIngreso=this.fecha
+      arrayParticipantes.asunto=this.asunto;
+      arrayParticipantes.activo=1;
+      //hardcode
+      arrayParticipantes.usuarioId=15;
+      arrayPart.push(arrayParticipantes)
+    }
+    
+    this.acuerdos=this.datosRegFaltantes.value.acuerdos;
+    
+    
+    const registro: Registro={
+      asunto:this.datosRegFaltantes.value.asunto,
+      fecha:this.datosRegFaltantes.value.fecha,
+      profesional:this.profesional,
+      antecedentes:this.datosRegFaltantes.value.antecedentes,
+      acuerdos:this.datosRegFaltantes.value.acuerdos,
+      //hardcode
+      usuarioId:15,
+      participanteReg:arrayPart
+    }
+
+    this.registroService.guardarRegistro(registro).subscribe(data=>{
+      this.toastr.success('El registro ha sido ingresado correctamente, Registro guardado')
+    }, error =>{
+      this.toastr.error('Algo salio mal, contacta al Admin del Sistema')
+    });
+
   }
 
 }

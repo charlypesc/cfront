@@ -42,6 +42,7 @@ import { RegistroComponent } from './components/dashboard/registro/registro.comp
 import { RegPasoUnoComponent } from './components/dashboard/registro/reg-paso-uno/reg-paso-uno.component';
 import { RegPasoDosComponent } from './components/dashboard/registro/reg-paso-dos/reg-paso-dos.component';
 import { BusquedaRutComponent } from './shared/busqueda-rut/busqueda-rut.component';
+import { BusquedaComponent } from './components/dashboard/busqueda/busqueda.component';
 
 
 @NgModule({
@@ -76,6 +77,7 @@ import { BusquedaRutComponent } from './shared/busqueda-rut/busqueda-rut.compone
     RegPasoUnoComponent,
     RegPasoDosComponent,
     BusquedaRutComponent,
+    BusquedaComponent,
 
   ],
   imports: [
