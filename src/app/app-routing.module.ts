@@ -26,6 +26,9 @@ import { UsuarioComponent } from './components/dashboard/administracion/ingresos
 import { RegPasoUnoComponent } from './components/dashboard/registro/reg-paso-uno/reg-paso-uno.component';
 import { RegistroComponent } from './components/dashboard/registro/registro.component';
 import { RegPasoDosComponent } from './components/dashboard/registro/reg-paso-dos/reg-paso-dos.component';
+import { BusquedaComponent } from './components/dashboard/busqueda/busqueda.component';
+import { BusqPasoUnoComponent } from './components/dashboard/busqueda/busq-paso-uno/busq-paso-uno.component';
+import { BusqPasoDosComponent } from './components/dashboard/busqueda/busq-paso-dos/busq-paso-dos.component';
 
 
 const routes: Routes = [
@@ -50,6 +53,10 @@ const routes: Routes = [
       {path:'registro', component:RegistroComponent, children:[
         { path:'regPasoUno', component:RegPasoUnoComponent },
         { path: 'regPasoDos', component:RegPasoDosComponent }
+      ]},
+      {path:'busqueda', component:BusquedaComponent, children:[
+        { path:'buspasouno', component:BusqPasoUnoComponent },
+        { path: 'buspasodos', component:BusqPasoDosComponent }
       ]},
       { path: 'panelBienvenida', component: PanelBienvenidaComponent }, 
       { path: 'administracion', component: AdministracionComponent},
