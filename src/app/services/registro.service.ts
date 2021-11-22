@@ -14,7 +14,8 @@ export class RegistroService {
   profesional:string;
   asunto:string;
   fecha:Date;
-  
+  httpOptions:any={};
+  rut:string;
   constructor(private http:HttpClient) { 
 
     this.myAppUrl=environment.endpoint
@@ -34,6 +35,16 @@ export class RegistroService {
     console.log('llegamos al service del registro')
     console.log(registro)
     return this.http.post(this.myAppUrl+this.myApiUrl, registro, httpOptions)
+  }
+
+  getRegistros(rut):Observable<any>{
+    const httpOption = {
+      headers: new HttpHeaders({
+        'Content-Type':'application/json',
+         'charset':'utf-8'
+      }) 
+     }
+    return this.http.get(this.myAppUrl+this.myApiUrl+'/'+rut)
   }
 }
     

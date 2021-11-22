@@ -45,6 +45,7 @@ import { BusquedaRutComponent } from './shared/busqueda-rut/busqueda-rut.compone
 import { BusquedaComponent } from './components/dashboard/busqueda/busqueda.component';
 import { BusqPasoUnoComponent } from './components/dashboard/busqueda/busq-paso-uno/busq-paso-uno.component';
 import { BusqPasoDosComponent } from './components/dashboard/busqueda/busq-paso-dos/busq-paso-dos.component';
+import { BusqRegPasoTresComponent } from './components/dashboard/busqueda/busq-reg-paso-tres/busq-reg-paso-tres.component';
 
 
 @NgModule({
@@ -82,6 +83,7 @@ import { BusqPasoDosComponent } from './components/dashboard/busqueda/busq-paso-
     BusquedaComponent,
     BusqPasoUnoComponent,
     BusqPasoDosComponent,
+    BusqRegPasoTresComponent,
 
   ],
   imports: [

@@ -35,11 +35,11 @@ busqueda(){
   this.estudianteService.getEstudianteByRut(this.rutBuscar).subscribe(data => {
     this.rtaRutBuscar = data;
     if(this.rtaRutBuscar.codigo!==0){
-      console.log(this.rtaRutBuscar)
+
       this.toastr.success('rut encontrado')
       //guarda el rut en el servicio
       this.busquedaService.rut = this.rtaRutBuscar;
-      this.router.navigate(['/dashboard/busqueda/buspasodos'])
+      this.router.navigate(['/dashboard/busqueda/buspasodos/'+this.rutBuscar])
 
     }else{
       this.toastr.error('Rut no se encuentra','Recueda:Sin puntos ni guiones')

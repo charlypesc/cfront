@@ -1,2 +1,54 @@
-<p>busq-paso-dos works!</p>
-<p>Estamos llegando a la busqueda por rut paso uno</p>
+<div class="container">
+    <div class="row" style='width: 100%;'>
+        <div class="col offset-1">
+            <div class="card text-left p-4">
+                <div class="row">
+                    <div class="col">
+                        <div class="div d-flex align-items-center"><h3 class="mr-4">Consulta por RUT </h3><app-loading *ngIf="loading"></app-loading> </div>
+                        <p>Numero de rut consultado: <strong class="text-danger">{{ dato.run }}</strong></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <table class="table table-borderless">
+                        <tr>
+                            <td>Nombre</td>
+                            <td class="text-primary">: {{ dato.nombre}} {{dato.apellido}}</td>
+                        </tr>
+                        <tr>
+                            <td>Apoderado</td>
+                            <td>: {{dato.apoderado}}</td>
+                        </tr>
+                        <tr>
+                            <td>Telefono</td>
+                            <td>: {{dato.telefono}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="row mt-5">
+                    <div class="col">
+                        <h4>Registros</h4>
+                    </div>
+                </div>
+                   
+                <div class="row pt-5">
+                    <table class="table table-sm table-bordered reg">
+                        <tr>
+                            <th>Fecha Ingreso</th>
+                            <th>Asunto</th>
+                            <th>N° Registro</th>
+                            <th>Ver</th>
+                        </tr>
+                        <tr *ngFor="let item of listadoRegistros">
+                            <td>{{item.fechaIngreso}}</td>
+                            <td>{{item.asunto}}</td>
+                            <td>{{item.registroId}}</td>
+                            <td><a><span class="material-icons text-success">article</span></a></td>
+                        </tr>
+                    </table>
+                </div>
+                <button class="btn btn-primary" routerLink="/dashboard">Volver</button>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -56,6 +56,7 @@ const routes: Routes = [
       ]},
       {path:'busqueda', component:BusquedaComponent, children:[
         { path:'buspasouno', component:BusqPasoUnoComponent },
+        { path:'buspasodos/:rut', component:BusqPasoDosComponent},
         { path: 'buspasodos', component:BusqPasoDosComponent }
       ]},
       { path: 'panelBienvenida', component: PanelBienvenidaComponent }, 
