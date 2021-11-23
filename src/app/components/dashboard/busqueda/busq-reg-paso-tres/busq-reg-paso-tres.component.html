@@ -1,1 +1,78 @@
-<p>busq-reg-paso-tres works!</p>
+<div class="container" *ngFor="let item of datoRegistro">
+    <div class="row" style='width: 100%;'>
+        <div class="col">
+            <div class="card p-3">
+                <div class="row d-flex align-items-center justify-content-between">
+                    <div class="col-6">
+                        <h3>Detalles de Registro</h3>
+                    </div>
+                    <div class="col-4 table-bordered rounded d-flex text-right d-flex justify-content-center pt-3" >
+                        <p>Numero de Folio: <strong class="text-danger">{{item.id}}</strong></p>
+                    </div>
+                </div>
+                <div class="card pt-4 pb-4 mt-4">
+                    <div class="col d-flex mt-2">
+                        <div class="col-4">
+                            <h6 class="text-primary">Fecha</h6>
+                        </div>
+                        <div class="col"> 
+                                : {{item.fecha|date:"dd/MM/yyyy"}}
+                        </div>
+                    </div>
+                    <div class="col d-flex">
+                        <div class="col-4">
+                            <h6 class="text-primary">Asunto</h6>
+                        </div>
+                        <div class="col">: {{item.asunto}}</div>
+                    </div>
+                </div>
+                <div class="card pt-4 mt-4">
+                    <div class="col">
+                       <table class="table table-borderless table-light">
+                           <thead class="thead-light">
+                               <tr>
+                                <th>Participante</th>
+                                <th>Rut</th>
+                               </tr>
+                            </thead>
+                            <tr *ngFor="let reg of item.participanteReg">
+                                <td >
+                                    {{reg.nombreParticipante}}
+                                </td>
+                                <td>{{reg.rut}}</td>
+                            </tr>
+                            
+                        </table> 
+                     </div>
+                 </div>
+                 <div class="card pt-4 mt-4">
+                         <div class="col d-flex mt-2">
+                             <div class="col-4">
+                                 <h6 class="text-success">Antecedentes</h6>
+                             </div>
+                             <div class="col"> 
+                                     : {{item.antecedentes}}
+                             </div>
+                         </div>
+                         <div class="col d-flex mt-2">
+                             <div class="col-4">
+                                 <h6 class="text-success">Acuerdos</h6>
+                             </div>
+                             <div class="col"> 
+                                     : {{item.acuerdos}}
+                             </div>
+                         </div>
+                 </div>
+                 <div class="col mt-4 d-flex justify-content-center">
+                     <!-- super hard code -->
+                    <button class="btn btn-success" onClick= "window.history.back();">Volver</button>
+                </div>
+             </div>
+        </div>
+    </div>
+</div>
+
+                     
+                     
+
+                    

@@ -29,6 +29,7 @@ import { RegPasoDosComponent } from './components/dashboard/registro/reg-paso-do
 import { BusquedaComponent } from './components/dashboard/busqueda/busqueda.component';
 import { BusqPasoUnoComponent } from './components/dashboard/busqueda/busq-paso-uno/busq-paso-uno.component';
 import { BusqPasoDosComponent } from './components/dashboard/busqueda/busq-paso-dos/busq-paso-dos.component';
+import { BusqRegPasoTresComponent } from './components/dashboard/busqueda/busq-reg-paso-tres/busq-reg-paso-tres.component';
 
 
 const routes: Routes = [
@@ -57,7 +58,8 @@ const routes: Routes = [
       {path:'busqueda', component:BusquedaComponent, children:[
         { path:'buspasouno', component:BusqPasoUnoComponent },
         { path:'buspasodos/:rut', component:BusqPasoDosComponent},
-        { path: 'buspasodos', component:BusqPasoDosComponent }
+        { path: 'buspasodos', component:BusqPasoDosComponent },
+        { path: 'busqregpasotres/:numReg', component:BusqRegPasoTresComponent }
       ]},
       { path: 'panelBienvenida', component: PanelBienvenidaComponent }, 
       { path: 'administracion', component: AdministracionComponent},

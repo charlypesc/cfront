@@ -16,10 +16,13 @@ export class RegistroService {
   fecha:Date;
   httpOptions:any={};
   rut:string;
+  id:number;
+  apiUrlregisterById:string;
   constructor(private http:HttpClient) { 
 
     this.myAppUrl=environment.endpoint
     this.myApiUrl='/api/Registro';
+    this.apiUrlregisterById='/getRegistro/'
   }
 
 
@@ -45,6 +48,10 @@ export class RegistroService {
       }) 
      }
     return this.http.get(this.myAppUrl+this.myApiUrl+'/'+rut)
+  }
+
+  getRegistroById(id):Observable<any>{
+    return this.http.get(this.myAppUrl+this.myApiUrl+this.apiUrlregisterById+id)
   }
 }
     

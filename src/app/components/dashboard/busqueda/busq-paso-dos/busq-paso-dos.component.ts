@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BusquedaService } from 'src/app/services/busqueda.service';
 import { EstudianteService } from 'src/app/services/estudiante.service';
 import { RegistroService } from 'src/app/services/registro.service';
@@ -10,16 +10,18 @@ import { RegistroService } from 'src/app/services/registro.service';
   styleUrls: ['./busq-paso-dos.component.css']
 })
 export class BusqPasoDosComponent implements OnInit {
-dato:any={}
+dato:any={};
 rutService:string;
 rutParam:string;
-listadoRegistros:any={};
+listadoRegistros:any=[];
 loading=false;
 
   constructor(private aRoute:ActivatedRoute,
               private busquedaService:BusquedaService,
               private estudianteService:EstudianteService,
-              private registroService:RegistroService) { 
+              private registroService:RegistroService,
+              private router:Router) 
+              { 
                 this.rutParam = this.aRoute.snapshot.paramMap.get('rut');
               }
 
@@ -34,17 +36,20 @@ loading=false;
     this.estudianteService.getEstudianteByRut(this.rutParam).subscribe(data=>{
       this.dato=data;
       const rut= this.rutParam;
+      console.log(this.dato)
     })
   }
   //traer registros
   getlistadoRegistros(){
     this.registroService.getRegistros(this.rutParam).subscribe(data=>{
-      console.log(data)
       this.listadoRegistros = data;
       this.loading=false;
     })
   }
 
-
- }
+  //trrae el numero de registro que se cargo
+  getNumRegistro(i) :void {
+    this.router.navigate(['/dashboard/busqueda/busqregpasotres/'+i])
+  }
+}
 

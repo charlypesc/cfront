@@ -20,7 +20,7 @@
                         </tr>
                         <tr>
                             <td>Telefono</td>
-                            <td>: {{dato.telefono}}</td>
+                            <td>: {{dato.telefonoApoderado}}</td>
                         </tr>
                     </table>
                 </div>
@@ -42,11 +42,14 @@
                             <td>{{item.fechaIngreso}}</td>
                             <td>{{item.asunto}}</td>
                             <td>{{item.registroId}}</td>
-                            <td><a><span class="material-icons text-success">article</span></a></td>
+                            <td><a><span class="material-icons text-success" (click)="getNumRegistro(item.registroId)">article</span></a></td>
                         </tr>
                     </table>
                 </div>
-                <button class="btn btn-primary" routerLink="/dashboard">Volver</button>
+                <div class="col d-flex justify-content-center">
+                    <button class="btn btn-primary" routerLink="/dashboard">Volver</button>
+                </div>
+                
             </div>
         </div>
 
