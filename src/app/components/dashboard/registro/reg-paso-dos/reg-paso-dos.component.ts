@@ -1,9 +1,7 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Registro } from 'src/app/models/registro';
-import { Estudiante } from 'src/app/models/estudiante';
 import { ParticipanteReg } from 'src/app/models/participanteReg';
 import { EstudianteService } from 'src/app/services/estudiante.service';
 import { LoginService } from 'src/app/services/login.service';

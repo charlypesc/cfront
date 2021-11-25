@@ -31,6 +31,10 @@ import { BusqPasoUnoComponent } from './components/dashboard/busqueda/busq-paso-
 import { BusqPasoDosComponent } from './components/dashboard/busqueda/busq-paso-dos/busq-paso-dos.component';
 import { BusqRegPasoTresComponent } from './components/dashboard/busqueda/busq-reg-paso-tres/busq-reg-paso-tres.component';
 import { ReunionesActasComponent } from './components/dashboard/reuniones-actas/reuniones-actas.component';
+import { ProtocolosComponent } from './components/dashboard/protocolos/protocolos.component';
+import { NuevoProtocoloComponent } from './components/dashboard/protocolos/nuevo-protocolo/nuevo-protocolo.component';
+import { VerProtocolosComponent } from './components/dashboard/protocolos/ver-protocolos/ver-protocolos.component';
+import { PanelProtocoloComponent } from './components/dashboard/protocolos/panel-protocolo/panel-protocolo.component';
 
 
 const routes: Routes = [
@@ -61,6 +65,11 @@ const routes: Routes = [
         { path:'buspasodos/:rut', component:BusqPasoDosComponent},
         { path: 'buspasodos', component:BusqPasoDosComponent },
         { path: 'busqregpasotres/:numReg', component:BusqRegPasoTresComponent }
+      ]},
+      {path:'protocolos', component:ProtocolosComponent,children:[
+        { path:'panelprotocolo', component: PanelProtocoloComponent},
+        {path:'nuevoprotocolo', component:NuevoProtocoloComponent},
+        {path:'verprotocolo', component:VerProtocolosComponent}
       ]},
       { path: 'reuniones', component: ReunionesActasComponent },
       { path: 'panelBienvenida', component: PanelBienvenidaComponent }, 
