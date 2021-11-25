@@ -30,6 +30,7 @@ import { BusquedaComponent } from './components/dashboard/busqueda/busqueda.comp
 import { BusqPasoUnoComponent } from './components/dashboard/busqueda/busq-paso-uno/busq-paso-uno.component';
 import { BusqPasoDosComponent } from './components/dashboard/busqueda/busq-paso-dos/busq-paso-dos.component';
 import { BusqRegPasoTresComponent } from './components/dashboard/busqueda/busq-reg-paso-tres/busq-reg-paso-tres.component';
+import { ReunionesActasComponent } from './components/dashboard/reuniones-actas/reuniones-actas.component';
 
 
 const routes: Routes = [
@@ -61,6 +62,7 @@ const routes: Routes = [
         { path: 'buspasodos', component:BusqPasoDosComponent },
         { path: 'busqregpasotres/:numReg', component:BusqRegPasoTresComponent }
       ]},
+      { path: 'reuniones', component: ReunionesActasComponent },
       { path: 'panelBienvenida', component: PanelBienvenidaComponent }, 
       { path: 'administracion', component: AdministracionComponent},
       { path: 'administracion/ingresos', component: IngresosComponent},
