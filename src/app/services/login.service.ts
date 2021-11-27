@@ -27,9 +27,7 @@ data:string;
      localStorage.setItem('token', data);
    }
 
-/*    getNombreUsuario():string{
-     return localStorage.getItem('nombreUsuario');
-   } */
+
     getTokenDecoded():any{
       const helper = new JwtHelperService();
       const decodedToken = helper.decodeToken(localStorage.getItem('token'))

@@ -1,1 +1,31 @@
-<p>ver-protocolos works!</p>
+<div class="container">
+    <div class="row" style="width: 100%;">
+        <div class="col-lg-10 offset-lg-1">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Protocolos de Actuación</h5>
+                    <p class="card-text">Listado de Protocolos</p>
+                </div>
+                <table class="table table-bordered">
+                    <tr>
+                        <td>N°</td>
+                        <td>Nombre Protocolo</td>
+                        <td>Descripcion de Protocolo</td>
+                        <td>Editar</td>
+                        <td>Eliminar</td>
+                    </tr>
+                    <tr *ngFor="let item of datosProtocolos; let x=index">
+                        <td>{{x+1}}</td>
+                        <td>{{item.nombreProtocolo}}</td>
+                        <td>{{item.descripcionProtocolo}}</td>
+                        <td class="text-center text-success"><span class="material-icons" >note_add</span></td>
+                        <td class="text-center text-danger"><span class="material-icons" (click)="borrarProtocolo(item.id)">delete</span></td>
+                    </tr>
+                </table>
+                <div class="row d-flex justify-content-center pt-4 pb-4">
+                    <button class="btn btn-primary" routerLink="/dashboard/protocolos/panelprotocolo">Volver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

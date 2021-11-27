@@ -10,7 +10,8 @@ export class PanelProtocoloComponent implements OnInit {
   faSearch = faSearch
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    console.log(localStorage)
   }
 
 }

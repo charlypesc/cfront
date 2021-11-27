@@ -69,7 +69,7 @@ const routes: Routes = [
       {path:'protocolos', component:ProtocolosComponent,children:[
         { path:'panelprotocolo', component: PanelProtocoloComponent},
         {path:'nuevoprotocolo', component:NuevoProtocoloComponent},
-        {path:'verprotocolo', component:VerProtocolosComponent}
+        {path:'verprotocolos', component:VerProtocolosComponent}
       ]},
       { path: 'reuniones', component: ReunionesActasComponent },
       { path: 'panelBienvenida', component: PanelBienvenidaComponent }, 
