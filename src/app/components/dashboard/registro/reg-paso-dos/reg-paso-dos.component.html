@@ -42,10 +42,50 @@
                             <textarea cols="30" rows="5" class="form-control" formControlName="acuerdos"></textarea>
                         </div>
                     </div>
+                    <div class="row pt-4" >
+                        <div class="col">
+                            <h5>Protocolos</h5>
+                            <p>Ingresa los protocolos que serán activados</p>
+                            <div class="col d-flex">
+                                <select  class="form-control mr-4" (change)="changeFn($event.target.value)">
+                                    <option>Selecciona el protocolo</option>
+                                    <option *ngFor="let item of protocolos; let x=index" [value]="x">{{x+1}}.- {{ item.nombreProtocolo }}</option>
+                                </select>
+                                <button class="btn btn-primary" type="button" (click)="protocolosArrayTemporal()">Agregar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row pt-4">
+                        <div class="col">
+                            <h6>Listado de Protocolos activados</h6>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="row justify-content-center" *ngIf="temporalProtocolos.length==0"><p>No hay protocolos activados</p></div>
+                                <table class="table table-bordered" *ngIf="temporalProtocolos.length!=0">
+                                   
+                                        <thead>
+                                            <th>N°</th>
+                                            <th>Protocolo</th>
+                                            <th>Descripcion</th>
+                                            <th>Acción</th>
+                                        </thead>
+                                   
+                                    <tr *ngFor="let tp of temporalProtocolos; let y=index">
+                                        <td>{{y+1}}</td>
+                                        <td>{{tp.nombreProtocolo}}</td>
+                                        <td>{{tp.descripcionProtocolo}}</td>
+                                        <td class="text-center"><span class="material-icons text-danger" (click)="eliminaProtocolo(y)">delete</span></td>
+                                    </tr>
+                                </table>
+                            
+                        </div>
+                    </div>
                     <div class="row mt-4">
                         <div class="col d-flex justify-content-center">
+                            <button class="btn btn-success mr-2"[disabled]="datosRegFaltantes.invalid">Guardar</button>
                             <button class="btn btn-primary mr-1" routerLink="/dashboard/registro/regPasoUno">Volver</button>
-                            <button class="btn btn-success"[disabled]="datosRegFaltantes.invalid">Guardar</button>
                         </div>
                     </div>
                 </form>
