@@ -24,6 +24,7 @@ datoRegistro:any=[];
 getRegById(id){
   this.RegistroService.getRegistroById(id).subscribe(data=>{
     this.datoRegistro = data;
+    console.log(this.datoRegistro)
   })
 }
 //va para atras

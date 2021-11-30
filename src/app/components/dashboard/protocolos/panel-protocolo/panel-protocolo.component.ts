@@ -11,7 +11,7 @@ export class PanelProtocoloComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(localStorage)
+
   }
 
 }
