@@ -24,6 +24,7 @@ data:string;
    }
 
    setLocalStorage(data):void{
+     
      localStorage.setItem('token', data);
    }
 

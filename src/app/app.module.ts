@@ -50,8 +50,9 @@ import { ReunionesActasComponent } from './components/dashboard/reuniones-actas/
 import { ProtocolosComponent } from './components/dashboard/protocolos/protocolos.component';
 import { NuevoProtocoloComponent } from './components/dashboard/protocolos/nuevo-protocolo/nuevo-protocolo.component';
 import { VerProtocolosComponent } from './components/dashboard/protocolos/ver-protocolos/ver-protocolos.component';
-import { EditarProtocoloComponent } from './components/dashboard/protocolos/verProtocolos/editar-protocolo/editar-protocolo.component';
 import { PanelProtocoloComponent } from './components/dashboard/protocolos/panel-protocolo/panel-protocolo.component';
+import { EditarProtocolosComponent } from './components/dashboard/protocolos/editar-protocolos/editar-protocolos.component';
+
 
 
 @NgModule({
@@ -94,8 +95,8 @@ import { PanelProtocoloComponent } from './components/dashboard/protocolos/panel
     ProtocolosComponent,
     NuevoProtocoloComponent,
     VerProtocolosComponent,
-    EditarProtocoloComponent,
     PanelProtocoloComponent,
+    EditarProtocolosComponent,
 
   ],
   imports: [

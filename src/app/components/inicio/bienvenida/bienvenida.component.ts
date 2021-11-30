@@ -10,6 +10,7 @@ export class BienvenidaComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(localStorage)
   }
 
 }

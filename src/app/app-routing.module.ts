@@ -35,6 +35,7 @@ import { ProtocolosComponent } from './components/dashboard/protocolos/protocolo
 import { NuevoProtocoloComponent } from './components/dashboard/protocolos/nuevo-protocolo/nuevo-protocolo.component';
 import { VerProtocolosComponent } from './components/dashboard/protocolos/ver-protocolos/ver-protocolos.component';
 import { PanelProtocoloComponent } from './components/dashboard/protocolos/panel-protocolo/panel-protocolo.component';
+import { EditarProtocolosComponent } from './components/dashboard/protocolos/editar-protocolos/editar-protocolos.component';
 
 
 const routes: Routes = [
@@ -69,7 +70,8 @@ const routes: Routes = [
       {path:'protocolos', component:ProtocolosComponent,children:[
         { path:'panelprotocolo', component: PanelProtocoloComponent},
         {path:'nuevoprotocolo', component:NuevoProtocoloComponent},
-        {path:'verprotocolos', component:VerProtocolosComponent}
+        {path:'verprotocolos', component:VerProtocolosComponent},
+        {path:'editarprotocolos/:numIdProtocolo', component:EditarProtocolosComponent}
       ]},
       { path: 'reuniones', component: ReunionesActasComponent },
       { path: 'panelBienvenida', component: PanelBienvenidaComponent }, 
