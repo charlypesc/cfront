@@ -27,4 +27,8 @@ export class ProtocolosService {
     return this.http.delete(this.myAppUrl+this.myApiUrl+'/'+idProtocolo);
    }
 
+   getProtocoloById(id:number){
+    return this.http.get(this.myAppUrl+this.myApiUrl+'/getProtocolo/'+id);
+   }
+
 }

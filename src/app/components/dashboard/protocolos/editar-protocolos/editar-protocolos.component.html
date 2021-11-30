@@ -3,14 +3,15 @@
         <div class="card p-4">
             <form>
                 <div class="card-body">
-                    <h4>Ingresa nuevo Protocolo</h4>
+                    <h4>Actualización Protocolo</h4>
+                    <p class="text-secondary">Los cambios realizados modificaran los posteriores ingresos de registro que se realicen</p>
                     <div class="form-row mt-4">
                         <h5>Nombre del Protocolo</h5>
-                        <input class="form-control" type="text" >
+                        <input class="form-control" type="text" value="{{protocoloData.nombreProtocolo}}">
                     </div>
                     <div class="form-row mt-4">
                         <h5>Descripcion del Protocolo</h5>
-                        <textarea class="form-control" name="" id="" cols="30" rows="5"></textarea>
+                        <textarea class="form-control" name="" id="" cols="30" rows="5" value="{{protocoloData.descripcionProtocolo}}"></textarea>
                     </div>
                 </div>
             </form>

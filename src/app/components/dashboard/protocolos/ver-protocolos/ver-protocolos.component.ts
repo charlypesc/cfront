@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ProtocolosService } from 'src/app/services/protocolos.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-ver-protocolos',
@@ -31,11 +33,28 @@ getProtocolos(){
     })
   }
 borrarProtocolo(idProtocolo){
-  return this.protocolosService.deleteProtocolo(idProtocolo).subscribe(data=>{
-    this.toastr.success('Protocolo Eliminado', 'Dato Eliminado')
-    this.getProtocolos();
-  }, error=>{
-    this.toastr.error('Error','No pudimos borrar el registro')
+  Swal.fire({
+        title:'Estas Seguro',
+        text:'No se puede deshacer',
+        icon:'question',
+        showCancelButton:true,
+        confirmButtonColor:'#3085d6',
+        cancelButtonColor:'#d33',
+        confirmButtonText:'Si, Borrarlo'
+  }).then(respuesta=>{
+    if(respuesta.isConfirmed){
+      return this.protocolosService.deleteProtocolo(idProtocolo).subscribe(data=>{
+        this.toastr.success('Protocolo Eliminado', 'Dato Eliminado')
+        this.getProtocolos();
+        Swal.fire('Borrado!','El elemento ha sido borrado','success')
+      }, error=>{
+        this.toastr.error('Error','No pudimos borrar el registro')
+      })
+    }
+   
   })
+
+
+  
 }
 }

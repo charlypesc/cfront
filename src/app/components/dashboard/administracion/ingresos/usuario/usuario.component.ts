@@ -53,7 +53,7 @@ e='Escuela Libertad';
     rbd               :this.r,
 
   }
-console.log(usuario);  
+
   this.usuarioService.saveUser(usuario).subscribe(data=>{
     this.toastr.success('El usuario fue ingresado con exito','Usuario registrado')
     this.datosUsuario.reset();
