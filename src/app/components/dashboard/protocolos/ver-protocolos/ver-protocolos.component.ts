@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { ProtocolosActuacion } from 'src/app/models/protocolosActuacion';
 import { ProtocolosService } from 'src/app/services/protocolos.service';
 import Swal from 'sweetalert2';
+import { ProtocolosComponent } from '../protocolos.component';
 
 
 @Component({
@@ -11,8 +14,9 @@ import Swal from 'sweetalert2';
 })
 export class VerProtocolosComponent implements OnInit {
 rbd:string;
-datosProtocolos:any = [];
+
 idProtocolo: number;
+datosProtocolos:any=[]
 
   constructor(private protocolosService: ProtocolosService,
               private toastr:ToastrService) { 
@@ -32,6 +36,7 @@ getProtocolos(){
       this.toastr.error('Error al traer la informacion', 'No se encuentra info')
     })
   }
+
 borrarProtocolo(idProtocolo){
   Swal.fire({
         title:'Estas Seguro',

@@ -31,4 +31,8 @@ export class ProtocolosService {
     return this.http.get(this.myAppUrl+this.myApiUrl+'/getProtocolo/'+id);
    }
 
+   updateProtocolo(protocoloActuacion: ProtocolosActuacion): Observable<any>{
+    return this.http.put(this.myAppUrl+this.myApiUrl+'/cambiarProtocolo/', protocoloActuacion)
+   }
+
 }
