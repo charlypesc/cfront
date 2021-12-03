@@ -1,38 +1,42 @@
 <div class="container" *ngFor="let item of datoRegistro">
     <div class="row" style='width: 100%;'>
-        <div class="col">
+        <div  class="col">
             <div class="card p-3">
-                <div class="row d-flex align-items-center justify-content-between">
-                    <div class="col-6">
-                        <h3>Detalles de Registro</h3>
-                    </div>
-                    <div class="col-4 table-bordered rounded d-flex text-right d-flex justify-content-center pt-3" >
-                        <p>Numero de Folio: <strong class="text-danger">{{item.id}}</strong></p>
+                <div #detalle class="" >
+                    <div class="row">
+                        <div class="col colpdfisq" >
+                            <h3>Detalles de Registro</h3>
+                        </div>
+                        <div class="colpdfder">
+                            <p>Numero de Folio: <strong class="">{{item.id}}</strong></p>
+                        </div>
                     </div>
                 </div>
-                <div class="card pt-4 pb-4 mt-4">
-                    <div class="col d-flex mt-2">
-                        <div class="col-4">
-                            <h6 class="text-primary">Fecha</h6>
+                <div #datosRegistro class="card pt-4 pb-4 mt-4">
+                    <div class="b-rowdatos">
+                        <div class="col d-flex mt-2 b-coldatos">
+                            <div class="col-4 b-coldatos-inner-uno">
+                                <h6 class="text-primary">Fecha</h6>
+                            </div>
+                            <div class="col b-coldatos-inner-dos"><p>  : {{item.fecha|date:"dd/MM/yyyy"}}</p>
+                            </div>
                         </div>
-                        <div class="col"> 
-                                : {{item.fecha|date:"dd/MM/yyyy"}}
+                        <div class="col d-flex b-coldatos">
+                            <div class="col-4 b-coldatos-inner-uno">
+                                <h6 class="text-primary">Asunto</h6>
+                            </div>
+                            <div class="col b-coldatos-inner-dos"><p>  : {{item.asunto}}</p></div>
                         </div>
-                    </div>
-                    <div class="col d-flex">
-                        <div class="col-4">
-                            <h6 class="text-primary">Asunto</h6>
-                        </div>
-                        <div class="col">: {{item.asunto}}</div>
                     </div>
                 </div>
-                <div class="card pt-4 mt-4">
-                    <div class="col">
+                <div #tablaParticipantes class="card pt-4 mt-4">
+                    <div class="col b-table-row">
                        <table class="table table-bordered">
                            <thead class="thead-light">
                                <tr>
                                 <th>Participante</th>
                                 <th>Rut</th>
+                                <th style="display: none;" class="firmaParticipante"><p>Firma Participante</p></th>
                                </tr>
                             </thead>
                             <tr *ngFor="let reg of item.participanteReg">
@@ -40,33 +44,36 @@
                                     {{reg.nombreParticipante}}
                                 </td>
                                 <td>{{reg.rut}}</td>
+                                <td style="display: none;" class="firmaParticipante"></td>
                             </tr>
+
                             
                         </table> 
                      </div>
                  </div>
-                 <div class="card pt-4 mt-4">
-                         <div class="col d-flex mt-2">
-                             <div class="col-4">
-                                 <h6 class="text-success">Antecedentes</h6>
-                             </div>
-                             <div class="col"> 
-                                     : {{item.antecedentes}}
-                             </div>
-                         </div>
-                         <div class="col d-flex mt-2">
-                             <div class="col-4">
-                                 <h6 class="text-success">Acuerdos</h6>
-                             </div>
-                             <div class="col"> 
-                                     : {{item.acuerdos}}
-                             </div>
+                 <div #antecedentesAcuerdos class="card pt-4 mt-4">
+                         <div class="b-rowdatos">
+                            <div class="col d-flex mt-2 b-coldatos"> 
+                                <div class="col-4 b-coldatos-inner-uno">
+                                    <h6 class="text-success">Antecedentes</h6>
+                                </div>
+                                <div class="col b-coldatos-inner-dos"> 
+                                        <p>: {{item.antecedentes}}</p>
+                                </div>
+                            </div>
+                            <div class="col d-flex mt-2 b-coldatos" >
+                                <div class="col-4 b-coldatos-inner-uno">
+                                    <h6 class="text-success">Acuerdos</h6>
+                                </div>
+                                <div class="col b-coldatos-inner-dos"> 
+                                        <p>: {{item.acuerdos}}</p>
+                                </div>
+                            </div>
                          </div>
                  </div>
                  <div class="card pt-4 mt-4">
-                    <div class="col">
-                        <div class="div" *ngIf="item.protocoloReg.length==0"><p>No se activaron protocolos</p></div>
-                       <table class="table table-bordered">
+                    <div #tablaProtocolos class="col">
+                        <table class="table table-bordered b-table-row">
                            <thead class="thead-light">
                                <tr>
                                     <th>N°</th>
@@ -82,11 +89,14 @@
                                 <td>{{prot.descripcionProtocolo}}</td>
                             </tr>
                             
-                        </table> 
+                        </table>
+                        <div class="div" *ngIf="item.protocoloReg.length==0"><p>No se activaron protocolos</p></div> 
                      </div>
                  </div>
-                 <div class="col mt-4 d-flex justify-content-center">
+                 <div class="col mt-4 d-flex justify-content-center align-items-center">
                      <button class="btn btn-success" (click)="back();">Volver</button>
+                     <button class="btn btn-warning ml-1 text-white" (click)="generarPdf()">Generar PDF</button>
+                     <app-loading class="ml-2" *ngIf="loading"></app-loading>
                  </div>
               </div>
          </div>

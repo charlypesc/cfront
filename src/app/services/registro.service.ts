@@ -53,5 +53,8 @@ export class RegistroService {
   getRegistroById(id):Observable<any>{
     return this.http.get(this.myAppUrl+this.myApiUrl+this.apiUrlregisterById+id)
   }
+  delRegistro(idReg:number):Observable<any>{
+    return this.http.delete(this.myAppUrl+this.myApiUrl+'/deleteReg/'+idReg)
+  }
 }
     

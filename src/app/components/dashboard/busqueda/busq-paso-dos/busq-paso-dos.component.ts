@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BusquedaService } from 'src/app/services/busqueda.service';
 import { EstudianteService } from 'src/app/services/estudiante.service';
 import { RegistroService } from 'src/app/services/registro.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-busq-paso-dos',
@@ -15,6 +16,7 @@ rutService:string;
 rutParam:string;
 listadoRegistros:any=[];
 loading=false;
+
 
   constructor(private aRoute:ActivatedRoute,
               private busquedaService:BusquedaService,
@@ -51,5 +53,31 @@ loading=false;
   getNumRegistro(i) :void {
     this.router.navigate(['/dashboard/busqueda/busqregpasotres/'+i])
   }
+
+  //elimina el registro
+
+  deleteRegistro(idReg:number){
+
+    Swal.fire({
+      title:'Estas Seguro?',
+        text:'No se puede deshacer',
+        icon:'question',
+        showCancelButton:true,
+        cancelButtonText:'Cancelar',
+        confirmButtonColor:'#3085d6',
+        cancelButtonColor:'#d33',
+        confirmButtonText:'Si, Borrarlo'
+  }).then(respuesta=>{
+      if(respuesta.isConfirmed){
+        this.registroService.delRegistro(idReg).subscribe(data=>{
+          console.log(data)
+          this.getlistadoRegistros();
+        })    
+        
+      }
+    })
+    
+  }
 }
+
 

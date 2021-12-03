@@ -37,12 +37,14 @@
                             <th>Asunto</th>
                             <th>N° Registro</th>
                             <th>Ver</th>
+                            <th>Borrar</th>
                         </tr>
                         <tr *ngFor="let item of listadoRegistros">
                             <td>{{item.fechaIngreso}}</td>
                             <td>{{item.asunto}}</td>
                             <td>{{item.registroId}}</td>
                             <td><a><span class="material-icons text-success" (click)="getNumRegistro(item.registroId)">article</span></a></td>
+                            <td><a><span class="material-icons text-danger" (click)="deleteRegistro(item.registroId)">delete</span></a></td>
                         </tr>
                     </table>
                 </div>
