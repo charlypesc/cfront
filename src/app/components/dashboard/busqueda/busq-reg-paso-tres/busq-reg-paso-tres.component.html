@@ -94,7 +94,8 @@
                      </div>
                  </div>
                  <div class="col mt-4 d-flex justify-content-center align-items-center">
-                     <button class="btn btn-success" (click)="back();">Volver</button>
+                     <button class="btn btn-success mr-1" (click)="back();" *ngIf="ruta==1">Volver</button>
+                     <button class="btn btn-primary" type="button" routerLink="/dashboard">Volver Home</button>
                      <button class="btn btn-warning ml-1 text-white" (click)="generarPdf()">Generar PDF</button>
                      <app-loading class="ml-2" *ngIf="loading"></app-loading>
                  </div>

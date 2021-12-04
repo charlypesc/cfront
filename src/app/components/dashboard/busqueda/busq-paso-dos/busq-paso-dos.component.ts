@@ -46,12 +46,13 @@ loading=false;
     this.registroService.getRegistros(this.rutParam).subscribe(data=>{
       this.listadoRegistros = data;
       this.loading=false;
+      console.log(data)
     })
   }
 
   //trrae el numero de registro que se cargo
   getNumRegistro(i) :void {
-    this.router.navigate(['/dashboard/busqueda/busqregpasotres/'+i])
+    this.router.navigate(['/dashboard/busqueda/busqregpasotres/'+i+'/'+1])
   }
 
   //elimina el registro

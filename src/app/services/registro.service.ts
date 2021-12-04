@@ -41,12 +41,7 @@ export class RegistroService {
   }
 
   getRegistros(rut):Observable<any>{
-    const httpOption = {
-      headers: new HttpHeaders({
-        'Content-Type':'application/json',
-         'charset':'utf-8'
-      }) 
-     }
+
     return this.http.get(this.myAppUrl+this.myApiUrl+'/'+rut)
   }
 

@@ -11,6 +11,7 @@ import { RegistroService } from 'src/app/services/registro.service';
 })
 export class BusqRegPasoTresComponent implements OnInit {
 id:number;
+ruta:number=1;
 datoRegistro:any=[];
 html:any;
 loading:boolean
@@ -26,11 +27,13 @@ loading:boolean
               private createPdfService: CreatePdfService) 
               { 
                 this.id = +this.aRoute.snapshot.paramMap.get('numReg')
+                this.ruta = +this.aRoute.snapshot.paramMap.get('ruta')
                 this.loading=false;
               }
 
   ngOnInit(): void {
     this.getRegById(this.id);
+    console.log(this.ruta)
   }
 
 
@@ -46,7 +49,7 @@ back(){
 }
 
 generarPdf(){
-  console.log(this.tablaParticipante.nativeElement)
+  
   this.loading=true;
   this.html=btoa(unescape(encodeURIComponent(this.detalle.nativeElement.innerHTML
                                             +this.tablaParticipante.nativeElement.innerHTML

@@ -65,7 +65,7 @@ const routes: Routes = [
         { path:'buspasouno', component:BusqPasoUnoComponent },
         { path:'buspasodos/:rut', component:BusqPasoDosComponent},
         { path: 'buspasodos', component:BusqPasoDosComponent },
-        { path: 'busqregpasotres/:numReg', component:BusqRegPasoTresComponent }
+        { path: 'busqregpasotres/:numReg/:ruta', component:BusqRegPasoTresComponent }
       ]},
       {path:'protocolos', component:ProtocolosComponent,children:[
         { path:'panelprotocolo', component: PanelProtocoloComponent},

@@ -20,12 +20,14 @@
                 <thead class="thead">
                     
                     <tr>
-                        <th scope="col">N Participantes</th>
+                        <th>N°</th>
                         <th>Nombre Participante</th>
                         <th>Numero RUT</th>
+                        <th>Acciones</th>
+                        <th style="display: none;">Firma Participante</th>
                     </tr>
                     <tr *ngIf="nuevoRutArray.length==0" >
-                        <td colspan="3">
+                        <td colspan="4">
                             No hay participantes
                         </td>
                     </tr>
@@ -35,7 +37,7 @@
                     <td>{{item.value.nombre}}</td>
                     <td>{{item.value.run}}</td>
                     <td><span class="material-icons delete-icon text-danger" (click)="eliminaRut(i)">delete</span></td>
-                    
+                    <td style="display: none;"></td>
                 </tr>
             </table>
         </div>
