@@ -6,7 +6,7 @@
     <div class="row container-fluid">
         <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mt-1">
             <button class="adm" routerLink="/dashboard/busqueda/buspasouno">
-                <div class="card" style="background-color:#05a7b3">
+                <div class="card" style="background-color:#05b348;">
                   <!-- style="background-color: #05a7b3;" -->
                     <div class="card-body">
                         <fa-icon [icon]="faSearch" class="icono" style="color:white ;"></fa-icon>
@@ -19,7 +19,7 @@
         </div>
         <div class="col-12 col-sm-6 col-md-6 col-lg-2 col-xl-3 mt-1">
             <button class="adm" routerLink="/dashboard/registro/regPasoDos">
-                <div class="card" style="background-color: #08ca32;">
+                <div class="card" style="background-color: #1375f5;">
                     <div class="card-body">
                         <fa-icon [icon]="faFileAlt" class="icono" style="color:white;"></fa-icon>
                       <h5 class="card-title">Registro</h5>
@@ -29,21 +29,45 @@
                   </div>
             </button>
         </div>
-        <div class="col-12 col-sm-6 col-md-6 col-lg-2 col-xl-3 mt-1">
-            <button class="adm">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mt-1">
+          <button class="adm" routerLink="protocolos/panelprotocolo">
+              <div class="card" style="background-color: #8d36af;">
+                  <div class="card-body">
+                      <fa-icon [icon]="faFileAlt" class="icono" style="color:rgb(255, 255, 255) ;"></fa-icon>
+                    <h5 class="card-title">Protocolos</h5>
+                    <h6 class="card-subtitle mb-2 text-white">Ver o ingresar nuevos protocolos...</h6>
+                    <p class="card-text"></p>
+                  </div>
+                </div>
+          </button>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mt-1">
+        <button class="adm" routerLink='/dashboard/administracion'>
+            <div class="card admin">
+                <div class="card-body">
+                    <fa-icon [icon]="faCogs" class="icono" style="color:white ;"></fa-icon>
+                  <h5 class="card-title">Administracion</h5>
+                  <h6 class="card-subtitle mb-2" style="color: rgb(235, 235, 235);">Agregar usuarios, funcionarios...</h6>
+                  <p class="card-text"></p>
+                </div>
+              </div>
+        </button>
+      </div>
+        <div class="col-12 col-sm-6 col-md-6 col-lg-2 col-xl-3 mt-4">
+            <button class="adm" routerLink="/dashboard/denuncia/denunciapasouno">
                 <div class="card" style="background-color: #f3bc09; background-color: grey;">
                     <div class="card-body">
                         <fa-icon [icon]="faGavel" class="icono" style="color:white ;"></fa-icon>
-                      <h5 class="card-title">Causas Judiciales</h5>
-                      <h6 class="card-subtitle mb-2 text-muted">Ingresar acciones judiciales</h6>
+                      <h5 class="card-title">Denuncias</h5>
+                      <h6 class="card-subtitle mb-2 text-white">Ingresa una accion de terceros...</h6>
                       <p class="card-text"></p>
                     </div>
                   </div>
             </button>
         </div>
-        <div class="col-12 col-sm-6 col-md-6 col-lg-2 col-xl-3 mt-1">
+        <div class="col-12 col-sm-6 col-md-6 col-lg-2 col-xl-3 mt-4">
             <button class="adm">
-                <div class="card" style="background-color: #525302; background-color: grey;">
+                <div class="card none" style="background-color: #525302; background-color: grey; cursor: not-allowed;">
                     <div class="card-body">
                         <fa-icon [icon]="faHome" class="icono" style="color:white ;"></fa-icon>
                       <h5 class="card-title">Visita Domiciliaria</h5>
@@ -53,40 +77,28 @@
                   </div>
             </button>
         </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mt-1">
-            <button class="adm" routerLink="reuniones">
-                <div class="card" style="background-color: #016464; background-color: grey;">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mt-4">
+            <button class="adm" style="cursor: not-allowed; "routerLink="reuniones">
+                <div class="card none" style="background-color: #016464; background-color: grey;">
                     <div class="card-body">
-                        <fa-icon [icon]="faHandshake" class="icono" style="color:rgb(255, 255, 255) ;"></fa-icon>
+                        <fa-icon [icon]="faHandshake" class="icono" style="color:rgb(255, 255, 255);"></fa-icon>
                       <h5 class="card-title">Reuniones (Actas)</h5>
-                      <h6 class="card-subtitle mb-2 text-muted">Agregar usuarios, establecimientos...</h6>
+                      <h6 class="card-subtitle mb-2 text-white">Agrega reuniones con equipos de profesionales...</h6>
                       <p class="card-text"></p>
                     </div>
                   </div>
             </button>
         </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mt-1">
-            <button class="adm" routerLink="protocolos/panelprotocolo">
-                <div class="card" style="background-color: #8d36af;">
-                    <div class="card-body">
-                        <fa-icon [icon]="faFileAlt" class="icono" style="color:rgb(255, 255, 255) ;"></fa-icon>
-                      <h5 class="card-title">Protocolos</h5>
-                      <h6 class="card-subtitle mb-2 text-muted">Recopila acciones</h6>
-                      <p class="card-text"></p>
-                    </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mt-4">
+          <button class="adm" routerLink='/dashboard/administracion'>
+              <div class="card none" style="background-color: #09c4f3; background-color: grey; cursor: not-allowed;">
+                  <div class="card-body">
+                    <span class="material-icons">escalator_warning</span>
+                    <h5 class="card-title">Programas</h5>
+                    <h6 class="card-subtitle mb-2" style="color: rgb(235, 235, 235);">Agregar diferentes programas asociados...</h6>
+                    <p class="card-text"></p>
                   </div>
-            </button>
-        </div>
-      <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mt-1">
-            <button class="adm" routerLink='/dashboard/administracion'>
-                <div class="card" style="background-color: #f37209;">
-                    <div class="card-body">
-                        <fa-icon [icon]="faCogs" class="icono" style="color:white ;"></fa-icon>
-                      <h5 class="card-title">Administracion</h5>
-                      <h6 class="card-subtitle mb-2" style="color: rgb(235, 235, 235);">Agregar usuarios, funcionarios...</h6>
-                      <p class="card-text"></p>
-                    </div>
-                  </div>
-            </button>
-        </div> 
+                </div>
+          </button>
+        </div>  
     </div>

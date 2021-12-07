@@ -36,6 +36,10 @@ import { NuevoProtocoloComponent } from './components/dashboard/protocolos/nuevo
 import { VerProtocolosComponent } from './components/dashboard/protocolos/ver-protocolos/ver-protocolos.component';
 import { PanelProtocoloComponent } from './components/dashboard/protocolos/panel-protocolo/panel-protocolo.component';
 import { EditarProtocolosComponent } from './components/dashboard/protocolos/editar-protocolos/editar-protocolos.component';
+import { DenunciaComponent } from './components/dashboard/denuncia/denuncia.component';
+import { DenunciaPasoUnoComponent } from './components/dashboard/denuncia/denuncia-paso-uno/denuncia-paso-uno.component';
+import { DenunciaPasoDosComponent } from './components/dashboard/denuncia/denuncia-paso-dos/denuncia-paso-dos.component';
+import { DenunciaBuscadorComponent } from './components/dashboard/denuncia/denuncia-buscador/denuncia-buscador.component';
 
 
 const routes: Routes = [
@@ -66,6 +70,11 @@ const routes: Routes = [
         { path:'buspasodos/:rut', component:BusqPasoDosComponent},
         { path: 'buspasodos', component:BusqPasoDosComponent },
         { path: 'busqregpasotres/:numReg/:ruta', component:BusqRegPasoTresComponent }
+      ]},
+      { path:'denuncia', component:DenunciaComponent, children:[
+          { path: 'denunciapasouno', component: DenunciaPasoUnoComponent },
+          { path: 'denunciapasodos', component: DenunciaPasoDosComponent },
+          { path: 'denunciabuscador', component: DenunciaBuscadorComponent }
       ]},
       {path:'protocolos', component:ProtocolosComponent,children:[
         { path:'panelprotocolo', component: PanelProtocoloComponent},

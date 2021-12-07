@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="row" style="width: 100%;">
+        <div class="col-lg-7 offset-lg-3">
+            <div class="card text-left p-4">
+                <h3 class="text-black-60 mt-4">Ingreso de Denuncia</h3>
+                <p class="text-secondary">Esta sección te permite recopilar datos de otros secciones y adjuntarlas bajo uno numero de folio asociado a un requerimiento de un tercero (Juzgado, Municipalidad, Ministerio etc.)</p>
+                <p class="mt-4">Indica los datos requeridos y pasa al segundo paso</p>
+                <form [formGroup]="datosDenuncia" (ngSubmit)="pasoUno()">
+                    <div class="form-row justify-content-between">
+                        <div class="col-3">
+                            <p class="text-secondary mt-2">Profesional</p>
+                        </div>
+                        <div class="col-8"><input type="text" class="form-control" disabled></div>
+                    </div>
+                    <div class="form-row justify-content-between">
+                        <div class="col-3">
+                            <p class="text-secondary mr-3 mt-2">Organismo</p>
+                        </div>
+                        <div class="col-8">
+                            <!-- <input type="text" class="form-control" placeholder="Ej: Pelea en Recreo" formControlName="asunto">
+                            <div class="mt-2 text-danger" *ngIf= "datosDenuncia.get('asunto').hasError('required') && datosDenuncia.get('asunto').touched"><p>Debes ingresar el asunto</p></div> -->
+                            <select class="form-control">
+                                <option value="">Seleccionar organizacion solicitante...</option>
+                                <option value="">Municipalidad</option>
+                                <option value="">Juzgado</option>
+                                <option value="">Ministerio de Educación</option>
+                                <option value="">Otros</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row justify-content-between">
+                        <div class="col-4">
+                        <p class="text-secondary mr-3 mt-2">N° Folio ó N° RIT</p>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" class="form-control" placeholder="Ej: Pelea en Recreo" formControlName="asunto">
+                            <div class="mt-2 text-danger" *ngIf= "datosDenuncia.get('asunto').hasError('required') && datosDenuncia.get('asunto').touched"><p>Debes ingresar el asunto</p></div>
+                        </div>
+                    </div>
+                    <div class="form-row justify-content-between">
+                        <div class="col-4">
+                        <p class="text-secondary mr-3 mt-2">N° Rut a asociar</p>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" class="form-control" placeholder="Ej: 17948413K" formControlName="asunto">
+                        </div>
+                    </div>
+                    <div class="form-row justify-content-between">
+                        <div class="col-3">
+                            <p class="text-secondary mr-3 mt-2">Fecha</p>
+                        </div>
+                        <div class="col-8">
+                            <input type="date" class="form-control" formControlName="fecha">
+                            <div class="mt-2 text-danger" *ngIf= "datosDenuncia.get('fecha').hasError('required') && datosDenuncia.get('fecha').touched"><p>Debes ingresar la fecha</p></div>   
+                        </div>
+                    </div>
+                    <div class="row mt-4 ">
+                        <div class="col-lg-7 offset-lg-3 ">
+                            <button class="btn btn-success text-white mr-3"  type="button" routerLink="/dashboard">Guardar</button>
+                            <button class="btn btn-warning text-white mr-3" [disabled]="datosDenuncia.invalid" routerLink="/dashboard/denuncia/denunciapasodos">Ir a registro</button>
+                            <button class="btn btn-primary text-white mr-3" type="button" routerLink="/dashboard">Volver</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -2,6 +2,7 @@
     border-style: none;
     background-color: white;
     
+    
 }
 
 
@@ -13,9 +14,26 @@
     width: 250px;
     height: 250px;
     color:white;
+    box-shadow: 0px 0px 5px 2px #bebebd
 }
-.adm :hover{
-    background-color: rgb(90, 103, 104);
-    border-color: rgb(90, 103, 104);
+.card :hover{
+    background-color: rgb(76, 118, 146)!important;
+    border-color: rgb(76, 118, 146)!important;
     
+    
+}
+span{
+    font-size: 7rem;
+}
+.none :hover{
+    background-color: grey!important;
+}
+
+.admin{
+    background-color: #f37209;
+    border:none;
+}
+.admin :hover{
+    border-color: none!important;
+    border-radius: 5px;
 }

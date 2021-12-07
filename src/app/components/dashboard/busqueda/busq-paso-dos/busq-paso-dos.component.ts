@@ -37,6 +37,7 @@ loading=false;
      this.loading=true;
     this.estudianteService.getEstudianteByRut(this.rutParam).subscribe(data=>{
       this.dato=data;
+      console.log(this.dato)
       const rut= this.rutParam;
       
     })
