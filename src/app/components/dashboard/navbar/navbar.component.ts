@@ -8,12 +8,13 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  usuario:string;
+  
   constructor(private loginService: LoginService,
               private router: Router) { }
 
-  ngOnInit(): void {
- 
+  ngOnInit() {
+  this.dataLogin();
   }
 
   logOut(){
@@ -21,6 +22,9 @@ export class NavbarComponent implements OnInit {
     this.loginService.removeLocalStorage();
     this.router.navigate(['/inicio/bienvenidos']);
   }  
-
+dataLogin(){
+  this.usuario=this.loginService.getTokenDecoded().sub;
+  
+}
 
 }
