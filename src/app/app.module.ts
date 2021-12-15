@@ -56,6 +56,7 @@ import { DenunciaComponent } from './components/dashboard/denuncia/denuncia.comp
 import { DenunciaPasoUnoComponent } from './components/dashboard/denuncia/denuncia-paso-uno/denuncia-paso-uno.component';
 import { DenunciaPasoDosComponent } from './components/dashboard/denuncia/denuncia-paso-dos/denuncia-paso-dos.component';
 import { DenunciaBuscadorComponent } from './components/dashboard/denuncia/denuncia-buscador/denuncia-buscador.component';
+import { ProgramasComponent } from './components/dashboard/programas/programas.component';
 
 
 
@@ -105,6 +106,7 @@ import { DenunciaBuscadorComponent } from './components/dashboard/denuncia/denun
     DenunciaPasoUnoComponent,
     DenunciaPasoDosComponent,
     DenunciaBuscadorComponent,
+    ProgramasComponent,
 
   ],
   imports: [

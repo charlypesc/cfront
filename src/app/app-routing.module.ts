@@ -40,6 +40,7 @@ import { DenunciaComponent } from './components/dashboard/denuncia/denuncia.comp
 import { DenunciaPasoUnoComponent } from './components/dashboard/denuncia/denuncia-paso-uno/denuncia-paso-uno.component';
 import { DenunciaPasoDosComponent } from './components/dashboard/denuncia/denuncia-paso-dos/denuncia-paso-dos.component';
 import { DenunciaBuscadorComponent } from './components/dashboard/denuncia/denuncia-buscador/denuncia-buscador.component';
+import { ProgramasComponent } from './components/dashboard/programas/programas.component';
 
 
 const routes: Routes = [
@@ -83,6 +84,7 @@ const routes: Routes = [
         {path:'editarprotocolos/:numIdProtocolo', component:EditarProtocolosComponent}
       ]},
       { path: 'reuniones', component: ReunionesActasComponent },
+      { path: 'programas', component:ProgramasComponent },
       { path: 'panelBienvenida', component: PanelBienvenidaComponent }, 
       { path: 'administracion', component: AdministracionComponent},
       { path: 'administracion/ingresos', component: IngresosComponent},

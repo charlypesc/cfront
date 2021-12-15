@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="row" style="width: 100%;">
+        <div class="col-lg-10 offset-lg-2">
+            <div class="card text-left p-5">
+                <div class="row">
+                    <div class="col">
+                        <h4>Ingreso de Estudiantes a Programas e Intervenciones</h4>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col">
+                        <p>Ingresa por RUT los alumnos que están bajo intervención</p>
+                    </div>
+                </div>
+                <div class="input-group d-flex mt-4">
+                    <div class="col-lg-3">
+                        <p>Profesional</p>
+                    </div>
+                    
+                        <input type="text" class="form-control" value="Claudio Rodriguez" disabled>
+                    
+                </div>
+                <div class="input-group d-flex mt-4">
+                    <div class="col-lg-3">
+                        <p>Rut a asociar</p>
+                    </div>
+                    <input type="text" class="form-control"value="16768182">
+                    <button class="btn btn-success ml-1">Buscar RUT</button>
+                </div>
+                <div class="input-group mt-4">
+                    
+                        <div class="col-3">
+                            <p>Red/Programa</p>
+                            
+                        </div>
+                        <select name="" id="" class="form-control lg-3">
+                            <option value="">Seleccionar programa</option>
+                            <option value="">FAE</option>
+                            <option value="" class="">PPF</option>
+                            <option value="" class="">Programa Familiar</option>
+                            <option value="" class="">COSAN</option>
+                            <option value="" class="">Habilidades para la vida</option>
+                            <option value="" class="">Sernameg</option>
+                        </select>
+                        <div class="col-lg-2" ><button class="btn btn-success ml-1">Agregar</button>
+                        </div>
+                </div>
+                <div class="input-group mt-4">
+                    <table class="table table-borderless">
+                        <thead class="table-warning">
+                            <th>Programa</th>
+                            <th>Fecha Ingreso</th>
+                            <th>Ingresado por</th>
+                        </thead>
+                        <tr>
+                            <td><strong class="text-primary">FAE</strong></td>
+                            <td>27/4/2020</td>
+                            <td>Claudio Rodriguez</td>
+                        </tr>
+                        <tr>
+                            <td><strong class="text-primary">PPF</strong></td>
+                            <td>31/5/2020</td>
+                            <td>Marie Leon</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <app-loading></app-loading>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

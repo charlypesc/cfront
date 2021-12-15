@@ -1,0 +1,6 @@
+td,thead{
+    text-align: center;
+}
+td[colspan="4"] {
+    text-align: center;
+}
