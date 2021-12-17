@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { stringify } from 'querystring';
 import { Estudiante } from 'src/app/models/estudiante';
 import { EstudianteService } from 'src/app/services/estudiante.service';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-estudiante',
@@ -13,44 +14,47 @@ import { EstudianteService } from 'src/app/services/estudiante.service';
   styleUrls: ['./estudiante.component.css']
 })
 export class EstudianteComponent implements OnInit {
+	establecimiento:string
+	rbd:string
   	datosEstudiantes: FormGroup;
 	pieBool:boolean;
-  constructor(private fb: FormBuilder,
-              private toastr: ToastrService,
-              private estudianteService: EstudianteService) {
-            	this.datosEstudiantes= this.fb.group({
-					nombre:['', Validators.required],
-					apellido:['', Validators.required],
-					establecimiento:[''],
-					curso:['', Validators.required],
-					run:['',Validators.required],
-					apoderado:['', Validators.required],
-					direccionApoderado:['', Validators.required],
-					telefonoApoderado:['', Validators.required],
-					rbd:['', Validators.required],
-					nacimiento:['', Validators.required],
-					sexo:[''],
-					direccion:[''],	
-					comuna:[''],
-					correo:[''],
-					telefono:[''],
-					contactoEmergencia:[''],
-					telefonoEmergencia:[''],
-					grupoSanguineo:[''],
-					prevision:[''],
-					alergias:[''],
-					medicamentosContraindicados:[''],
-					enfermedadesCronicas:[''],
-					correoApoderado:[''],
-					apoderadoSuplente:[''],
-					direccionApoderadoSuplente:[''],
-					telefonoApoderadoSuplente:[''],
-					correoApoderadoSuplente:[''],
-					pie:[''],
-                })
+  constructor(	private fb: FormBuilder,
+				private LoginService:LoginService,
+              	private toastr: ToastrService,
+              	private estudianteService: EstudianteService) {
+            		this.datosEstudiantes= this.fb.group({
+						nombre:['', Validators.required],
+						apellido:['', Validators.required],
+						curso:['', Validators.required],
+						run:['',Validators.required],
+						apoderado:['', Validators.required],
+						direccionApoderado:['', Validators.required],
+						telefonoApoderado:['', Validators.required],
+						nacimiento:['', Validators.required],
+						sexo:[''],
+						direccion:[''],	
+						comuna:[''],
+						correo:[''],
+						telefono:[''],
+						contactoEmergencia:[''],
+						telefonoEmergencia:[''],
+						grupoSanguineo:[''],
+						prevision:[''],
+						alergias:[''],
+						medicamentosContraindicados:[''],
+						enfermedadesCronicas:[''],
+						correoApoderado:[''],
+						apoderadoSuplente:[''],
+						direccionApoderadoSuplente:[''],
+						telefonoApoderadoSuplente:[''],
+						correoApoderadoSuplente:[''],
+						pie:[''],
+					})
                }
 
-  ngOnInit(): void {
+  ngOnInit(){
+	  this.establecimiento=this.LoginService.getTokenDecoded().Establecimiento
+	  this.rbd=this.LoginService.getTokenDecoded().Rbd
   }
 
   pieBo(){
@@ -68,7 +72,7 @@ export class EstudianteComponent implements OnInit {
 		  	nombre:this.datosEstudiantes.value.nombre,
 		  	apellido:this.datosEstudiantes.value.apellido,
 		  	curso:this.datosEstudiantes.value.curso,
-		  	establecimiento:this.datosEstudiantes.value.establecimiento,
+		  	establecimiento:this.establecimiento,
 		  	run:this.datosEstudiantes.value.run,
 		  	nacimiento:this.datosEstudiantes.value.nacimiento,
 			sexo:this.datosEstudiantes.value.sexo,
@@ -91,7 +95,7 @@ export class EstudianteComponent implements OnInit {
 			direccionApoderadoSuplente:this.datosEstudiantes.value.direccionApoderadoSuplente,
 			telefonoApoderadoSuplente:this.datosEstudiantes.value.telefonoApoderadoSuplente,
 			correoApoderadoSuplente:this.datosEstudiantes.value.correoApoderadoSuplente,
-			rbd:this.datosEstudiantes.value.rbd,
+			rbd:this.rbd,
 			pie:this.pieBool
 		}
 

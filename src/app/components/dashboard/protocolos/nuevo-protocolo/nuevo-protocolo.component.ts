@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ProtocolosActuacion } from 'src/app/models/protocolosActuacion';
+import { LoginService } from 'src/app/services/login.service';
 import { ProtocolosService } from 'src/app/services/protocolos.service';
 
 @Component({
@@ -13,18 +14,21 @@ import { ProtocolosService } from 'src/app/services/protocolos.service';
 })
 export class NuevoProtocoloComponent implements OnInit {
   datosNuevoProtocolo: FormGroup;
-  rbd:string='7647-3'//super hardcode
+  rbd:string
+
   constructor(private fb:FormBuilder,
               private toastr: ToastrService,
               private protocolosService: ProtocolosService,
-              private router: Router) { 
+              private router: Router,
+              private LoginService:LoginService) { 
                 this.datosNuevoProtocolo=this.fb.group({
                   nombreProtocolo:['', Validators.required],
                   descripcionProtocolo:['', Validators.required]
                 })
               }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.rbd=this.LoginService.getTokenDecoded().Rbd;
   }
 saveProtocolos(){
   const nuevoProtocolo: ProtocolosActuacion = {

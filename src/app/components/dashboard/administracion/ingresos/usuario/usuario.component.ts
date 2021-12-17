@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Usuario } from 'src/app/models/usuario';
+import { LoginService } from 'src/app/services/login.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
@@ -12,9 +13,10 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 })
 export class UsuarioComponent implements OnInit {
 datosUsuario:FormGroup;
-r='7647-3';
-e='Escuela Libertad';
+r:string;
+e:string;
   constructor(private fb: FormBuilder,
+    private LoginService:LoginService,
     private toastr: ToastrService,
     private router: Router,
     private usuarioService: UsuarioService) {
@@ -27,14 +29,13 @@ e='Escuela Libertad';
           apellido:['', Validators.required],
           rut:['', Validators.required],
           correoElectronico:['', Validators.required , ],
-          establecimiento:[''],
-          //cargo:['', Validators.required],
-          rbd:[''],
-
+          
         },{validator:this.checkPassword});
      }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.e=this.LoginService.getTokenDecoded().Establecimiento
+    this.r=this.LoginService.getTokenDecoded().Rbd
   }
 
   registrarUsuario(){

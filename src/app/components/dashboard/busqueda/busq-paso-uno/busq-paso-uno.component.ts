@@ -29,25 +29,25 @@ rtaRutBuscar : any = {};
   }
 
 
-busqueda(){
-   //el primero tra el rut del form y se lo pasa al segundo metodo valida que existe y sino lanza el alerta
-  this.rutBuscar = this.rutBusqueda.get('rut').value;
-  this.estudianteService.getEstudianteByRut(this.rutBuscar).subscribe(data => {
-    this.rtaRutBuscar = data;
-    if(this.rtaRutBuscar.codigo!==0){
+  busqueda(){
+    //el primero tra el rut del form y se lo pasa al segundo metodo valida que existe y sino lanza el alerta
+    this.rutBuscar = this.rutBusqueda.get('rut').value;
+    this.estudianteService.getEstudianteByRut(this.rutBuscar).subscribe(data => {
+      this.rtaRutBuscar = data;
+      if(this.rtaRutBuscar.codigo!==0){
 
-      this.toastr.success('rut encontrado')
-      //guarda el rut en el servicio
-      this.busquedaService.rut = this.rtaRutBuscar;
-      this.router.navigate(['/dashboard/busqueda/buspasodos/'+this.rutBuscar])
+        this.toastr.success('rut encontrado')
+        //guarda el rut en el servicio
+        this.busquedaService.rut = this.rtaRutBuscar;
+        this.router.navigate(['/dashboard/busqueda/buspasodos/'+this.rutBuscar])
 
-    }else{
-      this.toastr.error('Rut no se encuentra','Recueda:Sin puntos ni guiones')
-    }
-  })
-  
+      }else{
+        this.toastr.error('','Rut no se encuentra')
+      }
+    })
+    
 
 
-}
+  }
 
 }

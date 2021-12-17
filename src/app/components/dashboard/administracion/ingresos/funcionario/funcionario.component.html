@@ -36,17 +36,9 @@
             <h4>Datos Unidad de Servicio</h4>
             <div class="form-row mt-4"> 
                 <div class="col">
-                    <input type="text" class="form-control" placeholder="Establecimiento" formControlName="establecimiento">
-                    <div class="text-danger" *ngIf= "datosFuncionario.get('establecimiento').hasError('required') && datosFuncionario.get('establecimiento').touched">El establecimiento es requerido</div>
-                </div>   
-                <div class="col">
                     <input type="text" class="form-control" placeholder="Cargo" formControlName="cargo">
                     <div class="text-danger" *ngIf= "datosFuncionario.get('cargo').hasError('required') && datosFuncionario.get('cargo').touched">El cargo o funcion es requerido</div>
                 </div>
-                <div class="col">
-                    <input type="text" class="form-control" placeholder="RBD del Establecimiento" formControlName="rbd">
-                    <div class="text-danger" *ngIf= "datosFuncionario.get('rbd').hasError('required') && datosFuncionario.get('rbd').touched">El numero RBD es requerido</div>
-                </div>    
             </div>
           <div class="row justify-content-center">
             <div class=" mt-4">

@@ -38,7 +38,7 @@ export class RegPasoDosComponent implements OnInit {
   numRut:string;
   datosRegFaltantes:FormGroup;
   listParticipantes: ParticipanteReg[]=[]
-  rbd: string = '7647-3'
+  rbd: string;
   protocolos:any=[];
   temporalProtocolos:Array<any>=[]
 
@@ -68,7 +68,10 @@ export class RegPasoDosComponent implements OnInit {
     //this.asunto=this.registroService.asunto;
     this.fecha=this.registroService.fecha;
 	  this.profesional = this.loginService.getTokenDecoded().sub;
+    this.rbd = this.loginService.getTokenDecoded().Rbd;
+    this.usuarioId=this.loginService.getTokenDecoded().idUsuario;
     this.buscarProtocolos();
+
     
   }
   //Protocolos paso 1: trae los protocolos de la api
@@ -88,19 +91,16 @@ export class RegPasoDosComponent implements OnInit {
 	protocolosArrayTemporal(){
 
 	this.temporalProtocolos.push(this.protocolos[this.idProtocolo])
-	console.log(this.temporalProtocolos)
+
 
   }
 
   //protocolos eliminar del array
     eliminaProtocolo(inde:number):void{
-  console.log('llegando')
-  console.log(inde)
-  
-  this.temporalProtocolos.splice(inde,inde+1);
-  console.log(this.temporalProtocolos)
-  
-  }
+
+      
+      this.temporalProtocolos.splice(inde,inde+1);
+    }
 
 
   saveRegistro():void{
@@ -108,6 +108,8 @@ export class RegPasoDosComponent implements OnInit {
     const arrayPart: ParticipanteReg[] = []
     const protocolosDef: ProtocolosActuacion[]=[]
     
+
+    // L I S T A -- P A R T I C I P A N T E S
     for(let i=0; i < arrayRuts.length;i++){
       const arrayParticipantes: ParticipanteReg = new ParticipanteReg()
 	  	arrayParticipantes.rut=arrayRuts.controls[i].value.run;
@@ -115,12 +117,14 @@ export class RegPasoDosComponent implements OnInit {
 		  arrayParticipantes.fechaIngreso=this.datosRegFaltantes.value.fecha
       arrayParticipantes.asunto=this.datosRegFaltantes.value.asunto;
       arrayParticipantes.activo=1;
-      //hardcode
-      arrayParticipantes.usuarioId=15;
+      arrayParticipantes.rbd=this.rbd;
+      arrayParticipantes.usuarioId=this.usuarioId;
       arrayPart.push(arrayParticipantes)
     }
 
-  for(let p=0;p<this.temporalProtocolos.length;p++){
+  // L I S T A -- P R O T O C O L O S
+
+    for(let p=0;p<this.temporalProtocolos.length;p++){
     const arrayProtocolos: ProtocolosActuacion = new ProtocolosActuacion()
     arrayProtocolos.nombreProtocolo=this.temporalProtocolos[p].nombreProtocolo
     arrayProtocolos.descripcionProtocolo=this.temporalProtocolos[p].descripcionProtocolo
@@ -129,15 +133,16 @@ export class RegPasoDosComponent implements OnInit {
     
     this.acuerdos=this.datosRegFaltantes.value.acuerdos;
     
-    
+  // R E G I S T R O - - - C O M P L E T O
+
     const registro: Registro={
       asunto:this.datosRegFaltantes.value.asunto,
       fecha:this.datosRegFaltantes.value.fecha,
       profesional:this.profesional,
       antecedentes:this.datosRegFaltantes.value.antecedentes,
       acuerdos:this.datosRegFaltantes.value.acuerdos,
-      //hardcode
-      usuarioId:15,
+      usuarioId:this.usuarioId,
+      rbd:this.rbd,
       participanteReg:arrayPart,
       protocoloReg:protocolosDef
     }
@@ -152,7 +157,7 @@ export class RegPasoDosComponent implements OnInit {
       })
       this.router.navigate(['/dashboard/busqueda/busqregpasotres/'+data.numeroRegistro+'/'+false])
     }, error =>{
-      this.toastr.error('Algo salio mal, contacta al Admin del Sistema')
+      this.toastr.error('Algo salio mal, contacta al administrador del sistema')
     });
 
   }

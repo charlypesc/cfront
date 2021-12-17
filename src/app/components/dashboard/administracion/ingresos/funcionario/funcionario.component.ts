@@ -1,9 +1,11 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Funcionario } from 'src/app/models/funcionario';
 import { FuncionarioService } from 'src/app/services/funcionario.service';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-funcionario',
@@ -11,9 +13,12 @@ import { FuncionarioService } from 'src/app/services/funcionario.service';
   styleUrls: ['./funcionario.component.css']
 })
 export class FuncionarioComponent implements OnInit {
+  establecimiento:string
+  rbd:string
   datosFuncionario: FormGroup;
 
-  constructor(private fb: FormBuilder,
+  constructor(  private fb: FormBuilder,
+                private LoginService:LoginService,
                 private toastr: ToastrService,
                 private router: Router,
                 private funcionarioService: FuncionarioService) {
@@ -24,15 +29,14 @@ export class FuncionarioComponent implements OnInit {
                       telefono:['', Validators.required],
                       correoElectronico:['',Validators.required],
                       direccion:['', Validators.required],
-                      establecimiento:['',Validators.required],
-                      cargo:['', Validators.required],
-                      rbd:['', Validators.required],
-
+                      cargo:['', Validators.required]
                     })
                  }
 
-  ngOnInit(): void {
-  }
+  ngOnInit() {
+    this.establecimiento=this.LoginService.getTokenDecoded().Establecimiento
+    this.rbd=this.LoginService.getTokenDecoded().Rbd 
+    }
   registrarFuncionario(){
     console.log(this.datosFuncionario)
 
@@ -43,10 +47,9 @@ export class FuncionarioComponent implements OnInit {
           telefono:this.datosFuncionario.value.telefono,
           correoElectronico:this.datosFuncionario.value.correoElectronico,
           direccion:this.datosFuncionario.value.direccion,
-          establecimiento:this.datosFuncionario.value.establecimiento,
+          establecimiento:this.establecimiento,
           cargo:this.datosFuncionario.value.cargo,
-          rbd:this.datosFuncionario.value.rbd
-
+          rbd:this.rbd
         }
       
       this.funcionarioService.guardarFuncionario(funcionario).subscribe(data=> {

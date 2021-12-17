@@ -63,15 +63,6 @@
                 <p class="text-secondary ml-1">Curso</p>
                 <input type="text" class="form-control" formControlName="curso">
             </div>
-            <div class="col">
-                <p class="text-secondary ml-1">Establecimiento</p>
-                <input type="text" class="form-control" formControlName="establecimiento">
-            </div>
-            <div class="col">
-                <p class="text-secondary ml-1">RBD</p>
-                <input type="text" class="form-control" formControlName="rbd">
-                <div class="text-danger" *ngIf= "datosEstudiantes.get('rbd').hasError('required') && datosEstudiantes.get('rbd').touched">El RBD es requerido</div>
-            </div>
         </div>
         <div class="form-row mt-3 ml-1">
             <div class="custom-control custom-checkbox">

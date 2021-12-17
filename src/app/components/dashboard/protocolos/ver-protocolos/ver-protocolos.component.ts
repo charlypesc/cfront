@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ProtocolosActuacion } from 'src/app/models/protocolosActuacion';
+import { LoginService } from 'src/app/services/login.service';
 import { ProtocolosService } from 'src/app/services/protocolos.service';
 import Swal from 'sweetalert2';
 import { ProtocolosComponent } from '../protocolos.component';
@@ -19,16 +20,16 @@ idProtocolo: number;
 datosProtocolos:any=[]
 
   constructor(private protocolosService: ProtocolosService,
+              private LoginService:LoginService,
               private toastr:ToastrService) { 
                 
               }
 
   ngOnInit() {
+    this.rbd=this.LoginService.getTokenDecoded().Rbd;
     this.getProtocolos();
-    console.log(localStorage)
   }
 getProtocolos(){
-    this.rbd='7647-3';
     return this.protocolosService.getProtocolos(this.rbd).subscribe(data =>{
       console.log(data)
       this.datosProtocolos = data;
