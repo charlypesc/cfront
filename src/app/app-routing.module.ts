@@ -41,6 +41,8 @@ import { DenunciaPasoUnoComponent } from './components/dashboard/denuncia/denunc
 import { DenunciaPasoDosComponent } from './components/dashboard/denuncia/denuncia-paso-dos/denuncia-paso-dos.component';
 import { DenunciaBuscadorComponent } from './components/dashboard/denuncia/denuncia-buscador/denuncia-buscador.component';
 import { ProgramasComponent } from './components/dashboard/programas/programas.component';
+import { NgxPermissionsGuard } from 'ngx-permissions';
+import { VisitaDomicialiariaComponent } from './components/dashboard/visita-domicialiaria/visita-domicialiaria.component';
 
 
 const routes: Routes = [
@@ -83,6 +85,7 @@ const routes: Routes = [
         {path:'verprotocolos', component:VerProtocolosComponent},
         {path:'editarprotocolos/:numIdProtocolo', component:EditarProtocolosComponent}
       ]},
+      { path: 'visitas', component: VisitaDomicialiariaComponent },
       { path: 'reuniones', component: ReunionesActasComponent },
       { path: 'programas', component:ProgramasComponent },
       { path: 'panelBienvenida', component: PanelBienvenidaComponent }, 
@@ -90,7 +93,13 @@ const routes: Routes = [
       { path: 'administracion/ingresos', component: IngresosComponent},
       { path: 'administracion/ingresos/funcionario', component: FuncionarioComponent},
       { path: 'administracion/ingresos/estudiante', component:EstudianteComponent },
-      { path: 'administracion/ingresos/establecimiento', component:EstablecimientoComponent },
+      { path: 'administracion/ingresos/establecimiento', 
+        component:EstablecimientoComponent,
+        canActivate:[NgxPermissionsGuard],
+        data:{
+          Permissions:{only:'SuperAdministrador'}
+        } 
+      },
       { path: 'administracion/ingresos/usuario', component:UsuarioComponent},
 
       

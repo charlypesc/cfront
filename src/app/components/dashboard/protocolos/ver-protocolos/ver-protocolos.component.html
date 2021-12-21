@@ -12,14 +12,14 @@
                         <td>Nombre Protocolo</td>
                         <td>Descripcion de Protocolo</td>
                         <td>Editar</td>
-                        <td>Eliminar</td>
+                        <td  *ngxPermissionsOnly="permissionOnly">Eliminar</td>
                     </tr>
                     <tr *ngFor="let item of datosProtocolos; let x=index">
                         <td>{{x+1}}</td>
                         <td>{{item.nombreProtocolo}}</td>
                         <td>{{item.descripcionProtocolo}}</td>
                         <td class="text-center text-success"><span class="material-icons" routerLink="/dashboard/protocolos/editarprotocolos/{{item.id}}">note_add</span></td>
-                        <td class="text-center text-danger"><span class="material-icons" (click)="borrarProtocolo(item.id)">delete</span></td>
+                        <td *ngxPermissionsOnly="permissionOnly" class="text-center text-danger"><span class="material-icons" (click)="borrarProtocolo(item.id)">delete</span></td>
                     </tr>
                 </table>
                 <div class="row d-flex justify-content-center pt-4 pb-4">

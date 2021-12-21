@@ -11,6 +11,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms'; 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgxPermissionsModule } from 'ngx-permissions';
 // componentes
 import { AppComponent } from './app.component';
 import { InicioComponent } from './components/inicio/inicio.component';
@@ -57,6 +58,7 @@ import { DenunciaPasoUnoComponent } from './components/dashboard/denuncia/denunc
 import { DenunciaPasoDosComponent } from './components/dashboard/denuncia/denuncia-paso-dos/denuncia-paso-dos.component';
 import { DenunciaBuscadorComponent } from './components/dashboard/denuncia/denuncia-buscador/denuncia-buscador.component';
 import { ProgramasComponent } from './components/dashboard/programas/programas.component';
+import { VisitaDomicialiariaComponent } from './components/dashboard/visita-domicialiaria/visita-domicialiaria.component';
 
 
 
@@ -107,6 +109,8 @@ import { ProgramasComponent } from './components/dashboard/programas/programas.c
     DenunciaPasoDosComponent,
     DenunciaBuscadorComponent,
     ProgramasComponent,
+    VisitaDomicialiariaComponent,
+    
 
   ],
   imports: [
@@ -117,8 +121,8 @@ import { ProgramasComponent } from './components/dashboard/programas/programas.c
     ToastrModule.forRoot(),
     HttpClientModule,
     FormsModule,
-    FontAwesomeModule
-    
+    FontAwesomeModule,
+    NgxPermissionsModule.forRoot()
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AddTokenInterceptor, multi:true}],
   bootstrap: [AppComponent]

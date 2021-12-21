@@ -1,0 +1,147 @@
+<div class="container-fluid">
+    <div class="row" style="width: 100%;">
+        <div  class="col-lg-11 offset-lg-1">
+            <div class="card text-left p-4">
+                <h2 class="text-primary">Visita Domiciliaria</h2>
+                <form>
+                    <div class="row">
+                        <div class="col-lg-9">
+                            <p>En esta seccion podras ingresar entrevistas, intervenciones, etc.</p>
+                        </div>
+                        <div class="col-lg-3 d-flex align-items-baseline">
+                            <p class="text-secondary mr-2">Fecha</p>
+                            <input type="date" class="form-control" formControlName="fecha">
+                        </div>  
+                    </div>
+                    <div class="row pt-5">
+                        <div class="col-lg-3">Profesional</div>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control"  disabled>
+                        </div>
+                    </div>
+                    <div #registro class="row pt-4">
+                        <div class="col-lg-3">Asunto</div>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control"  formControlName="asunto">
+                        </div>
+                    </div>
+                    <div class="row pt-5">
+                        <div class="col-6">
+                            <p><strong>Selecciona temática </strong></p></div>
+                        </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="d-flex align-items-baseline"><input type="checkbox" class="mr-1"><p>Pedagogico</p></div>   
+                            <div class="d-flex align-items-baseline"><input type="checkbox" class="mr-1"><p>Inasistencia</p></div> 
+                            <div class="d-flex align-items-baseline"><input type="checkbox" class="mr-1"><p>Porte de Armas</p></div>  
+                        </div>
+                        <div class="col-3">
+                            <div class="d-flex align-items-baseline"><input type="checkbox" class="mr-1"><p>Violencia Escolar</p></div>   
+                            <div class="d-flex align-items-baseline"><input type="checkbox" class="mr-1"><p>Intento Suicida</p></div> 
+                            <div class="d-flex align-items-baseline"><input type="checkbox" class="mr-1"><p>Fuga de Establecimiento</p></div>
+                        </div>
+                        <div class="col-3">
+                            <div class="d-flex align-items-baseline"><input type="checkbox" class="mr-1"><p>Consumo de Drogas</p></div>   
+                            <div class="d-flex align-items-baseline"><input type="checkbox" class="mr-1"><p>Acoso por medios Virtuales</p></div> 
+                            <div class="d-flex align-items-baseline"><input type="checkbox" class="mr-1"><p>Accidente Escolar</p></div>
+                        </div>
+                    </div>
+                    <div class="row pt-4 mt-4 mb-4">
+                        <div class="col">
+                            <div>
+                                <form >
+                                    <div class="form-row"><h3>Agregar Participante</h3></div>   
+                                    <div class="form-row mt-4">
+                                        <div class="col-lg-7 d-flex">
+                                            <p class="text-secondary mr-4">Agregar por RUT</p>
+                                            <input type="text" class="form-control col mr-4" placeholder="Ingresar sin puntos ni guiones Ej: 17043222K" formControlName="rut">
+                                        </div>
+                                        <div class="col-1">
+                                            <button class="btn btn-primary">Agregar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="form-row pt-4 mt-2">
+                                <table class="table table-bordered">
+                                    <thead class="thead">
+                                        
+                                        <tr>
+                                            <th>N°</th>
+                                            <th>Nombre Participante</th>
+                                            <th>Numero RUT</th>
+                                            <th>Acciones</th>
+                                            <th style="display: none;">Firma Participante</th>
+                                        </tr>
+                                        
+                                        
+                                    </thead>
+                                    
+                                </table>
+                            </div>
+                    
+                                    
+                        </div>
+                    </div>
+                    <div class="row pt-4">
+                        <div class="col">
+                            <p>Antecedentes</p>
+                            <textarea cols="30" rows="5" class="form-control" formControlName="antecedentes"></textarea>
+                        </div>
+                    </div>
+                    <div class="row pt-4">
+                        <div class="col">
+                            <p>Acuerdos</p>
+                            <textarea cols="30" rows="5" class="form-control" formControlName="acuerdos"></textarea>
+                        </div>
+                    </div>
+                    <div class="row pt-4" >
+                        <div class="col">
+                            <div class="d-flex">
+                                <span class="material-icons text-primary" style="font-size: 50px;">summarize</span><h5 style="display: block;margin-top: 13px;">Protocolos</h5>
+                            </div>
+                            <p>Ingresa los protocolos que serán activados</p>
+                            <div class="col d-flex">
+                                <select  class="form-control mr-4">
+                                    <option>Selecciona el protocolo</option>
+                                    
+                                </select>
+                                <button class="btn btn-primary" type="button">Agregar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row pt-4">
+                        <div class="col">
+                            <h6>Listado de Protocolos activados</h6>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="row justify-content-center"><p>No hay protocolos activados</p></div>
+                                <table class="table table-bordered">
+                                   
+                                        <thead>
+                                            <th>N°</th>
+                                            <th>Protocolo</th>
+                                            <th>Descripcion</th>
+                                            <th>Acción</th>
+                                        </thead>
+                                </table>
+                            
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col d-flex justify-content-center">
+                            <button class="btn btn-success mr-2">Guardar</button>
+                            <button class="btn btn-primary mr-1" type="button" routerLink="/dashboard/registro/regPasoUno" routerLink="/dashboard">Volver</button>
+                            <app-loading></app-loading>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+</div>

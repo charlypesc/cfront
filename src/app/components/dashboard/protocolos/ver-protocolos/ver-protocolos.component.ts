@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NgxPermissionsService } from 'ngx-permissions';
 import { ToastrService } from 'ngx-toastr';
 import { ProtocolosActuacion } from 'src/app/models/protocolosActuacion';
 import { LoginService } from 'src/app/services/login.service';
@@ -19,7 +20,12 @@ rbd:string;
 idProtocolo: number;
 datosProtocolos:any=[]
 
+//  H A R D  C O D E - debe recibir el role desde el token 
+role:string="USUARIO";
+permissionOnly:string="USUARIO"
+
   constructor(private protocolosService: ProtocolosService,
+              private ngxPermissionService: NgxPermissionsService,
               private LoginService:LoginService,
               private toastr:ToastrService) { 
                 
@@ -28,6 +34,10 @@ datosProtocolos:any=[]
   ngOnInit() {
     this.rbd=this.LoginService.getTokenDecoded().Rbd;
     this.getProtocolos();
+    // H A R D   C O D E  es el que recibe el valor del usuario
+    const perm = [this.role];
+    this.ngxPermissionService.loadPermissions(perm);
+    console.log(this.role)
   }
 getProtocolos(){
     return this.protocolosService.getProtocolos(this.rbd).subscribe(data =>{

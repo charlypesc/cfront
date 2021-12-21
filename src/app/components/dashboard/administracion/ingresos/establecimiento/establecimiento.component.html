@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" *ngxPermissionsOnly="'SuperAdministrador'">
     <div class="col-lg-8 offset-lg-2">
         <h3>Ingresa el nuevo establecimiento</h3>
         <form [formGroup]="datosEstablecimiento" (ngSubmit)="registrarEstablecimiento() " >
