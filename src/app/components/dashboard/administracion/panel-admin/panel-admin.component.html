@@ -1,0 +1,72 @@
+<div class="row">
+    <div class="col">
+        <h3>Administracion</h3>
+    </div>
+</div>
+<div class="row mt-4 mb-4">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-2 col-xl-2 mt-1">
+        <button class="adm" routerLink='/dashboard/administracion/estudiante'>
+            <div class="card" style="background-color: #07c9b9  ">
+                <div class="card-body">
+                    <fa-icon [icon]="faStudent" class="icono" style="color:white ;"></fa-icon>
+                  <h5 class="card-title">Estudiantes</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Agregar Estudiantes</h6>
+                  <p class="card-text"></p>
+                </div>
+              </div>
+        </button>
+    </div>
+    <div class="col-12 col-sm-12 col-md-6 col-lg-2 col-xl-2 mt-1">
+        <button class="adm" routerLink='/dashboard/administracion/funcionario'>
+            <div class="card" style="background-color: #02b470;">
+                <div class="card-body">
+                    <fa-icon [icon]="faUser" class="icono" style="color:white ;"></fa-icon>
+                  <h5 class="card-title">Funcionario</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Agregar Funcionario</h6>
+                  <p class="card-text"></p>
+                </div>
+              </div>
+        </button>
+    </div>
+    <div class="col-12 col-sm-12 col-md-6 col-lg-2 col-xl-2 mt-1">
+        <button class="adm" routerLink='/dashboard/administracion/miestablecimiento'>
+            <div class="card" style="background-color: #02b470;">
+                <div class="card-body">
+                    <fa-icon [icon]="faSchool" class="icono" style="color:white ;"></fa-icon>
+                  <h5 class="card-title">Mi Establecimiento</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Mi Establecimiento</h6>
+                  <p class="card-text"></p>
+                </div>
+              </div>
+        </button>
+    </div> 
+</div>
+<div class="row mt-4">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-2 mt-1">
+        <button class="adm" routerLink='/dashboard/administracion/usuarios'>
+            <div class="card" style="background-color: #10cfff;">
+                <div class="card-body">
+                    <fa-icon [icon]="faUser" class="icono" style="color:white ;"></fa-icon>
+                  <h5 class="card-title">Usuarios</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Agregar usuarios, y nivel de accesibilidad</h6>
+                  <p class="card-text"></p>
+                </div>
+              </div>
+        </button>
+    </div>
+    <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-2 mt-1">
+        <button class="adm" routerLink='/dashboard/administracion/establecimiento'>
+            <div class="card" style="background-color: #e6c019">
+                <div class="card-body">
+                    <fa-icon [icon]="faSchool" class="icono" style="color:white ;"></fa-icon>
+                  <h5 class="card-title">Establecimientos</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Agregar Establecimientos</h6>
+                  <p class="card-text"></p>
+                </div>
+              </div>
+        </button>
+    </div>
+    <div class="col-12 mt-4 ml-1">
+        <button class="btn btn-success" routerLink="/dashboard">Volver</button>
+    </div>  
+</div>

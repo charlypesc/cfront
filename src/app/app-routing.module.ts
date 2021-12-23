@@ -43,6 +43,11 @@ import { DenunciaBuscadorComponent } from './components/dashboard/denuncia/denun
 import { ProgramasComponent } from './components/dashboard/programas/programas.component';
 import { NgxPermissionsGuard } from 'ngx-permissions';
 import { VisitaDomicialiariaComponent } from './components/dashboard/visita-domicialiaria/visita-domicialiaria.component';
+import { PanelAdminComponent } from './components/dashboard/administracion/panel-admin/panel-admin.component';
+import { MiEstablecimientoComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/mi-establecimiento.component';
+import { Tematicas } from './models/tematicas';
+import { PanelComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/panel/panel.component';
+import { TematicasComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/tematicas/tematicas.component';
 
 
 const routes: Routes = [
@@ -89,20 +94,16 @@ const routes: Routes = [
       { path: 'reuniones', component: ReunionesActasComponent },
       { path: 'programas', component:ProgramasComponent },
       { path: 'panelBienvenida', component: PanelBienvenidaComponent }, 
-      { path: 'administracion', component: AdministracionComponent},
-      { path: 'administracion/ingresos', component: IngresosComponent},
-      { path: 'administracion/ingresos/funcionario', component: FuncionarioComponent},
-      { path: 'administracion/ingresos/estudiante', component:EstudianteComponent },
-      { path: 'administracion/ingresos/establecimiento', 
-        component:EstablecimientoComponent,
-        canActivate:[NgxPermissionsGuard],
-        data:{
-          Permissions:{only:'SuperAdministrador'}
-        } 
-      },
-      { path: 'administracion/ingresos/usuario', component:UsuarioComponent},
-
-      
+      { path: 'administracion', component: AdministracionComponent, children:[
+        { path:'paneladm', component: PanelAdminComponent },
+        { path: 'funcionario', component: FuncionarioComponent },
+        { path: 'ingresos', component: IngresosComponent },
+        { path: 'estudiante', component: EstudianteComponent },
+        { path: 'establecimiento', component: EstablecimientoComponent},
+        { path: 'usuarios', component: UsuarioComponent},
+        { path: 'miestablecimiento', component: PanelComponent },
+        { path:'tematicas', component:TematicasComponent },
+      ]},
   ]},
   { path: '**', redirectTo: '/inicio/bienvenidos', pathMatch: 'full' }
 ];

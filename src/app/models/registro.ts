@@ -1,5 +1,6 @@
 import { ParticipanteReg } from "./participanteReg";
 import { ProtocolosActuacion } from "./protocolosActuacion";
+import { TematicasReg } from "./tematicasReg";
 
 export class Registro{
     id?:number;
@@ -12,8 +13,20 @@ export class Registro{
     rbd?:string;
     participanteReg?:ParticipanteReg[];
     protocoloReg?:ProtocolosActuacion[];
+    tematicasReg?:TematicasReg[];
 
-    constructor(profesional:string, asunto:string, fecha:Date, antecedentes?:string, participanteReg?:ParticipanteReg[],id?:string,usuarioId?:number,acuerdos?:string,rbd?:string, protocoloReg?:ProtocolosActuacion[]){
+    constructor(profesional:string, 
+        asunto:string, 
+        fecha:Date, 
+        antecedentes?:string, 
+        participanteReg?:ParticipanteReg[],
+        id?:string,
+        usuarioId?:number,
+        acuerdos?:string,
+        rbd?:string, 
+        protocoloReg?:ProtocolosActuacion[],
+        tematicasReg?:TematicasReg[])
+        {
 
         this.profesional=profesional;
         this.asunto=asunto;
@@ -24,6 +37,7 @@ export class Registro{
         this.rbd=rbd;
         this.participanteReg=participanteReg; 
         this.protocoloReg=protocoloReg
+        this.tematicasReg=tematicasReg
 
-    }
+        }
 }

@@ -13,6 +13,8 @@ import { DataStorage } from 'src/app/models/dataStorage';
 import { CreatePdfService } from 'src/app/services/create-pdf.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Tematicas } from 'src/app/models/tematicas';
+import { TematicasReg } from 'src/app/models/tematicasReg';
 
 @Component({
   selector: 'app-reg-paso-dos',
@@ -30,10 +32,16 @@ export class RegPasoDosComponent implements OnInit {
   idProtocolo:number;
   html:any;
   loading:boolean=false;
+  tematicaPedagogica:any
+  pedagogico:any
 
+  lstStaticData:Tematicas[]=[
+    {id:1, tematica:'Pedagogico', descripcion:null, rbd:'7647-3'},
+    {id:2, tematica:'Asistencia', descripcion:null, rbd:'7647-3' },
+    {id:3, tematica: 'Consumo de Drogas', descripcion: null, rbd:'7647-3'}
+  ]
+  selectTematicas:number[];
   @ViewChild ('registro')registroPdf:ElementRef;
-  
-  // stringifiedData: any; 
 
   numRut:string;
   datosRegFaltantes:FormGroup;
@@ -41,6 +49,7 @@ export class RegPasoDosComponent implements OnInit {
   rbd: string;
   protocolos:any=[];
   temporalProtocolos:Array<any>=[]
+  tematicasReg:any;
 
   constructor(private fb:FormBuilder,
               private registroService: RegistroService,
@@ -51,7 +60,7 @@ export class RegPasoDosComponent implements OnInit {
 			        private loginService:LoginService,
               private createPdfService: CreatePdfService,
               private router:Router) 
-				{
+				      {
                 this.datosRegFaltantes=this.fb.group({
                   profesional:[this.profesional],
                   asunto:[''],
@@ -64,7 +73,7 @@ export class RegPasoDosComponent implements OnInit {
   ngOnInit(): void 
 
   {
-    
+    console.log(this.lstStaticData)
     //this.asunto=this.registroService.asunto;
     this.fecha=this.registroService.fecha;
 	  this.profesional = this.loginService.getTokenDecoded().sub;
@@ -72,93 +81,127 @@ export class RegPasoDosComponent implements OnInit {
     this.usuarioId=this.loginService.getTokenDecoded().idUsuario;
     this.buscarProtocolos();
 
+    this.selectTematicas = new Array <number>();
     
   }
-  //Protocolos paso 1: trae los protocolos de la api
-  buscarProtocolos(){
-    return this.protocolosService.getProtocolos(this.rbd).subscribe(data=>{
-      this.protocolos = data;
-	  console.log(this.protocolos)
-    }, error=>{
-      this.toastr.error('No podemos encontrar los protocolos','No hay protocolos ingresados?')
-    })
+// - - - - - M E T O D O S   T  E M A T I C A S - - - - - 
+  getTematicaId(e:any, id:number, tematica:string)
+  {
+    if(e.target.checked)
+    {
+      console.log(id + 'checked')
+      this.selectTematicas.push(id)
+      this.createTematicaObj(id);
+    }else
+    {
+      console.log(id + 'UnChecked')
+      this.selectTematicas = this.selectTematicas.filter(m=>m!=id)//LOGICA: metodo crea un nuevo array que llena con elementos provistas por la funcion (funcion no llena el array con el elemento coincidente)
+      this.createTematicaObj(id)
+    }
+    console.log(this.selectTematicas)
   }
-  //Protocolos paso 2; del evento del select, pasa el valor Id a la funcion y carga el idProtocolo que ha sido seleccionado
-  changeFn(e) {
-    this.idProtocolo = e;
+  createTematicaObj(id:number){
+    const arrayTematicasObj:TematicasReg[]=[]
+
+    for (let index = 0; index < this.selectTematicas.length; index++) {
+      const arrayTematicas : TematicasReg = new TematicasReg()
+      arrayTematicas.tematica=this.lstStaticData[index].tematica
+      arrayTematicas.numeroId=this.lstStaticData[index].id
+      arrayTematicas.rbd=this.lstStaticData[index].rbd
+      arrayTematicasObj.push(arrayTematicas)
+    }
+    this.tematicasReg=arrayTematicasObj;
+    console.log(this.tematicasReg)
+
+
   }
-  //protocolos paso 3 se crea el array temporal con los protocolos seleccionados
-	protocolosArrayTemporal(){
+  //- - - - -  M E T O D O S    P R O T O C O L O S - - - - - 
+  
+  buscarProtocolos()//Protocolos paso 1: trae los protocolos de la api
+    {
+      return this.protocolosService.getProtocolos(this.rbd).subscribe(data=>{
+        this.protocolos = data;
+      console.log(this.protocolos)
+      }, error=>{
+        this.toastr.error('No podemos encontrar los protocolos','No hay protocolos ingresados?')
+      })
+    }
 
-	this.temporalProtocolos.push(this.protocolos[this.idProtocolo])
-
-
-  }
-
-  //protocolos eliminar del array
-    eliminaProtocolo(inde:number):void{
-
-      
+  changeFn(e)//Protocolos paso 2; del evento del select, pasa el valor Id a la funcion y carga el idProtocolo que ha sido seleccionado 
+    {
+      this.idProtocolo = e;
+    }
+  
+  protocolosArrayTemporal() //protocolos paso 3 se crea el array temporal con los protocolos seleccionados
+    {
+        this.temporalProtocolos.push(this.protocolos[this.idProtocolo])
+    }
+  eliminaProtocolo(inde:number):void//protocolos eliminar del array
+    {
       this.temporalProtocolos.splice(inde,inde+1);
     }
 
+// -------- M E T O D O S   G U A R D A    R E G I S T R O  ------- 
+  saveRegistro():void
+  {
 
-  saveRegistro():void{
-    const arrayRuts= this.arrayRutParticipantesService.arrayRutParticipante
-    const arrayPart: ParticipanteReg[] = []
-    const protocolosDef: ProtocolosActuacion[]=[]
-    
+            const arrayRuts= this.arrayRutParticipantesService.arrayRutParticipante
+            const arrayPart: ParticipanteReg[] = []
+            const protocolosDef: ProtocolosActuacion[]=[]
+            
 
-    // L I S T A -- P A R T I C I P A N T E S
-    for(let i=0; i < arrayRuts.length;i++){
-      const arrayParticipantes: ParticipanteReg = new ParticipanteReg()
-	  	arrayParticipantes.rut=arrayRuts.controls[i].value.run;
-		  arrayParticipantes.nombreParticipante=arrayRuts.controls[i].value.nombre
-		  arrayParticipantes.fechaIngreso=this.datosRegFaltantes.value.fecha
-      arrayParticipantes.asunto=this.datosRegFaltantes.value.asunto;
-      arrayParticipantes.activo=1;
-      arrayParticipantes.rbd=this.rbd;
-      arrayParticipantes.usuarioId=this.usuarioId;
-      arrayPart.push(arrayParticipantes)
-    }
+            // L I S T A -- P A R T I C I P A N T E S
+            for(let i=0; i < arrayRuts.length;i++){
+              const arrayParticipantes: ParticipanteReg = new ParticipanteReg()
+              arrayParticipantes.rut=arrayRuts.controls[i].value.run;
+              arrayParticipantes.nombreParticipante=arrayRuts.controls[i].value.nombre
+              arrayParticipantes.fechaIngreso=this.datosRegFaltantes.value.fecha
+              arrayParticipantes.asunto=this.datosRegFaltantes.value.asunto;
+              arrayParticipantes.activo=1;
+              arrayParticipantes.rbd=this.rbd;
+              arrayParticipantes.usuarioId=this.usuarioId;
+              arrayPart.push(arrayParticipantes)
+            }
 
-  // L I S T A -- P R O T O C O L O S
+          // L I S T A -- P R O T O C O L O S
 
-    for(let p=0;p<this.temporalProtocolos.length;p++){
-    const arrayProtocolos: ProtocolosActuacion = new ProtocolosActuacion()
-    arrayProtocolos.nombreProtocolo=this.temporalProtocolos[p].nombreProtocolo
-    arrayProtocolos.descripcionProtocolo=this.temporalProtocolos[p].descripcionProtocolo
-    protocolosDef.push(arrayProtocolos);
-  }
-    
-    this.acuerdos=this.datosRegFaltantes.value.acuerdos;
-    
-  // R E G I S T R O - - - C O M P L E T O
+            for(let p=0;p<this.temporalProtocolos.length;p++){
+            const arrayProtocolos: ProtocolosActuacion = new ProtocolosActuacion()
+            arrayProtocolos.nombreProtocolo=this.temporalProtocolos[p].nombreProtocolo
+            arrayProtocolos.descripcionProtocolo=this.temporalProtocolos[p].descripcionProtocolo
+            protocolosDef.push(arrayProtocolos);
+          }
+            
+            this.acuerdos=this.datosRegFaltantes.value.acuerdos;
+            console.log('P R O T O C O L O S')
+            console.log(protocolosDef)
+          // R E G I S T R O - - - C O M P L E T O
 
-    const registro: Registro={
-      asunto:this.datosRegFaltantes.value.asunto,
-      fecha:this.datosRegFaltantes.value.fecha,
-      profesional:this.profesional,
-      antecedentes:this.datosRegFaltantes.value.antecedentes,
-      acuerdos:this.datosRegFaltantes.value.acuerdos,
-      usuarioId:this.usuarioId,
-      rbd:this.rbd,
-      participanteReg:arrayPart,
-      protocoloReg:protocolosDef
-    }
-    this.registroService.guardarRegistro(registro).subscribe(data=>{
-       
-      Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'El Registro ha sido guardado exitosamente..',
-        showConfirmButton: false,
-        timer: 3000
-      })
-      this.router.navigate(['/dashboard/busqueda/busqregpasotres/'+data.numeroRegistro+'/'+false])
-    }, error =>{
-      this.toastr.error('Algo salio mal, contacta al administrador del sistema')
-    });
+            const registro: Registro={
+              asunto:this.datosRegFaltantes.value.asunto,
+              fecha:this.datosRegFaltantes.value.fecha,
+              profesional:this.profesional,
+              antecedentes:this.datosRegFaltantes.value.antecedentes,
+              acuerdos:this.datosRegFaltantes.value.acuerdos,
+              usuarioId:this.usuarioId,
+              rbd:this.rbd,
+              participanteReg:arrayPart,
+              protocoloReg:protocolosDef,
+              tematicasReg:this.tematicasReg
+            }
+            this.registroService.guardarRegistro(registro).subscribe(data=>{
+              
+              Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'El Registro ha sido guardado exitosamente..',
+                showConfirmButton: false,
+                timer: 3000
+              })
+              this.router.navigate(['/dashboard/busqueda/busqregpasotres/'+data.numeroRegistro+'/'+false])
+            }, error =>{
+              this.toastr.error('Algo salio mal, contacta al administrador del sistema')
+            });
 
   }
 

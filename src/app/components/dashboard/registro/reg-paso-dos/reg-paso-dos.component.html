@@ -27,16 +27,11 @@
                     </div>
                     <div class="row pt-5">
                         <div class="col-6">
-                            <p>Selecciona tematica</p></div>
+                            <p><strong>Selecciona temática </strong></p></div>
                         </div>
                     <div class="row">
-                        <div class="col-6">
-                            <select name="" id="" class="form-control">
-                                <option value="">Selecciona tematica o caracter de intervencion</option>
-                                <option value="">Pedagogico</option>
-                                <option value="">Asistencia</option>
-                                <option value="">Convivencia</option>
-                            </select>
+                        <div class="col-3" *ngFor="let item of lstStaticData">
+                            <div class="d-flex align-items-baseline"><input type="checkbox" class="mr-1"  [value]="item.id" (change)="getTematicaId($event, item.id, item.tematica, item.rbd)"><p>{{item.tematica}}</p></div>
                         </div>
                     </div>
                     <div class="row pt-4 mt-4 mb-4">

@@ -12,6 +12,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms'; 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxPermissionsModule } from 'ngx-permissions';
+import { SimpleModalModule } from 'ngx-simple-modal';
 // componentes
 import { AppComponent } from './app.component';
 import { InicioComponent } from './components/inicio/inicio.component';
@@ -59,6 +60,11 @@ import { DenunciaPasoDosComponent } from './components/dashboard/denuncia/denunc
 import { DenunciaBuscadorComponent } from './components/dashboard/denuncia/denuncia-buscador/denuncia-buscador.component';
 import { ProgramasComponent } from './components/dashboard/programas/programas.component';
 import { VisitaDomicialiariaComponent } from './components/dashboard/visita-domicialiaria/visita-domicialiaria.component';
+import { MiEstablecimientoComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/mi-establecimiento.component';
+import { TematicasComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/tematicas/tematicas.component';
+import { PanelComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/panel/panel.component';
+import { PanelAdminComponent } from './components/dashboard/administracion/panel-admin/panel-admin.component';
+
 
 
 
@@ -110,6 +116,10 @@ import { VisitaDomicialiariaComponent } from './components/dashboard/visita-domi
     DenunciaBuscadorComponent,
     ProgramasComponent,
     VisitaDomicialiariaComponent,
+    MiEstablecimientoComponent,
+    TematicasComponent,
+    PanelComponent,
+    PanelAdminComponent,
     
 
   ],
@@ -122,7 +132,8 @@ import { VisitaDomicialiariaComponent } from './components/dashboard/visita-domi
     HttpClientModule,
     FormsModule,
     FontAwesomeModule,
-    NgxPermissionsModule.forRoot()
+    NgxPermissionsModule.forRoot(),
+    SimpleModalModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AddTokenInterceptor, multi:true}],
   bootstrap: [AppComponent]

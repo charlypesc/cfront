@@ -1,0 +1,21 @@
+.adm{
+    border-style: none;
+    background-color: white;
+    
+}
+
+
+.icono{
+    font-size: 6rem;
+    
+}
+.card{
+    width: 250px;
+    height: 250px;
+    color:white;
+}
+.adm :hover{
+    background-color: rgb(90, 103, 104);
+    border-color: rgb(90, 103, 104);
+    
+}
