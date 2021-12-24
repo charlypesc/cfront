@@ -64,6 +64,10 @@ import { MiEstablecimientoComponent } from './components/dashboard/administracio
 import { TematicasComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/tematicas/tematicas.component';
 import { PanelComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/panel/panel.component';
 import { PanelAdminComponent } from './components/dashboard/administracion/panel-admin/panel-admin.component';
+import { PanelTematicasComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/tematicas/panel-tematicas/panel-tematicas.component';
+import { VerTematicasComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/tematicas/ver-tematicas/ver-tematicas.component';
+import { NuevaTematicasComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/tematicas/nueva-tematicas/nueva-tematicas.component';
+import { EditarTematicasComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/tematicas/editar-tematicas/editar-tematicas.component';
 
 
 
@@ -120,6 +124,10 @@ import { PanelAdminComponent } from './components/dashboard/administracion/panel
     TematicasComponent,
     PanelComponent,
     PanelAdminComponent,
+    PanelTematicasComponent,
+    VerTematicasComponent,
+    NuevaTematicasComponent,
+    EditarTematicasComponent,
     
 
   ],

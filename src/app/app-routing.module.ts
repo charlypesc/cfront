@@ -48,6 +48,10 @@ import { MiEstablecimientoComponent } from './components/dashboard/administracio
 import { Tematicas } from './models/tematicas';
 import { PanelComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/panel/panel.component';
 import { TematicasComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/tematicas/tematicas.component';
+import { PanelTematicasComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/tematicas/panel-tematicas/panel-tematicas.component';
+import { VerTematicasComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/tematicas/ver-tematicas/ver-tematicas.component';
+import { EditarTematicasComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/tematicas/editar-tematicas/editar-tematicas.component';
+import { NuevaTematicasComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/tematicas/nueva-tematicas/nueva-tematicas.component';
 
 
 const routes: Routes = [
@@ -101,8 +105,16 @@ const routes: Routes = [
         { path: 'estudiante', component: EstudianteComponent },
         { path: 'establecimiento', component: EstablecimientoComponent},
         { path: 'usuarios', component: UsuarioComponent},
-        { path: 'miestablecimiento', component: PanelComponent },
-        { path:'tematicas', component:TematicasComponent },
+        { path: 'miestablecimiento', component: MiEstablecimientoComponent,children:[
+          { path:'paneladm', component:PanelComponent},
+          { path:'tematicas', component:TematicasComponent,children:[
+            {path:'paneltematicas', component:PanelTematicasComponent},
+            { path:'vertematicas', component:VerTematicasComponent },
+            { path:'editartematicas', component: EditarTematicasComponent },
+            { path:'nuevatematica', component:NuevaTematicasComponent }
+          ]},
+        ] },
+        
       ]},
   ]},
   { path: '**', redirectTo: '/inicio/bienvenidos', pathMatch: 'full' }

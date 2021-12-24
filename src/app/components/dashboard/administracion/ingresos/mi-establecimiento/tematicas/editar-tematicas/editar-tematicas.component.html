@@ -1,0 +1,24 @@
+<div class="row mt-4">
+    <div class="col-lg-7 offset-lg-3 mt-4">
+        <div class="card p-4">
+            <form>
+                <div class="card-body">
+                    <h4>Actualización Tematica</h4>
+                    <p class="text-secondary">Los cambios realizados modificaran los posteriores ingresos de registro que se realicen</p>
+                    <div class="form-row mt-4">
+                        <h5>Nombre del Protocolo</h5>
+                        <input class="form-control" type="text"  formControlName="nombreProtocolo">
+                    </div>
+                    <div class="form-row mt-4">
+                        <h5>Descripcion del Protocolo</h5>
+                        <textarea class="form-control" name="" id="" cols="30" rows="5"  formControlName="descripcionProtocolo"></textarea>
+                    </div>
+                </div>
+            </form>
+            <div class="form-row justify-content-center">
+                <button class="btn btn-success mr-2">Aceptar</button>
+                <button class="btn btn-primary " routerLink="/dashboard/protocolos/panelprotocolo">Volver</button>
+            </div>   
+        </div>
+    </div>
+</div>
