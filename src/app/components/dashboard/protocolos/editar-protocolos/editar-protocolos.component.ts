@@ -50,7 +50,7 @@ datosProtocolos:any = [];
     }
     Swal.fire({
       title:'Estas Seguro',
-        text:'Esta accion modificara el actual protocolo',
+        text:'Esta accion modificará el actual protocolo',
         icon:'question',
         showCancelButton:true,
         confirmButtonColor:'#3085d6',

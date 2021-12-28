@@ -110,7 +110,7 @@ const routes: Routes = [
           { path:'tematicas', component:TematicasComponent,children:[
             {path:'paneltematicas', component:PanelTematicasComponent},
             { path:'vertematicas', component:VerTematicasComponent },
-            { path:'editartematicas', component: EditarTematicasComponent },
+            { path:'editartematicas/:numIdTematica', component: EditarTematicasComponent },
             { path:'nuevatematica', component:NuevaTematicasComponent }
           ]},
         ] },

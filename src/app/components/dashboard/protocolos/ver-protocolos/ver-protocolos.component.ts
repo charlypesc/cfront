@@ -41,7 +41,7 @@ permissionOnly:string="USUARIO"
   }
 getProtocolos(){
     return this.protocolosService.getProtocolos(this.rbd).subscribe(data =>{
-      console.log(data)
+      //console.log(data)
       this.datosProtocolos = data;
     }, error=>{
       this.toastr.error('Error al traer la informacion', 'No se encuentra info')

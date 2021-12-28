@@ -18,5 +18,18 @@ export class TematicasService {
   guardarTematica(tematica: Tematicas):Observable<any>{
     return this.http.post(this.myAppUrl+this.myApiUrl, tematica);
   }
+  getTematicas(rbd): Observable<any>{
+    return this.http.get(this.myAppUrl+this.myApiUrl+'/'+rbd);
+   }
+   getTematicaById(id:number):Observable<any>{
+    return this.http.get(this.myAppUrl+this.myApiUrl+'/getTematica/'+id)
+   }
+   deleteTematica(idTematica): any{
+    return this.http.delete(this.myAppUrl+this.myApiUrl+'/'+idTematica);
+   }
+
+   updateTematica(tematica: Tematicas): Observable<any>{
+    return this.http.put(this.myAppUrl+this.myApiUrl+'/actualizaTematica/', tematica)
+   }
 
 }

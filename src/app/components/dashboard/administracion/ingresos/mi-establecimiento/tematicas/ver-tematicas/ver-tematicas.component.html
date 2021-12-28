@@ -1,1 +1,29 @@
-<p>ver-tematicas works!</p>
+<div class="container">
+    <div class="row" style="width: 100%;">
+        <div class="col-lg-10 offset-lg-1">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Tematicas</h5>
+                    <p class="card-text">Listado de tematicas ingresadas en el establecimiento</p>
+                </div>
+                <table class="table table-bordered">
+                    <tr>
+                        <td>N°</td>
+                        <td>Nombre Tematica</td>
+                        <td>Editar</td>
+                        <td>Eliminar</td>
+                    </tr>
+                    <tr *ngFor="let item of datosTematica; let x=index">
+                        <td>{{x+1}}</td>
+                        <td>{{item.tematica}}</td>
+                        <td class="text-center text-success"><span class="material-icons" routerLink="/dashboard/administracion/miestablecimiento/tematicas/editartematicas/{{item.id}}">note_add</span></td>
+                        <td class="text-center text-danger"><span class="material-icons" (click)="borrarTematica(item.id)">delete</span></td>
+                    </tr>
+                </table>
+                <div class="row d-flex justify-content-center pt-4 pb-4">
+                    <button class="btn btn-primary" routerLink="/dashboard/administracion/miestablecimiento/tematicas/paneltematicas/">Volver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
