@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="row" style="width: 100%;">
+        <div class="col-lg-7 offset-lg-3">
+            <div class="card text-left p-4">
+                <h2 class="text-primary">Paso 1 de 2</h2>
+                <h3 class="text-black-60 mt-4">Ingreso de Registro de reuniones </h3>
+                <p class="text-secondary">En esta sección puedes generar un registro de reunion con grupos de docentes. También puedes ingresar una reunion con terceros que no forman parte de la comunidad escolar</p>
+                <p class="mt-4">Indica los datos requeridos y pasa al segundo paso</p>
+                <form>
+                    <div class="form-row justify-content-between">
+                        <div class="col-3">
+                            <p class="text-secondary mt-2">Profesional</p>
+                        </div>
+                        <div class="col-8"><input type="text" class="form-control" disabled></div>
+                    </div>
+                    <div class="form-row justify-content-between">
+                        <div class="col-3">
+                            <p class="text-secondary mr-3 mt-2">Tipo de Reunion</p>
+                        </div>
+                        <div class="col-8">
+                            <!-- <input type="text" class="form-control" placeholder="Ej: Pelea en Recreo" formControlName="asunto">
+                            <div class="mt-2 text-danger" *ngIf= "datosDenuncia.get('asunto').hasError('required') && datosDenuncia.get('asunto').touched"><p>Debes ingresar el asunto</p></div> -->
+                            <select class="form-control">
+                                <option value="">Seleccionar tipo reunión</option>
+                                <option value="">Visita Domiciliaria</option>
+                                <option value="">Reunión con Profesionales</option>
+                                <option value="">Otra</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row justify-content-between">
+                        <div class="col-4">
+                        <p class="text-secondary mr-3 mt-2">N° Rut a asociar</p>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Ej: 17948413K" formControlName="asunto">
+                        </div>
+                        <div class="ml-auto">
+                            <button class="btn btn-warning text-white">Asociar</button>
+                        </div>
+                    </div>
+                    <div class="form-row justify-content-between">
+                        <div class="col-3">
+                            <p class="text-secondary mr-3 mt-2">Fecha</p>
+                        </div>
+                        <div class="col-8">
+                            <input type="date" class="form-control" formControlName="fecha">
+                            <div class="mt-2 text-danger" style="display: none;"><p>Debes ingresar la fecha</p></div>   
+                        </div>
+                    </div>
+                    <div class="form-row justify-content-between">
+                        <div class="col-3">
+                            <p class="text-secondary mr-3 mt-2">Asunto</p>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" class="form-control" formControlName="fecha">
+                            <div class="mt-2 text-danger" style="display: none;"><p>Debes ingresar la fecha</p></div>   
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col d-flex justify-content-center">
+                            <button class="btn btn-success text-white mr-3"  type="button" routerLink="/dashboard/reuniones/reupasodos">Guardar</button>
+                            <button class="btn btn-primary text-white mr-3" type="button" routerLink="dashboard.">Volver</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -68,6 +68,8 @@ import { PanelTematicasComponent } from './components/dashboard/administracion/i
 import { VerTematicasComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/tematicas/ver-tematicas/ver-tematicas.component';
 import { NuevaTematicasComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/tematicas/nueva-tematicas/nueva-tematicas.component';
 import { EditarTematicasComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/tematicas/editar-tematicas/editar-tematicas.component';
+import { ReuPasoUnoComponent } from './components/dashboard/reuniones-actas/reu-paso-uno/reu-paso-uno.component';
+import { ReuPasoDosComponent } from './components/dashboard/reuniones-actas/reu-paso-dos/reu-paso-dos.component';
 
 
 
@@ -128,6 +130,8 @@ import { EditarTematicasComponent } from './components/dashboard/administracion/
     VerTematicasComponent,
     NuevaTematicasComponent,
     EditarTematicasComponent,
+    ReuPasoUnoComponent,
+    ReuPasoDosComponent,
     
 
   ],

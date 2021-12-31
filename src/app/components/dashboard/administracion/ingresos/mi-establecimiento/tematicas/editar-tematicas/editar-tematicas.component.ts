@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Tematicas } from 'src/app/models/tematicas';
 import { TematicasService } from 'src/app/services/tematicas.service';
 import Swal from 'sweetalert2';
@@ -16,6 +16,7 @@ datosTematica:any=[]
 actualizaTematica:FormGroup;
   constructor(private aRoute:ActivatedRoute,
               private fb:FormBuilder,
+              private router:Router,
               private tematicaService:TematicasService) 
   {
     this.id=+this.aRoute.snapshot.paramMap.get('numIdTematica')
@@ -30,7 +31,7 @@ actualizaTematica:FormGroup;
     this.getTematicas(this.id);
   }
 
-  getTematicas(id:number)
+  getTematicas(id:number) 
   {
     this.tematicaService.getTematicaById(id).subscribe(data=>
       {
@@ -63,7 +64,8 @@ actualizaTematica:FormGroup;
               console.log(data)    
         
             })  
-            Swal.fire('Actualizado','Protocolo Actualizado','success')  
+            Swal.fire('Actualizado','Protocolo Actualizado','success')
+            this.router.navigate(['/dashboard/administracion/miestablecimiento/tematicas/vertematicas'])  
             }
           })
   }

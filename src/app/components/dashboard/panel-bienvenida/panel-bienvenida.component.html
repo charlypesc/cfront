@@ -30,7 +30,7 @@
                   </div>
             </button>
         </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mt-1">
+        <!-- <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mt-1">
           <button class="adm" routerLink="protocolos/panelprotocolo">
               <div class="card" style="background-color: #8d36af;">
                   <div class="card-body">
@@ -41,19 +41,20 @@
                   </div>
                 </div>
           </button>
-      </div>
-      <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mt-1">
-        <button class="adm" routerLink='/dashboard/administracion/paneladm'>
-            <div class="card admin">
-                <div class="card-body">
-                    <fa-icon [icon]="faCogs" class="icono" style="color:white ;"></fa-icon>
-                  <h5 class="card-title">Administracion</h5>
-                  <h6 class="card-subtitle mb-2" style="color: rgb(235, 235, 235);">Agregar usuarios, funcionarios...</h6>
-                  <p class="card-text"></p>
-                </div>
-              </div>
-        </button>
-      </div>
+        </div> -->
+        <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mt-4">
+            <button class="adm" routerLink="reuniones/reupasouno">
+                <div class="card none" style="background-color: #088d8d;">
+                    <div class="card-body">
+                        <fa-icon [icon]="faHandshake" class="icono" style="color:rgb(255, 255, 255);"></fa-icon>
+                      <h5 class="card-title">Reuniones</h5>
+                      <h6 class="card-subtitle mb-2 text-white">Ingresa Visitas Domiciliaria, Reuniones con docentes</h6>
+                      <p class="card-text"></p>
+                    </div>
+                  </div>
+            </button>
+        </div>
+
         <div class="col-12 col-sm-6 col-md-6 col-lg-2 col-xl-3 mt-4">
             <button class="adm" routerLink="/dashboard/denuncia/denunciapasouno">
                 <div class="card" style="background-color: #f3bc09;background-color: grey;">
@@ -61,30 +62,6 @@
                         <fa-icon [icon]="faGavel" class="icono" style="color:white ;"></fa-icon>
                       <h5 class="card-title">Denuncias</h5>
                       <h6 class="card-subtitle mb-2 text-white">Ingresa una accion de terceros...</h6>
-                      <p class="card-text"></p>
-                    </div>
-                  </div>
-            </button>
-        </div>
-        <div class="col-12 col-sm-6 col-md-6 col-lg-2 col-xl-3 mt-4">
-            <button class="adm" routerLink="/dashboard/visitas">
-                <div class="card none" style="background-color: #8edf58;background-color: grey;">
-                    <div class="card-body">
-                        <fa-icon [icon]="faHome" class="icono" style="color:white ;"></fa-icon>
-                      <h5 class="card-title">Visita Domiciliaria</h5>
-                      <h6 class="card-subtitle mb-2 text-muted">Ingreso de Reunion en Domicilio</h6>
-                      <p class="card-text"></p>
-                    </div>
-                  </div>
-            </button>
-        </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mt-4">
-            <button class="adm" style="cursor: not-allowed; "routerLink="reuniones">
-                <div class="card none" style="background-color: #088d8d;background-color: grey;">
-                    <div class="card-body">
-                        <fa-icon [icon]="faHandshake" class="icono" style="color:rgb(255, 255, 255);"></fa-icon>
-                      <h5 class="card-title">Reuniones (Actas)</h5>
-                      <h6 class="card-subtitle mb-2 text-white">Agrega reuniones con equipos de profesionales...</h6>
                       <p class="card-text"></p>
                     </div>
                   </div>
@@ -101,5 +78,17 @@
                   </div>
                 </div>
           </button>
-        </div>  
+        </div> 
+        <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mt-1">
+          <button class="adm" routerLink='/dashboard/administracion/paneladm'>
+              <div class="card admin">
+                  <div class="card-body">
+                      <fa-icon [icon]="faCogs" class="icono" style="color:white ;"></fa-icon>
+                    <h5 class="card-title">Administracion</h5>
+                    <h6 class="card-subtitle mb-2" style="color: rgb(235, 235, 235);">Agregar usuarios, funcionarios...</h6>
+                    <p class="card-text"></p>
+                  </div>
+                </div>
+          </button>
+        </div>
     </div>

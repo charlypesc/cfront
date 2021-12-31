@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { LoginService } from 'src/app/services/login.service';
 import { TematicasService } from 'src/app/services/tematicas.service';
@@ -14,6 +15,7 @@ export class VerTematicasComponent implements OnInit {
   rbd:string;
   idTematica: number;
   datosTematica:any=[]
+  faPlus=faPlus
   constructor(private LoginService:LoginService,
               private TematicasService:TematicasService,
               private toastr:ToastrService) 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { NgxPermissionsService } from 'ngx-permissions';
 import { ToastrService } from 'ngx-toastr';
 import { ProtocolosActuacion } from 'src/app/models/protocolosActuacion';
@@ -16,7 +17,7 @@ import { ProtocolosComponent } from '../protocolos.component';
 })
 export class VerProtocolosComponent implements OnInit {
 rbd:string;
-
+faPlus=faPlus
 idProtocolo: number;
 datosProtocolos:any=[]
 

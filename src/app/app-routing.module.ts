@@ -52,6 +52,8 @@ import { PanelTematicasComponent } from './components/dashboard/administracion/i
 import { VerTematicasComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/tematicas/ver-tematicas/ver-tematicas.component';
 import { EditarTematicasComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/tematicas/editar-tematicas/editar-tematicas.component';
 import { NuevaTematicasComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/tematicas/nueva-tematicas/nueva-tematicas.component';
+import { ReuPasoUnoComponent } from './components/dashboard/reuniones-actas/reu-paso-uno/reu-paso-uno.component';
+import { ReuPasoDosComponent } from './components/dashboard/reuniones-actas/reu-paso-dos/reu-paso-dos.component';
 
 
 const routes: Routes = [
@@ -95,7 +97,11 @@ const routes: Routes = [
         {path:'editarprotocolos/:numIdProtocolo', component:EditarProtocolosComponent}
       ]},
       { path: 'visitas', component: VisitaDomicialiariaComponent },
-      { path: 'reuniones', component: ReunionesActasComponent },
+      { path: 'reuniones', component: ReunionesActasComponent, children:[
+        { path:'reupasouno', component: ReuPasoUnoComponent },
+        { path: 'reupasodos', component: ReuPasoDosComponent }
+      ] 
+      },
       { path: 'programas', component:ProgramasComponent },
       { path: 'panelBienvenida', component: PanelBienvenidaComponent }, 
       { path: 'administracion', component: AdministracionComponent, children:[

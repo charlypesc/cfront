@@ -47,7 +47,7 @@ export class NuevaTematicasComponent implements OnInit {
         showConfirmButton: false,
         timer: 3000
       })
-      //ruta de navegacion
+      this.router.navigate(['/dashboard/administracion/miestablecimiento/tematicas/paneltematicas'])
     },error=>{
 
       Swal.fire({

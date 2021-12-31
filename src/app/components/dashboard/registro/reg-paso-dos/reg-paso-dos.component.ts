@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Tematicas } from 'src/app/models/tematicas';
 import { TematicasReg } from 'src/app/models/tematicasReg';
+import { TematicasService } from 'src/app/services/tematicas.service';
 
 @Component({
   selector: 'app-reg-paso-dos',
@@ -35,11 +36,7 @@ export class RegPasoDosComponent implements OnInit {
   tematicaPedagogica:any
   pedagogico:any
 
-  lstStaticData:Tematicas[]=[
-    {id:1, tematica:'Pedagogico', descripcion:null, rbd:'7647-3'},
-    {id:2, tematica:'Asistencia', descripcion:null, rbd:'7647-3' },
-    {id:3, tematica: 'Consumo de Drogas', descripcion: null, rbd:'7647-3'}
-  ]
+  lstStaticData:any;
   selectTematicas:number[];
   @ViewChild ('registro')registroPdf:ElementRef;
 
@@ -59,7 +56,8 @@ export class RegPasoDosComponent implements OnInit {
               private protocolosService: ProtocolosService,
 			        private loginService:LoginService,
               private createPdfService: CreatePdfService,
-              private router:Router) 
+              private router:Router, 
+              private tematicasService:TematicasService) 
 				      {
                 this.datosRegFaltantes=this.fb.group({
                   profesional:[this.profesional],
@@ -80,12 +78,19 @@ export class RegPasoDosComponent implements OnInit {
     this.rbd = this.loginService.getTokenDecoded().Rbd;
     this.usuarioId=this.loginService.getTokenDecoded().idUsuario;
     this.buscarProtocolos();
+    this.cargarTematicas();
 
     this.selectTematicas = new Array <number>();
     
   }
 // - - - - - M E T O D O S   T  E M A T I C A S - - - - - 
+  cargarTematicas(){
+    this.tematicasService.getTematicas(this.rbd).subscribe(data=>{
+      this.lstStaticData=data;
+    })
+  }
   getTematicaId(e:any, id:number, tematica:string)
+
   {
     if(e.target.checked)
     {
@@ -111,9 +116,6 @@ export class RegPasoDosComponent implements OnInit {
       arrayTematicasObj.push(arrayTematicas)
     }
     this.tematicasReg=arrayTematicasObj;
-    console.log(this.tematicasReg)
-
-
   }
   //- - - - -  M E T O D O S    P R O T O C O L O S - - - - - 
   
