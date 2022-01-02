@@ -99,7 +99,7 @@ const routes: Routes = [
       { path: 'visitas', component: VisitaDomicialiariaComponent },
       { path: 'reuniones', component: ReunionesActasComponent, children:[
         { path:'reupasouno', component: ReuPasoUnoComponent },
-        { path: 'reupasodos', component: ReuPasoDosComponent }
+        { path: 'reupasodos/:reunionId', component: ReuPasoDosComponent }
       ] 
       },
       { path: 'programas', component:ProgramasComponent },

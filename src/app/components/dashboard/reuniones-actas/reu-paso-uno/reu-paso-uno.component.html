@@ -6,39 +6,42 @@
                 <h3 class="text-black-60 mt-4">Ingreso de Registro de reuniones </h3>
                 <p class="text-secondary">En esta sección puedes generar un registro de reunion con grupos de docentes. También puedes ingresar una reunion con terceros que no forman parte de la comunidad escolar</p>
                 <p class="mt-4">Indica los datos requeridos y pasa al segundo paso</p>
-                <form>
+                <form [formGroup]="datosReuniones">
                     <div class="form-row justify-content-between">
                         <div class="col-3">
                             <p class="text-secondary mt-2">Profesional</p>
                         </div>
-                        <div class="col-8"><input type="text" class="form-control" disabled></div>
+                        <div class="col-8"><input type="text" value="{{profesional}}" class="form-control" disabled></div>
                     </div>
                     <div class="form-row justify-content-between">
                         <div class="col-3">
                             <p class="text-secondary mr-3 mt-2">Tipo de Reunion</p>
                         </div>
                         <div class="col-8">
-                            <!-- <input type="text" class="form-control" placeholder="Ej: Pelea en Recreo" formControlName="asunto">
-                            <div class="mt-2 text-danger" *ngIf= "datosDenuncia.get('asunto').hasError('required') && datosDenuncia.get('asunto').touched"><p>Debes ingresar el asunto</p></div> -->
-                            <select class="form-control">
-                                <option value="">Seleccionar tipo reunión</option>
-                                <option value="">Visita Domiciliaria</option>
-                                <option value="">Reunión con Profesionales</option>
-                                <option value="">Otra</option>
+                            <select class="form-control" (change)="changeFn($event.target.value)" formControlName="tipoReunion">
+                                <option value="">Selecciona tipo de reunión</option>
+                                <option value="Visita Domiciliaria">Visita Domiciliaria</option>
+                                <option value="Reunion con Profesionales">Reunión con Profesionales</option>
+                                <option value="Otra">Otra</option>
                             </select>
                         </div>
+                        <div class="mt-2 text-danger" *ngIf= "datosReuniones.get('tipoReunion').hasError('required')&& datosReuniones.get('tipoReunion').touched"><p>Debes ingresar el tipo de reunión</p></div>
                     </div>
                     <div class="form-row justify-content-between">
                         <div class="col-4">
-                        <p class="text-secondary mr-3 mt-2">N° Rut a asociar</p>
+                            <p class="text-secondary mr-3 mt-2">N° Rut a asociar</p>
                         </div>
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="Ej: 17948413K" formControlName="asunto">
+                        <div class="col ic">
+                            <input type="text" class="form-control" placeholder="Ej: 17948413K" formControlName="rut"  value="Rut no existe">
+                            <div class="ic-in" *ngIf="rutBuscaResponse==1"><fa-icon [icon]="faTimes" class="text-danger"></fa-icon></div>
+                            <div class="ic-in" *ngIf="rutBuscaResponse==2"><fa-icon [icon]="faCheckCircle" class="text-success"></fa-icon></div>
                         </div>
                         <div class="ml-auto">
-                            <button class="btn btn-warning text-white">Asociar</button>
+                            <button class="btn btn-warning text-white" (click)="verificaRut()">Asociar</button>
                         </div>
                     </div>
+                    <div class="mt-2 text-danger d-flex justify-content-center" *ngIf= "datosReuniones.get('rut').hasError('required') && datosReuniones.get('rut').touched"><p>Debes ingresar rut a asociar</p></div>
+                    <!-- <div class="col d-flex" *ngIf="rutBuscaResponse"><p class="text-danger">Rut no existe</p></div> -->
                     <div class="form-row justify-content-between">
                         <div class="col-3">
                             <p class="text-secondary mr-3 mt-2">Fecha</p>
@@ -48,18 +51,20 @@
                             <div class="mt-2 text-danger" style="display: none;"><p>Debes ingresar la fecha</p></div>   
                         </div>
                     </div>
+                    <div class="mt-2 text-danger d-flex justify-content-center" *ngIf= "datosReuniones.get('fecha').hasError('required') && datosReuniones.get('fecha').touched"><p>Debes ingresar fecha</p></div>
                     <div class="form-row justify-content-between">
                         <div class="col-3">
                             <p class="text-secondary mr-3 mt-2">Asunto</p>
                         </div>
                         <div class="col-8">
-                            <input type="text" class="form-control" formControlName="fecha">
+                            <input type="text" class="form-control" formControlName="asunto">
                             <div class="mt-2 text-danger" style="display: none;"><p>Debes ingresar la fecha</p></div>   
                         </div>
                     </div>
+                    <div class="mt-2 text-danger d-flex justify-content-center" *ngIf= "datosReuniones.get('asunto').hasError('required') && datosReuniones.get('asunto').touched"><p>Debes ingresar asunto</p></div>
                     <div class="row mt-4">
                         <div class="col d-flex justify-content-center">
-                            <button class="btn btn-success text-white mr-3"  type="button" routerLink="/dashboard/reuniones/reupasodos">Guardar</button>
+                            <button class="btn btn-success text-white mr-3"  type="button" (click)="guardaReunion()" [disabled]="datosReuniones.invalid">Guardar</button>
                             <button class="btn btn-primary text-white mr-3" type="button" routerLink="dashboard.">Volver</button>
                         </div>
                     </div>
