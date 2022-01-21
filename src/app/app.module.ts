@@ -70,6 +70,7 @@ import { NuevaTematicasComponent } from './components/dashboard/administracion/i
 import { EditarTematicasComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/tematicas/editar-tematicas/editar-tematicas.component';
 import { ReuPasoUnoComponent } from './components/dashboard/reuniones-actas/reu-paso-uno/reu-paso-uno.component';
 import { ReuPasoDosComponent } from './components/dashboard/reuniones-actas/reu-paso-dos/reu-paso-dos.component';
+import { TematicaCompComponent } from './shared/tematica-comp/tematica-comp.component';
 
 
 
@@ -132,6 +133,7 @@ import { ReuPasoDosComponent } from './components/dashboard/reuniones-actas/reu-
     EditarTematicasComponent,
     ReuPasoUnoComponent,
     ReuPasoDosComponent,
+    TematicaCompComponent,
     
 
   ],

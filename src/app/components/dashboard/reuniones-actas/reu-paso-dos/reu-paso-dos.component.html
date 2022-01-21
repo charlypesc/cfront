@@ -1,6 +1,6 @@
-<div class="container-fluid">
+<div class="container">
     <div class="row" style="width: 100%;">
-        <div  class="col-lg-11 offset-lg-1">
+        <div  class="col">
             <div class="card text-left p-4">
                 <h2 class="text-primary">Paso 2 de 2 </h2>
                 <h3>Reuniones</h3>
@@ -9,9 +9,9 @@
     </div>
 </div>
 
-<div class="container-fluid">
+<div class="container mt-1">
     <div class="row" style="width: 100%;">
-        <div  class="col-lg-11 offset-lg-1">
+        <div  class="col">
             <div class="card text-left p-4">
                 <h3>Detalles de Reunion</h3>
                 <div class="form-row mt-3">
@@ -38,3 +38,52 @@
         </div>
     </div>
 </div>  
+<div class="container mt-4">
+    <div class="row pt-5">
+        <div class="col-6 mb-4">
+            <h3>Selecciona temática </h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3" *ngFor="let item of lstStaticData">
+            <div class="d-flex align-items-baseline"><input type="checkbox" class="mr-1"  [value]="item.id" (change)="getTematicaId($event, item.id, item.tematica, item.rbd)"><p>{{item.tematica}}</p></div>
+        </div>
+    </div>
+    <div class="row"  style="width: 100%;">
+        <div class="col">
+            <h3>Listado de Participantes</h3>
+            <div class="d-flex align-items-baseline">
+                <button class="btn btn-success" (click)="ingresoParticipante()">Ingresar participante</button>
+                <p class="ml-4">Ingreso de participantes manual</p>
+            </div>
+        </div>
+    </div>
+    <div class="row p-3"  style="width: 100%;" *ngIf="listParticipantesManual.length != 0" >
+       
+            <table class="table table-sm table-dark" >
+                <th>N°</th>
+                <th>Nombre y Apellido</th>
+                <th>RUT</th>
+                <tr *ngFor="let item of listParticipantesManual; let i=index">
+                    <td>{{i+1}}</td>
+                    <td>{{item.nombreParticipante}}</td>
+                    <td>Rut: {{item.rut}}</td>
+                </tr>
+            </table>
+        
+    </div>
+</div>
+<div class="container mt-3">
+    <div class="row" style="width: 100%;">
+        <div class="col">
+            <h3>Antecedentes</h3>
+            <textarea class="form-control" name="" id="" cols="30" rows="10"></textarea>
+        </div>
+    </div>
+    <div class="row"  style="width: 100%;">
+        <div class="col">
+            <h3>Acuerdos</h3>
+            <textarea class="form-control" name="" id="" cols="30" rows="10"></textarea>
+        </div>
+    </div>
+</div>

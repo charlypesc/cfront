@@ -9,13 +9,13 @@
                 <form [formGroup]="datosReuniones">
                     <div class="form-row justify-content-between">
                         <div class="col-3">
-                            <p class="text-secondary mt-2">Profesional</p>
+                            <p class="mt-2">Profesional</p>
                         </div>
                         <div class="col-8"><input type="text" value="{{profesional}}" class="form-control" disabled></div>
                     </div>
                     <div class="form-row justify-content-between">
                         <div class="col-3">
-                            <p class="text-secondary mr-3 mt-2">Tipo de Reunion</p>
+                            <p class="mr-3 mt-2">Tipo de Reunion</p>
                         </div>
                         <div class="col-8">
                             <select class="form-control" (change)="changeFn($event.target.value)" formControlName="tipoReunion">
@@ -29,7 +29,7 @@
                     </div>
                     <div class="form-row justify-content-between">
                         <div class="col-4">
-                            <p class="text-secondary mr-3 mt-2">N° Rut a asociar</p>
+                            <p class="mr-3 mt-2">N° Rut a asociar</p>
                         </div>
                         <div class="col ic">
                             <input type="text" class="form-control" placeholder="Ej: 17948413K" formControlName="rut"  value="Rut no existe">
@@ -44,7 +44,7 @@
                     <!-- <div class="col d-flex" *ngIf="rutBuscaResponse"><p class="text-danger">Rut no existe</p></div> -->
                     <div class="form-row justify-content-between">
                         <div class="col-3">
-                            <p class="text-secondary mr-3 mt-2">Fecha</p>
+                            <p class="mr-3 mt-2">Fecha</p>
                         </div>
                         <div class="col-8">
                             <input type="date" class="form-control" formControlName="fecha">
@@ -54,7 +54,7 @@
                     <div class="mt-2 text-danger d-flex justify-content-center" *ngIf= "datosReuniones.get('fecha').hasError('required') && datosReuniones.get('fecha').touched"><p>Debes ingresar fecha</p></div>
                     <div class="form-row justify-content-between">
                         <div class="col-3">
-                            <p class="text-secondary mr-3 mt-2">Asunto</p>
+                            <p class="mr-3 mt-2">Asunto</p>
                         </div>
                         <div class="col-8">
                             <input type="text" class="form-control" formControlName="asunto">
