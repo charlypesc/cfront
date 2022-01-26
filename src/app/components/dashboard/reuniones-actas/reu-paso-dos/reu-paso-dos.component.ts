@@ -36,44 +36,6 @@ export class ReuPasoDosComponent implements OnInit {
   ngOnInit() {
     this.rbd = this.loginService.getTokenDecoded().Rbd;
     this.getReunion();
-    this.cargarTematicas();
-    console.log(this.lstStaticData)
-    this.selectTematicas = new Array <number>();
-    
-  }
-// - - - - - M E T O D O S   T  E M A T I C A S - - - - - 
-  cargarTematicas(){
-    this.tematicasService.getTematicas(this.rbd).subscribe(data=>{
-      this.lstStaticData=data;
-    })
-  }
-  getTematicaId(e:any, id:number, tematica:string)
-
-  {
-    if(e.target.checked)
-    {
-      console.log(id + ' checked')
-      this.selectTematicas.push(id)
-      this.createTematicaObj(id);
-    }else
-    {
-      console.log(id + ' UnChecked')
-      this.selectTematicas = this.selectTematicas.filter(m=>m!=id)//LOGICA: metodo crea un nuevo array que llena con elementos provistas por la funcion (funcion no llena el array con el elemento coincidente)
-      this.createTematicaObj(id)
-    }
-    console.log(this.selectTematicas)
-  }
-  createTematicaObj(id:number){
-    const arrayTematicasObj:TematicasReg[]=[]
-
-    for (let index = 0; index < this.selectTematicas.length; index++) {
-      const arrayTematicas : TematicasReg = new TematicasReg()
-      arrayTematicas.tematica=this.lstStaticData[index].tematica
-      arrayTematicas.numeroId=this.lstStaticData[index].id
-      arrayTematicas.rbd=this.lstStaticData[index].rbd
-      arrayTematicasObj.push(arrayTematicas)
-    }
-    this.tematicasReg=arrayTematicasObj;
   }
   getReunion(){
     this.reunionesService.getReunionById(this.idParam).subscribe(data=>{

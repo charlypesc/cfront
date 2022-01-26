@@ -32,4 +32,9 @@ export class TematicasService {
     return this.http.put(this.myAppUrl+this.myApiUrl+'/actualizaTematica/', tematica)
    }
 
+   //PARA USO DE TEMATICAS-COMP
+
+   lstStaticData:any;
+   selectTematicas:any;
+
 }

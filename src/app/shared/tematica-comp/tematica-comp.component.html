@@ -1,1 +1,10 @@
-<p>tematica-comp works!</p>
+<div class="row pt-5">
+    <div class="col-6 mb-4">
+        <h3>Selecciona temática </h3>
+    </div>
+    </div>
+<div class="row">
+    <div class="col-3" *ngFor="let item of lstStaticData">
+        <div class="d-flex align-items-baseline"><input type="checkbox" class="mr-1"  [value]="item.id" (change)="getTematicaId($event, item.id, item.tematica, item.rbd)"><p>{{item.tematica}}</p></div>
+    </div>
+</div>

@@ -56,6 +56,7 @@ codigoRtaRut:boolean;
     })
   }
   //paso 3 se genera el participante que se muestra a la vista, aun no se genera el objeto final
+  //se pasa por servicio
   addAlias() {
     this.nuevoRutArray.push(this.fb.control(this.rtaNuevoParticipante));
     this.arrayRutService.arrayRutParticipante=this.nuevoRutArray;
