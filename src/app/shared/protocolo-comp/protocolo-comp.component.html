@@ -1,0 +1,45 @@
+<div class="row pt-4" >
+    <div class="col">
+        <div class="d-flex">
+            <h3>Agregar protocolos</h3>
+            <!-- <span class="material-icons text-primary" style="font-size: 50px;">summarize</span><h5 style="display: block;margin-top: 13px;">Protocolos</h5> -->
+        </div>
+        <p>Ingresa los protocolos que serán activados</p>
+        <div class="col d-flex">
+            <select  class="form-control mr-4" (change)="changeFn($event.target.value)">
+                <option>Selecciona el protocolo</option>
+                <option *ngFor="let item of protocolos; let x=index" [value]="x">
+                     {{ item.nombreProtocolo }}
+                </option>
+            </select>
+            <button class="btn btn-primary" type="button" (click)="protocolosArrayTemporal()">Agregar</button>
+        </div>
+    </div>
+</div>
+<div class="row pt-4">
+    <div class="col">
+        <h6>Listado de Protocolos activados</h6>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <div class="row justify-content-center" *ngIf="temporalProtocolos.length==0"><p>No hay protocolos activados</p></div>
+            <table class="table table-bordered" *ngIf="temporalProtocolos.length!=0">
+               
+                    <thead>
+                        <th>N°</th>
+                        <th>Protocolo</th>
+                        <th>Descripcion</th>
+                        <th>Acción</th>
+                    </thead>
+               
+                <tr *ngFor="let tp of temporalProtocolos; let y=index">
+                    <td>{{y+1}}</td>
+                    <td>{{tp.nombreProtocolo}}</td>
+                    <td>{{tp.descripcionProtocolo}}</td>
+                    <td class="text-center"><span class="material-icons text-danger" (click)="eliminaProtocolo(y)">delete</span></td>
+                </tr>
+            </table>
+        
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="row"  style="width: 100%;">
+    <div class="col">
+        <h3>Listado de Participantes</h3>
+        <div class="d-flex align-items-baseline">
+            <button class="btn btn-success" (click)="ingresoParticipante()">Ingresar participante</button>
+            <p class="ml-4">Ingreso de participantes manual</p>
+        </div>
+    </div>
+</div>
+<div class="row p-3"  style="width: 100%;" *ngIf="listParticipantesManual.length != 0" >
+   
+        <table class="table table-bordered">
+            <th>N°</th>
+            <th>Nombre y Apellido</th>
+            <th>RUT</th>
+            <th>Acción</th>
+            <tr *ngFor="let item of listParticipantesManual; let i=index">
+                <td>{{i+1}}</td>
+                <td>{{item.nombreParticipante}}</td>
+                <td>Rut: {{item.rut}}</td>
+                <td class="text-center"><span class="material-icons text-danger" (click)="deleteRutManual(i)" style="cursor: pointer;">delete</span></td></tr>
+        </table>
+    
+</div>

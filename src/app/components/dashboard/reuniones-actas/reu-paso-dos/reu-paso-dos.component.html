@@ -32,7 +32,7 @@
                 </div>
                 <div class="form-row mt-3">
                     <div class="col-3"><strong>Fecha</strong></div>
-                    <div class="col">: {{datosPasoUno.fecha}}</div>
+                    <div class="col">: {{datosPasoUno.fecha|date:"dd-MM-yyyy"}}  </div>
                 </div>
             </div>
         </div>
@@ -42,29 +42,7 @@
     <!-- Componente Tematicas -->
     <app-tematica-comp></app-tematica-comp>
     <!-- fin componente -->
-    <div class="row"  style="width: 100%;">
-        <div class="col">
-            <h3>Listado de Participantes</h3>
-            <div class="d-flex align-items-baseline">
-                <button class="btn btn-success" (click)="ingresoParticipante()">Ingresar participante</button>
-                <p class="ml-4">Ingreso de participantes manual</p>
-            </div>
-        </div>
-    </div>
-    <div class="row p-3"  style="width: 100%;" *ngIf="listParticipantesManual.length != 0" >
-       
-            <table class="table table-sm table-dark" >
-                <th>N°</th>
-                <th>Nombre y Apellido</th>
-                <th>RUT</th>
-                <tr *ngFor="let item of listParticipantesManual; let i=index">
-                    <td>{{i+1}}</td>
-                    <td>{{item.nombreParticipante}}</td>
-                    <td>Rut: {{item.rut}}</td>
-                </tr>
-            </table>
-        
-    </div>
+    <app-rut-manual></app-rut-manual>
 </div>
 <div class="container mt-3">
     <div class="row" style="width: 100%;">
@@ -79,4 +57,7 @@
             <textarea class="form-control" name="" id="" cols="30" rows="10"></textarea>
         </div>
     </div>
+    <!-- componente protocolos -->
+    <app-protocolo-comp></app-protocolo-comp>
+    <!-- fin de componente protocolos -->
 </div>

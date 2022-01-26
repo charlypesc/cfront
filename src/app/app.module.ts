@@ -71,6 +71,8 @@ import { EditarTematicasComponent } from './components/dashboard/administracion/
 import { ReuPasoUnoComponent } from './components/dashboard/reuniones-actas/reu-paso-uno/reu-paso-uno.component';
 import { ReuPasoDosComponent } from './components/dashboard/reuniones-actas/reu-paso-dos/reu-paso-dos.component';
 import { TematicaCompComponent } from './shared/tematica-comp/tematica-comp.component';
+import { ProtocoloCompComponent } from './shared/protocolo-comp/protocolo-comp.component';
+import { RutManualComponent } from './shared/rut-manual/rut-manual.component';
 
 
 
@@ -134,6 +136,8 @@ import { TematicaCompComponent } from './shared/tematica-comp/tematica-comp.comp
     ReuPasoUnoComponent,
     ReuPasoDosComponent,
     TematicaCompComponent,
+    ProtocoloCompComponent,
+    RutManualComponent,
     
 
   ],

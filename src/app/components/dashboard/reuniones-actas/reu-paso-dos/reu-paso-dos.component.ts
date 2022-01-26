@@ -18,7 +18,6 @@ export class ReuPasoDosComponent implements OnInit {
   datosPasoUno:any={}
   rutManual:string;
   nombreManuel:string;
-  listParticipantesManual:ParticipanteReg[] = []
   lstStaticData:any;
   selectTematicas:number[];
   tematicasReg:any;
@@ -43,36 +42,6 @@ export class ReuPasoDosComponent implements OnInit {
       console.log(data)
     })
   }
-  async ingresoParticipante(){
-    const { value: rut } = await Swal.fire({
-      title: 'Ingresa numero RUT',
-      input: 'text',
-      inputLabel: 'Ingresa RUT',
-      inputPlaceholder: 'Ej: 17999888K'
-    })
-    
-    if (rut) {
-      const { value: nombre } = await Swal.fire({
-        title: 'Ingresa Nombre y Apellido',
-        input: 'text',
-        inputLabel: 'Nombre y apellido',
-        inputPlaceholder: 'Ej: Carlos Escobar'
-      })
-      if(rut && nombre){
-        const partManual: ParticipanteReg = new ParticipanteReg()
-        partManual.rut=rut
-        partManual.nombreParticipante=nombre
-        this.listParticipantesManual.push(partManual)
-        console.log(this.listParticipantesManual)
-        Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: 'Participante manual ingresado correctamente',
-          showConfirmButton: false,
-          timer: 1000
-        })
-      }
-    }
-  }
+
 
 }
