@@ -73,6 +73,7 @@ import { ReuPasoDosComponent } from './components/dashboard/reuniones-actas/reu-
 import { TematicaCompComponent } from './shared/tematica-comp/tematica-comp.component';
 import { ProtocoloCompComponent } from './shared/protocolo-comp/protocolo-comp.component';
 import { RutManualComponent } from './shared/rut-manual/rut-manual.component';
+import { ReuPasoTresComponent } from './components/dashboard/reuniones-actas/reu-paso-tres/reu-paso-tres.component';
 
 
 
@@ -138,6 +139,7 @@ import { RutManualComponent } from './shared/rut-manual/rut-manual.component';
     TematicaCompComponent,
     ProtocoloCompComponent,
     RutManualComponent,
+    ReuPasoTresComponent,
     
 
   ],

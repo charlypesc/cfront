@@ -54,6 +54,7 @@ import { EditarTematicasComponent } from './components/dashboard/administracion/
 import { NuevaTematicasComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/tematicas/nueva-tematicas/nueva-tematicas.component';
 import { ReuPasoUnoComponent } from './components/dashboard/reuniones-actas/reu-paso-uno/reu-paso-uno.component';
 import { ReuPasoDosComponent } from './components/dashboard/reuniones-actas/reu-paso-dos/reu-paso-dos.component';
+import { ReuPasoTresComponent } from './components/dashboard/reuniones-actas/reu-paso-tres/reu-paso-tres.component';
 
 
 const routes: Routes = [
@@ -99,7 +100,8 @@ const routes: Routes = [
       { path: 'visitas', component: VisitaDomicialiariaComponent },
       { path: 'reuniones', component: ReunionesActasComponent, children:[
         { path:'reupasouno', component: ReuPasoUnoComponent },
-        { path: 'reupasodos/:reunionId', component: ReuPasoDosComponent }
+        { path: 'reupasodos/:reunionId', component: ReuPasoDosComponent },
+        { path: 'reupasotres/:reunionId', component: ReuPasoTresComponent }
       ] 
       },
       { path: 'programas', component:ProgramasComponent },

@@ -10,29 +10,29 @@
 </div>
 
 <div class="container mt-1">
-    <div class="row" style="width: 100%;">
+    <div class="row" style="width: 100%;" *ngFor="let item of datosPasoUno">
         <div  class="col">
             <div class="card text-left p-4">
-                <h3>Detalles de Reunion</h3>
+                <h3>Detalles de Reunion </h3>
                 <div class="form-row mt-3">
                     <div class="col-3"><strong>Profesional</strong></div>
-                    <div class="col">: {{datosPasoUno.profesional}}</div>
+                    <div class="col">: {{item.profesional}}</div>
                 </div>
                 <div class="form-row mt-3">
                     <div class="col-3"><strong>Estudiante Asociado</strong></div>
-                    <div class="col">: {{datosPasoUno.rutAsociado}}</div>
+                    <div class="col">: {{item.rutAsociado}}</div>
                 </div>
                 <div class="form-row mt-3">
                     <div class="col-3"><strong>Tipo</strong></div>
-                    <div class="col">: {{datosPasoUno.tipoReunion}}</div>
+                    <div class="col">: {{item.tipoReunion}}</div>
                 </div>
                 <div class="form-row mt-3">
                     <div class="col-3"><strong>Asunto</strong></div>
-                    <div class="col">: {{datosPasoUno.asunto}}</div>
+                    <div class="col">: {{item.asunto}}</div>
                 </div>
                 <div class="form-row mt-3">
                     <div class="col-3"><strong>Fecha</strong></div>
-                    <div class="col">: {{datosPasoUno.fecha|date:"dd-MM-yyyy"}}  </div>
+                    <div class="col">: {{item.fecha|date:"dd-MM-yyyy"}}  </div>
                 </div>
             </div>
         </div>
@@ -44,20 +44,29 @@
     <!-- fin componente -->
     <app-rut-manual></app-rut-manual>
 </div>
-<div class="container mt-3">
-    <div class="row" style="width: 100%;">
-        <div class="col">
-            <h3>Antecedentes</h3>
-            <textarea class="form-control" name="" id="" cols="30" rows="10"></textarea>
+<form [formGroup]="datosForm">
+    <div class="container mt-3">
+        <div class="row" style="width: 100%;">
+            <div class="col">
+                <h3>Antecedentes</h3>
+                <textarea class="form-control" name="" id="" cols="30" rows="10" formControlName="antecedentes"></textarea>
+            </div>
+        </div>
+        <div class="row"  style="width: 100%;">
+            <div class="col">
+                <h3>Acuerdos</h3>
+                <textarea class="form-control" name="" id="" cols="30" rows="10" formControlName="acuerdos"></textarea>
+            </div>
+        </div>
+        <!-- componente protocolos -->
+        <app-protocolo-comp></app-protocolo-comp>
+        <!-- fin de componente protocolos -->
+    
+        <div class="row mb-4">
+            <div class="col d-flex justify-content-center">
+                <button class="btn btn-success mr-4" (click)="guardarReunion()" [disabled]="datosForm.invalid">Guardar</button>
+                <button class="btn btn-primary">Volver</button>
+            </div>
         </div>
     </div>
-    <div class="row"  style="width: 100%;">
-        <div class="col">
-            <h3>Acuerdos</h3>
-            <textarea class="form-control" name="" id="" cols="30" rows="10"></textarea>
-        </div>
-    </div>
-    <!-- componente protocolos -->
-    <app-protocolo-comp></app-protocolo-comp>
-    <!-- fin de componente protocolos -->
-</div>
+</form>

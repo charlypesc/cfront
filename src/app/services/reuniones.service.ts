@@ -17,6 +17,9 @@ export class ReunionesService {
    saveReunion(reunion:Reuniones):Observable<any>{
      return this.http.post(this.myAppUrl + this.myApiUrl, reunion);
    }
+   actualizaReunion(reunion:Reuniones):Observable<any>{
+    return this.http.put(this.myAppUrl + this.myApiUrl+'/ActualizaReunion', reunion);
+  }
    getReunionById(idReunion:number):Observable<any>{
      return this.http.get(this.myAppUrl + this.myApiUrl+'/getReunion/'+idReunion)
    }

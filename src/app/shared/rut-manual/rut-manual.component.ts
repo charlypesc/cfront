@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ParticipanteManual } from 'src/app/models/participanteManual';
 import { ParticipanteReg } from 'src/app/models/participanteReg';
+import { ParticipantesManualService } from 'src/app/services/participantes-manual.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -8,9 +10,9 @@ import Swal from 'sweetalert2';
   styleUrls: ['./rut-manual.component.css']
 })
 export class RutManualComponent implements OnInit {
-  listParticipantesManual:ParticipanteReg[] = []
+  listParticipantesManual:ParticipanteManual[]=[]
 
-  constructor() { }
+  constructor(private participanteManualService: ParticipantesManualService) { }
 
   ngOnInit(): void {
   }
@@ -30,11 +32,12 @@ export class RutManualComponent implements OnInit {
         inputPlaceholder: 'Ej: Carlos Escobar'
       })
       if(rut && nombre){
-        const partManual: ParticipanteReg = new ParticipanteReg()
+        const partManual: ParticipanteManual = new ParticipanteManual()
         partManual.rut=rut
         partManual.nombreParticipante=nombre
         this.listParticipantesManual.push(partManual)
         console.log(this.listParticipantesManual)
+        this.participanteManualService.lstParticipanteManual=this.listParticipantesManual
         Swal.fire({
           position: 'top-end',
           icon: 'success',

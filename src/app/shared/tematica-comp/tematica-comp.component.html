@@ -4,7 +4,7 @@
     </div>
     </div>
 <div class="row">
-    <div class="col-3" *ngFor="let item of lstStaticData">
-        <div class="d-flex align-items-baseline"><input type="checkbox" class="mr-1"  [value]="item.id" (change)="getTematicaId($event, item.id, item.tematica, item.rbd)"><p>{{item.tematica}}</p></div>
+    <div class="col-3" *ngFor="let item of lstStaticData;let x=index">
+        <div class="d-flex align-items-baseline"><input type="checkbox" class="mr-1"  [value]="x" (change)="getTematicaId($event, $event.target.value, item.id, item.tematica, item.rbd)"><p>{{item.tematica}}</p></div>
     </div>
 </div>

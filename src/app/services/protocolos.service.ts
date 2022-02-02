@@ -11,6 +11,7 @@ export class ProtocolosService {
 
   myAppUrl:string;
   myApiUrl:string;
+  lstProtocolosData:any;
 
   constructor(private http: HttpClient) {
     this.myAppUrl=environment.endpoint

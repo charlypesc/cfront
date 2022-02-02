@@ -36,5 +36,6 @@ export class TematicasService {
 
    lstStaticData:any;
    selectTematicas:any;
+   lstDataTematica:any;
 
 }

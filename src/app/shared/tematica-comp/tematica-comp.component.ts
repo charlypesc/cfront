@@ -14,6 +14,7 @@ export class TematicaCompComponent implements OnInit {
   selectTematicas:number[];
   rbd: string;
   tematicasReg:any;
+  temporalTematicas:Array<any>=[]
   constructor(private loginService:LoginService,
               private tematicasService:TematicasService) { }
 
@@ -29,39 +30,33 @@ export class TematicaCompComponent implements OnInit {
   cargarTematicas(){
     this.tematicasService.getTematicas(this.rbd).subscribe(data=>{
       this.lstStaticData=data;
-
-      //asigno valor a propiedad de servicio y cargo la data
       
     })
   }
   getTematicaId(e:any, id:number, tematica:string)
-  
   {
+    
+
     if(e.target.checked)
     {
-      console.log(id + 'checked')
       this.selectTematicas.push(id)
-      this.createTematicaObj(id);
+      console.log(this.selectTematicas)
+      this.createTematicaObjTemp(id)
+      this.tematicasService.lstDataTematica=this.temporalTematicas;
     }else
     {
-      console.log(id + 'UnChecked')
       this.selectTematicas = this.selectTematicas.filter(m=>m!=id)//LOGICA: metodo crea un nuevo array que llena con elementos provistas por la funcion (funcion no llena el array con el elemento coincidente)
-      this.createTematicaObj(id)
+      this.deleteTematica(id);
+      this.tematicasService.lstDataTematica=this.temporalTematicas;
+      
     }
-    console.log(this.selectTematicas)
+ 
   }
-  createTematicaObj(id:number){
-    const arrayTematicasObj:TematicasReg[]=[]
-  
-    for (let index = 0; index < this.selectTematicas.length; index++) {
-      const arrayTematicas : TematicasReg = new TematicasReg()
-      arrayTematicas.tematica=this.lstStaticData[index].tematica
-      arrayTematicas.numeroId=this.lstStaticData[index].id
-      arrayTematicas.rbd=this.lstStaticData[index].rbd
-      arrayTematicasObj.push(arrayTematicas)
-    }
-    this.tematicasReg=arrayTematicasObj;
-    this.tematicasService.lstStaticData=arrayTematicasObj
-    console.log(arrayTematicasObj)
+  createTematicaObjTemp(id:number){
+    this.temporalTematicas.push(this.lstStaticData[id])
+   
   }
+  deleteTematica(inde:number){
+    this.temporalTematicas.splice(inde,inde+1)
+  }   
 }

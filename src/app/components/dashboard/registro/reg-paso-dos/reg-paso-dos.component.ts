@@ -149,6 +149,7 @@ export class RegPasoDosComponent implements OnInit {
 
             const arrayRuts= this.arrayRutParticipantesService.arrayRutParticipante
             const arrayPart: ParticipanteReg[] = []
+            
             const protocolosDef: ProtocolosActuacion[]=[]
             
 

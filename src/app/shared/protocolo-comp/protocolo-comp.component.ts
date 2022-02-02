@@ -25,7 +25,7 @@ export class ProtocoloCompComponent implements OnInit {
   {
     return this.protocolosService.getProtocolos(this.rbd).subscribe(data=>{
       this.protocolos = data;
-    console.log(this.protocolos)
+    // console.log(this.protocolos)
     }, error=>{
       this.toastr.error('No podemos encontrar los protocolos','No hay protocolos ingresados?')
     })
@@ -39,10 +39,13 @@ changeFn(e)//Protocolos paso 2; del evento del select, pasa el valor Id a la fun
 protocolosArrayTemporal() //protocolos paso 3 se crea el array temporal con los protocolos seleccionados
   {
       this.temporalProtocolos.push(this.protocolos[this.idProtocolo])
+      this.protocolosService.lstProtocolosData=this.temporalProtocolos
+      // console.log(this.temporalProtocolos)
   }
 eliminaProtocolo(inde:number):void//protocolos eliminar del array
   {
     this.temporalProtocolos.splice(inde,inde+1);
+    this.protocolosService.lstProtocolosData=this.temporalProtocolos
   }
 
 }

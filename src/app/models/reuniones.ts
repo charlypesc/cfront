@@ -1,7 +1,7 @@
-import { StringValueToken } from "html2canvas/dist/types/css/syntax/tokenizer";
-import { ParticipanteReg } from "./participanteReg";
-import { ProtocolosActuacion } from "./protocolosActuacion";
-import { TematicasReg } from "./tematicasReg";
+import { ParticipanteManual } from "./participanteManual";
+import { ProtocoloReu } from "./protocoloReu";
+import { TematicasReu } from "./tematicaReu";
+
 
 export class Reuniones 
 {
@@ -17,9 +17,9 @@ export class Reuniones
     activo?:number;
     tipo?:string;
     usuarioId?:number;
-    participanteReg?:ParticipanteReg[];
-    protocoloReg?:ProtocolosActuacion[];
-    tematicasReg?:TematicasReg[];
+    participanteManual?:ParticipanteManual[];
+    protocoloReu?:ProtocoloReu[];
+    tematicasReu?:TematicasReu[];
 
     constructor(
         profesional:string,
@@ -34,9 +34,9 @@ export class Reuniones
         activo?:number,
         tipo?:string,
         usuarioId?:number,
-        participanteReg?:ParticipanteReg[],
-        protocoloReg?:ProtocolosActuacion[],
-        tematicasReg?:TematicasReg[])
+        participanteManual?:ParticipanteManual[],
+        protocoloReu?:ProtocoloReu[],
+        tematicasReu?:TematicasReu[])
         {
 
             this.id=id
@@ -51,9 +51,9 @@ export class Reuniones
             this.activo=activo
             this.tipo=tipo
             this.usuarioId=usuarioId
-            this.participanteReg=participanteReg
-            this.protocoloReg=protocoloReg
-            this.tematicasReg=tematicasReg    
+            this.participanteManual=participanteManual
+            this.protocoloReu=protocoloReu
+            this.tematicasReu=tematicasReu    
 
         }
 
