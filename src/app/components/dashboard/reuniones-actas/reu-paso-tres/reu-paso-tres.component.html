@@ -1,1 +1,131 @@
-<p>reu-paso-tres works!</p>
+<div class="container">
+    <div class="row" style="width: 100%;">
+        <div  class="col">
+            <div class="card text-left p-4">
+                <h2 class="text-primary">Resumen</h2>
+                <h3>Reuniones</h3>
+                <div>Numero Interno: {{idParam}} </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div #detalle class="container mt-1" *ngFor="let item of datosPasoUno">
+    <div class="row" style="width: 100%;" >
+        <div  class="col">
+            <div class="card text-left p-4">
+                <h3>Detalles de Reunion</h3>
+                <div class="form-row mt-3">
+                    <table class="table table-bordered">
+                        <tr>
+                            <td style="width: 25%;" class="principal"><strong>Profesional</strong></td>
+                            <td>{{item.profesional}}</td>
+                        </tr>
+                        <tr>
+                            <td  class="principal"><strong>Estudiante Asociado</strong></td>
+                            <td>{{item.rutAsociado}}</td>
+                        </tr>
+                        <tr>
+                            <td  class="principal"><strong>Tipo</strong></td>
+                            <td>{{item.tipoReunion}}</td>
+                        </tr>
+                        <tr>
+                            <td  class="principal"><strong>Asunto</strong></td>
+                            <td>{{item.asunto}}</td>
+                        </tr>
+                        <tr>
+                            <td  class="principal"><strong>Fecha</strong></td>
+                            <td>{{item.fecha|date:"dd-MM-yyyy"}}  </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-2 " style="width: 100%;">
+        <div class="col">
+            <div class="card p-4">
+                <h3>Temáticas ingresadas</h3>
+                <div class="form-row mt-3">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>N°</th>
+                            <th>Nombre Temática</th>
+                        </tr>
+                        <tr  *ngFor="let y of item.tematicasReu, let x=index">
+                            <td>{{x+1}}</td>
+                            <td>{{y.tematica}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4" style="width: 100%;">
+        <div class="col">
+            <div class="card p-4">
+                <h3>Listado de Participantes</h3>
+                <div class="form-row mt-3"  >
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>N°</th>
+                            <th>Nombre</th>
+                            <th>Rut</th>
+                            <th>Firma</th>
+                        </tr>
+                        <tr *ngFor="let j of item.participanteManual, let b=index">
+                            <td>{{b+1}}</td>
+                            <td>{{j.nombreParticipante}}</td>
+                            <td>{{j.rut}}</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4" style="width: 100%;">
+        <div class="col">
+            <div class="card p-4">
+                <h3>Protocolos Activados</h3>
+                <div class="card mt-3">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>N°</th>
+                            <th>Nombre Protocolo</th>
+                            <th>Descripcion</th>
+                        </tr>
+                        <tr *ngFor="let k of item.protocoloReu, let a=index">
+                            <td>{{a+1}}</td>
+                            <td>{{k.nombreProtocolo}}</td>
+                            <td>{{k.descripcionProtocolo}}</td>
+                        </tr>
+                    </table>        
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-row mt-4">
+        <div class="col">
+            <div class="card p-4">
+                <h3>Antecedentes y Acuerdos</h3>
+                <div class="card mt-3">
+                    <table class="table">
+                        <tr>
+                            <td style="width: 20%;"><strong>Antecedentes</strong></td>
+                            <td>: {{item.antecedentes}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Acuerdos</strong></td>
+                            <td>: {{item.acuerdos}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  
+<div class="div d-flex justify-content-center mt-4 mb-4">
+    <button class="btn btn-warning mr-2" (click)="generarPdf()">Generar PDF</button>
+    <button class="btn btn-primary" routerLink="/dashboard">Ir Home</button>
+</div>

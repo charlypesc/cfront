@@ -82,7 +82,8 @@ guardaReunion(){
         showConfirmButton: false,
         timer: 1500
       })
-        this.router.navigate(['/dashboard/reuniones/reupasodos/'+ data[0].reunionId])
+      console.log(data)
+        this.router.navigate(['/dashboard/reuniones/reupasodos/'+ data.reunionId])
     })
   }
 

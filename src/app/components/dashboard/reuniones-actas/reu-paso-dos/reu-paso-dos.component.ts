@@ -145,7 +145,7 @@ export class ReuPasoDosComponent implements OnInit {
           showConfirmButton: false,
           timer: 1500
         })
-        this.router.navigate(['dashboard/reuniones/reupasotres/'+data.ReunionId])
+        this.router.navigate(['dashboard/reuniones/reupasotres/'+data.reunionId])
       },error=>console.log("upsi"));
       
     }

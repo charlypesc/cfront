@@ -19,5 +19,8 @@ export class CreatePdfService {
 createPdf(dataStorage: DataStorage ):any{
   return this.http.post(this.myAppUrl+this.myApiUrl, dataStorage, {responseType:'blob'})
 }
+createPdfReu(dataStorage: DataStorage ):any{
+  return this.http.post(this.myAppUrl+this.myApiUrl+'/reu', dataStorage, {responseType:'blob'})
+}
 
 }
