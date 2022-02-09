@@ -88,7 +88,7 @@ const routes: Routes = [
       ]},
       { path:'denuncia', component:DenunciaComponent, children:[
           { path: 'denunciapasouno', component: DenunciaPasoUnoComponent },
-          { path: 'denunciapasodos', component: DenunciaPasoDosComponent },
+          { path: 'denunciapasodos/:denunciaId', component: DenunciaPasoDosComponent },
           { path: 'denunciabuscador', component: DenunciaBuscadorComponent }
       ]},
       {path:'protocolos', component:ProtocolosComponent,children:[

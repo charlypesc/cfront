@@ -23,4 +23,7 @@ export class ReunionesService {
    getReunionById(idReunion:number):Observable<any>{
      return this.http.get(this.myAppUrl + this.myApiUrl+'/getReunion/'+idReunion)
    }
+   getReunionByRut(rut:string):Observable<any>{
+     return this.http.get(this.myAppUrl + this.myApiUrl+'/getReunionByRut/'+rut);
+   }
 }

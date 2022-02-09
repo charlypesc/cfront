@@ -1,0 +1,13 @@
+.ic{
+    position: relative;
+}
+.ic-in{
+    position: absolute;
+   
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	right: 12px;
+	top: 33%;
+	transform: translateY(-50%);
+}

@@ -5,12 +5,12 @@
                 <h3 class="text-black-60 mt-4">Ingreso de Denuncia</h3>
                 <p class="text-secondary">Esta sección te permite recopilar datos de otros secciones y adjuntarlas bajo uno numero de folio asociado a un requerimiento de un tercero (Juzgado, Municipalidad, Ministerio etc.)</p>
                 <p class="mt-4">Indica los datos requeridos y pasa al segundo paso</p>
-                <form [formGroup]="datosDenuncia" (ngSubmit)="pasoUno()">
+                <form [formGroup]="datosDenuncia">
                     <div class="form-row justify-content-between">
                         <div class="col-3">
                             <p class="text-secondary mt-2">Profesional</p>
                         </div>
-                        <div class="col-8"><input type="text" class="form-control" disabled></div>
+                        <div class="col-8"><input type="text" class="form-control" value="{{usuario}}" disabled></div>
                     </div>
                     <div class="form-row justify-content-between">
                         <div class="col-3">
@@ -19,13 +19,33 @@
                         <div class="col-8">
                             <!-- <input type="text" class="form-control" placeholder="Ej: Pelea en Recreo" formControlName="asunto">
                             <div class="mt-2 text-danger" *ngIf= "datosDenuncia.get('asunto').hasError('required') && datosDenuncia.get('asunto').touched"><p>Debes ingresar el asunto</p></div> -->
-                            <select class="form-control">
-                                <option value="">Seleccionar organizacion solicitante...</option>
-                                <option value="">Municipalidad</option>
-                                <option value="">Juzgado</option>
-                                <option value="">Ministerio de Educación</option>
-                                <option value="">Otros</option>
+                            <select class="form-control" (change)="changeFn($event.target.value)" formControlName="organismo">
+                                <option value="Municipalidad">Municipalidad</option>
+                                <option value="Juzgado">Juzgado</option>
+                                <option value="Ministerio de Educacion">Ministerio de Educación</option>
+                                <option value="Otro">Otros</option>
                             </select>
+                        </div>
+                    </div>
+                    <div class="form-row justify-content-between">
+                        <div class="col-4">
+                            <p class="mr-3 mt-2">N° Rut a asociar</p>
+                        </div>
+                        <div class="col ic">
+                            <input type="text" class="form-control" placeholder="Ej: 17948413K" formControlName="rutAsociado"  value="Rut no existe" [readonly]="rutBuscaResponse==2">
+                            <div class="ic-in" *ngIf="rutBuscaResponse==1"><fa-icon [icon]="faTimes" class="text-danger"></fa-icon></div>
+                            <div class="ic-in" *ngIf="rutBuscaResponse==2"><fa-icon [icon]="faCheckCircle" class="text-success"></fa-icon></div>
+                        </div>
+                        <div class="ml-auto">
+                            <button class="btn btn-warning text-white" (click)="verificaRut()">Asociar</button>
+                        </div>
+                    </div>
+                    <div class="form-row justify-content-between align-items-baseline" *ngIf="rutBuscaResponse==2">
+                        <div class="col-4">
+                            <p class="mr-3 mt-2 text-primary">Estudiante asociado</p>
+                        </div>
+                        <div class="col">
+                            <p class=" text-success"> {{datoRut.nombre}}</p>
                         </div>
                     </div>
                     <div class="form-row justify-content-between">
@@ -33,32 +53,24 @@
                         <p class="text-secondary mr-3 mt-2">N° Folio ó N° RIT</p>
                         </div>
                         <div class="col-8">
-                            <input type="text" class="form-control" placeholder="Ej: Pelea en Recreo" formControlName="asunto">
-                            <div class="mt-2 text-danger" *ngIf= "datosDenuncia.get('asunto').hasError('required') && datosDenuncia.get('asunto').touched"><p>Debes ingresar el asunto</p></div>
-                        </div>
-                    </div>
-                    <div class="form-row justify-content-between">
-                        <div class="col-4">
-                        <p class="text-secondary mr-3 mt-2">N° Rut a asociar</p>
-                        </div>
-                        <div class="col-8">
-                            <input type="text" class="form-control" placeholder="Ej: 17948413K" formControlName="asunto">
+                            <input type="text" class="form-control" placeholder="Ej: RIT1234-56" formControlName="folioRit">
+                            <div class="mt-2 text-danger" *ngIf= "datosDenuncia.get('folioRit').hasError('required') && datosDenuncia.get('folioRit').touched"><p>Debes ingresar un numero de folio o causa</p></div>
                         </div>
                     </div>
                     <div class="form-row justify-content-between">
                         <div class="col-3">
-                            <p class="text-secondary mr-3 mt-2">Fecha</p>
+                            <p class="text-secondary mr-3 mt-2">Fecha a asignar</p>
                         </div>
                         <div class="col-8">
-                            <input type="date" class="form-control" formControlName="fecha">
-                            <div class="mt-2 text-danger" *ngIf= "datosDenuncia.get('fecha').hasError('required') && datosDenuncia.get('fecha').touched"><p>Debes ingresar la fecha</p></div>   
+                            <input type="date" class="form-control" formControlName="fechaAsignada">
+                            <div class="mt-2 text-danger" *ngIf= "datosDenuncia.get('fechaAsignada').hasError('required') && datosDenuncia.get('fechaAsignada').touched"><p>Debes ingresar la fecha</p></div>   
                         </div>
                     </div>
                     <div class="row mt-4 ">
-                        <div class="col-lg-7 offset-lg-3 ">
-                            <button class="btn btn-success text-white mr-3"  type="button" routerLink="/dashboard">Guardar</button>
-                            <button class="btn btn-warning text-white mr-3" [disabled]="datosDenuncia.invalid" routerLink="/dashboard/denuncia/denunciapasodos">Ir a registro</button>
+                        <div class="col d-flex justify-content-center">
+                            <button class="btn btn-success text-white mr-3"  type="button"(click)="guardaDenuncia()"  [disabled]="datosDenuncia.invalid">Guardar</button>
                             <button class="btn btn-primary text-white mr-3" type="button" routerLink="/dashboard">Volver</button>
+                            <button class="btn btn-warning" (click)="reset()">Limpiar</button>
                         </div>
                     </div>
                 </form>

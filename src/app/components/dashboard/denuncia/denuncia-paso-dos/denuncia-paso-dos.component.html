@@ -14,70 +14,93 @@
                             <div class="col-4">
                                 <p class="text-secondary mr-1">Fecha</p>
                             </div>
-                            <input type="date" value="2020-05-23" disabled class="form-control" formControlName="fecha">
+                            <input type="text" value="{{datosDenuncia.fechaAsignada | date:'dd-MM-yyyy'}}" class="form-control" readonly> 
                         </div>
                         <div class="col-lg-6 ml-auto d-flex align-items-baseline">
                             <div class="col-4"><p class="text-secondary">Folio Interno</p></div>
-                            <input type="text" class="form-control" value="D0021" formControlName="fecha" disabled>
+                            <input type="text" class="form-control" value="D0021" disabled>
                         </div>
                     </div>
                    <div class="col">
                         <div class="row pt-5">
                             <div class="col-lg-3">Profesional</div>
                             <div class="col-lg-4">
-                                <input type="text"  value="Claudio Rodriguez"class="form-control" disabled>
+                                <input type="text"  value="{{datosDenuncia.profesional}}"class="form-control" disabled>
                             </div>
                         </div>
                         <div #registro class="row pt-4">
                             <div class="col-lg-3">Folio/RIT</div>
                             <div class="col-lg-4">
-                                <input type="text" disabled value="R-431-2019" class="form-control" formControlName="asunto">
+                                <input type="text" disabled value="{{datosDenuncia.folioRit}}" class="form-control">
                             </div>
                         </div>
                         <div #registro class="row pt-4">
                             <div class="col-lg-3">Rut Asociado</div>
                             <div class="col-lg-4">
-                                <input type="text"  value="16768182" disabled class="form-control" formControlName="asunto">
+                                <input type="text"  value="{{datosDenuncia.rutAsociado}}" disabled class="form-control">
                             </div>
                         </div>
                         <div class="row mt-4">
-                            <div class="col d-flex align-items-baseline">
-                                <p class="mr-4">Asociar registros, visitas, de terceros</p>
-                                <div><button class="btn btn-success" routerLink="/dashboard/denuncia/denunciabuscador">Asociar registros</button></div>
+                            <div class="col-6">
+                                <div class="p-3" style="border: 1px solid rgb(243, 226, 226); border-radius: 2px;">
+                                    <h4>Lista de Registros</h4>
+                                    <div class="d-flex">
+                                        <select class="form-control" (change)="changeFnReg($event.target.value)">
+                                            <option value="">Selecciona el registro a asociar</option>
+                                            <option  *ngFor="let item of registrosRutAsociado; let x=index"[value]="x">
+                                                -- Numero Registro: {{item.registroId}} -- Asunto: {{item.asunto}} 
+                                            </option>
+                                        </select>
+                                        <div class="ml-1">
+                                            <button class="btn btn-primary" (click)="agregaRegDocto()">Agregar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="p-3" style="border: 1px solid rgb(243, 226, 226); border-radius: 2px;">
+                                    <h4>Lista de Reuniones</h4>
+                                <div class="d-flex">
+                                    <select class="form-control" (change)="changeFnReu($event.target.value)">
+                                        <option value="">Selecciona el registro a asociar</option>
+                                        <option  *ngFor="let item of reunionesRutAsociado; let x=index" [value]="x">
+                                            {{item.tipoReunion}}  -- Asunto:   {{item.asunto}}
+                                            --Fecha:   {{item.fecha|date:'dd-MM-yyyy'}} 
+                                        </option>
+                                    </select>
+                                    <div class="ml-1">
+                                        <button class="btn btn-primary" (click)="agregaReuDocto()">Agregar</button>
+                                    </div>
+                                </div>
+                                </div>
                             </div>
                         </div>
                         <div class="row mt-4">
-                            <table class="table">
-                                <th>Tipo</th>
-                                <th>N° Documento</th>
-                                <th>Fecha</th>
-                                <th>Nombre</th>
-                                <th>Asunto</th>
-                                <th>Accion</th>
+                            <div class="col">
+                                <div>
+                                    <h4>Repositorios de documentos para denuncia</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2 p-3">
+                            <table class="table table-bordered">
                                 <tr>
-                                    <td>Registro</td>
-                                    <td>000221</td>
-                                    <td>22-03-2021</td>
-                                    <td>Julieta Saldivia</td>
-                                    <td>Pelea en recreo</td>
-                                    
-                                    <td><span class="material-icons text-danger">delete</span></td>
+                                    <th>Tipo Doc</th>
+                                    <th>Tipo Reunion</th>
+                                    <th>Asunto</th>
+                                    <th>Fecha</th>
+                                    <th>Ingresado por</th>
+                                    <th>Accion</th>
                                 </tr>
-                                <tr>
-                                    <td>Registro</td>
-                                    <td>000226</td>
-                                    <td>02-05-2021</td>
-                                    <td>Julieta Saldivia</td>
-                                    <td>Pelea en Sala de Clases</td>
-                                    <td><span class="material-icons text-danger">delete</span></td>
+                                <tr *ngFor="let item of temporalListaDoctos; let x=index">
+                                    <td>{{item.tipoDoc}}</td>
+                                    <td>{{item.tipoReunion}}</td>
+                                    <td>{{item.asunto}}</td>
+                                    <td>{{item.fecha}}</td>
+                                    <td>{{item.profesional}}</td>
+                                    <td>borrar</td>
                                 </tr>
                             </table>
-                            <tr>
-                                <td colspan="4">
-                                    <app-loading></app-loading>
-                                </td>
-                            </tr>
-
                         </div>
                    </div>
                     <div class="row mt-4">

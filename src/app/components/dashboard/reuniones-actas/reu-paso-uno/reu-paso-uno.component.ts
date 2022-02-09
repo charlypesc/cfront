@@ -43,7 +43,7 @@ faCheckCircle=faCheckCircle
     this.profesional = this.loginService.getTokenDecoded().sub;
   }
 
-    // V E R I F I C A     R U T 
+// V E R I F I C A     R U T 
 changeFn(e){
   this.tipoReunionObj=e;
 }
