@@ -74,6 +74,9 @@ import { TematicaCompComponent } from './shared/tematica-comp/tematica-comp.comp
 import { ProtocoloCompComponent } from './shared/protocolo-comp/protocolo-comp.component';
 import { RutManualComponent } from './shared/rut-manual/rut-manual.component';
 import { ReuPasoTresComponent } from './components/dashboard/reuniones-actas/reu-paso-tres/reu-paso-tres.component';
+import { DenunciaPasoTresComponent } from './components/dashboard/denuncia/denuncia-paso-tres/denuncia-paso-tres.component';
+import { PanelEstudianteComponent } from './components/dashboard/administracion/ingresos/estudiante/panel-estudiante/panel-estudiante.component';
+import { NuevoEstudianteComponent } from './components/dashboard/administracion/ingresos/estudiante/nuevo-estudiante/nuevo-estudiante.component';
 
 
 
@@ -140,6 +143,9 @@ import { ReuPasoTresComponent } from './components/dashboard/reuniones-actas/reu
     ProtocoloCompComponent,
     RutManualComponent,
     ReuPasoTresComponent,
+    DenunciaPasoTresComponent,
+    PanelEstudianteComponent,
+    NuevoEstudianteComponent,
     
 
   ],

@@ -1,0 +1,107 @@
+<div #detalle class="container mt-4 mb-4" >
+    <div class="row" >
+        <div  class="col">
+            <div class="card text-left p-4">
+                <h3>Denuncia</h3>
+                <p>Repositorio con todos los documentos existentes relacionadas a la denuncia.</p><br>
+            </div>
+        </div>
+        <div class="col-3 card ml-auto p-3" *ngFor="let item of datosDenuncia">
+            <table class="table table-borderless table-sm">
+                <tr>
+                    <td><strong>Numero Interno</strong></td>
+                    <td>: {{id}}</td>
+                </tr>
+                <tr>
+                    <td><strong>Numero FOLIO</strong></td>
+                    <td>: {{item.folioRit}}</td>
+                </tr>
+                <tr>
+                    <td><strong>Fecha</strong></td>
+                    <td>: {{item.fechaAsignada | date:"dd-MM-yyyy"}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <div class="card text-left p-4">
+                <h3>Detalles de Denuncia</h3>
+                <div class="form-row mt-3">
+                    <table class="table table-bordered" *ngFor="let item of datosDenuncia">
+                        <tr>
+                            <td width="30%"><strong>Profesional que ingresa</strong></td>
+                            <td>{{item.profesional}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Organismo solicitante</strong></td>
+                            <td>{{item.organismo}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Folio de Organismo</strong></td>
+                            <td>{{item.folioRit}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Rut de estudiante asociado a denuncia</strong></td>
+                            <td>{{item.rutAsociado}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="form-row mt-3">
+                    <h4 class="mt-1 mb-2">Detalles de Estudiante</h4>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td width="30%">
+                                <strong>Nombre Estudiante</strong>
+                            </td>
+                            <td>{{nombreEstudiante}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Apoderado</strong></td>
+                            <td>{{apoderado}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Curso</strong></td>
+                            <td>{{curso}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Direccion Apoderado</strong></td>
+                            <td>{{direccionApoderado}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <div class="row mt-3" *ngFor="let item of datosDenuncia">
+        <div class="col">
+            <div class="card text-left p-4">
+                <h4>Listado de documentos Asociados</h4>
+                <div class="form-row mt-3">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>N° Item</th>
+                            <th>Tipo Documento</th>
+                            <th>Tipo de Reunión</th>
+                            <th>Asunto</th>
+                            <th>Profesional</th>
+                            <th>Folio Interno de Documento</th>
+                        </tr>
+                        <tr *ngFor="let it of item.listaDoctosDenuncia, let y=index">
+                            <td>{{y+1}}</td>
+                            <td>{{it.tipoDoc}}</td>
+                            <td>{{it.tipoReunion}}</td>
+                            <td>{{it.asunto}}</td>
+                            <td>{{it.profesional}}</td>
+                            <td>{{it.idPropioDoc}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="d-flex justify-content-center mt-4 p-4">
+    <button class="btn btn-warning mr-4" (click)="generarPdf()">Generar PDF</button>
+    <button class="btn btn-primary" routerLink="/dashboard">Home</button>
+</div>

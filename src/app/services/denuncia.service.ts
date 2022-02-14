@@ -23,4 +23,10 @@ export class DenunciaService {
   getDenunciaById(id:number):Observable<any>{
     return this.http.get(this.myAppUrl+this.myApiUrl+"/DenunciaId/"+id);
   }
+  updateDenuncia(denuncia: Denuncia): Observable<any>{
+    return this.http.put(this.myAppUrl+this.myApiUrl, denuncia)
+  }
+  getDenuncia(id:number){
+    return this.http.get(this.myAppUrl+this.myApiUrl+"/"+id)
+  }
 }

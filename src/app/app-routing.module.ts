@@ -55,6 +55,9 @@ import { NuevaTematicasComponent } from './components/dashboard/administracion/i
 import { ReuPasoUnoComponent } from './components/dashboard/reuniones-actas/reu-paso-uno/reu-paso-uno.component';
 import { ReuPasoDosComponent } from './components/dashboard/reuniones-actas/reu-paso-dos/reu-paso-dos.component';
 import { ReuPasoTresComponent } from './components/dashboard/reuniones-actas/reu-paso-tres/reu-paso-tres.component';
+import { DenunciaPasoTresComponent } from './components/dashboard/denuncia/denuncia-paso-tres/denuncia-paso-tres.component';
+import { PanelEstudianteComponent } from './components/dashboard/administracion/ingresos/estudiante/panel-estudiante/panel-estudiante.component';
+import { NuevoEstudianteComponent } from './components/dashboard/administracion/ingresos/estudiante/nuevo-estudiante/nuevo-estudiante.component';
 
 
 const routes: Routes = [
@@ -68,7 +71,7 @@ const routes: Routes = [
     { path: 'pregunta' , component: PreguntaComponent},
     { path: 'respuestaCuestionario', component: RespuestaCuestionarioComponent }
   ]},
-  { path: 'dashboard', component: DashboardComponent, children: [
+  { path:'dashboard', component: DashboardComponent, children: [
       { path: '',component: PanelBienvenidaComponent },
       { path: 'cambiarPassword', component: CambiarPasswordComponent },
       { path:'verCuestionario/:id', component: CuestionarioComponent },
@@ -89,6 +92,7 @@ const routes: Routes = [
       { path:'denuncia', component:DenunciaComponent, children:[
           { path: 'denunciapasouno', component: DenunciaPasoUnoComponent },
           { path: 'denunciapasodos/:denunciaId', component: DenunciaPasoDosComponent },
+          { path: 'denunciapasotres/:denunciaId', component: DenunciaPasoTresComponent },
           { path: 'denunciabuscador', component: DenunciaBuscadorComponent }
       ]},
       {path:'protocolos', component:ProtocolosComponent,children:[
@@ -110,7 +114,11 @@ const routes: Routes = [
         { path:'paneladm', component: PanelAdminComponent },
         { path: 'funcionario', component: FuncionarioComponent },
         { path: 'ingresos', component: IngresosComponent },
-        { path: 'estudiante', component: EstudianteComponent },
+        { path: 'estudiante', component: EstudianteComponent, children:[
+          { path:'panel-estudiante', component:PanelEstudianteComponent},
+          { path:'nuevo-estudiante', component:NuevoEstudianteComponent},
+        ],
+      },
         { path: 'establecimiento', component: EstablecimientoComponent},
         { path: 'usuarios', component: UsuarioComponent},
         { path: 'miestablecimiento', component: MiEstablecimientoComponent,children:[

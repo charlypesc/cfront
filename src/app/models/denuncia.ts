@@ -1,4 +1,7 @@
+import { ListaDoctosDenuncia } from "./ListaDoctosDenuncia"
+
 export class Denuncia{
+    id?:number
     profesional?:string
     organismo?:string
     rutAsociado?:string
@@ -6,9 +9,11 @@ export class Denuncia{
     folioInterno?:number
     fechaIngreso?:Date
     fechaAsignada?:Date
+    ListaDoctosDenuncia?:ListaDoctosDenuncia[]
 
 
-    constructor(    
+    constructor(
+        id?:number,    
         profesional?:string,
         organismo?:string,
         rutAsociado?:string,
@@ -16,7 +21,9 @@ export class Denuncia{
         folioInterno?:number,
         fechaIngreso?:Date,
         fechaAsignada?:Date,
+        ListaDoctosDenuncia?:ListaDoctosDenuncia[]
     ){
+        this.id=id,
         this.profesional=profesional
         this.organismo=organismo
         this.rutAsociado=rutAsociado
@@ -24,6 +31,6 @@ export class Denuncia{
         this.folioInterno=folioInterno
         this.fechaIngreso=fechaIngreso
         this.fechaAsignada=fechaAsignada
-
+        this.ListaDoctosDenuncia=ListaDoctosDenuncia
     }
 }
