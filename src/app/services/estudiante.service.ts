@@ -22,4 +22,19 @@ export class EstudianteService {
    getEstudianteByRut(rutEstudiante:string):Observable<any>{
       return this.http.get(this.myAppUrl + this.myApiUrl + rutEstudiante);
    }
+   getEstudianteRbdAno(): Observable<any>{
+     return this.http.get(this.myAppUrl + this.myApiUrl +'getEstudiantes');
+   }
+   getEstudianteRbdCurso(curso:string):Observable<any>{
+     return this.http.get(this.myAppUrl + this.myApiUrl +'getEstudiantes'+'/'+ curso)
+   }
+   getEstudianteById(id:number):Observable<any>{
+     return this.http.get(this.myAppUrl + this.myApiUrl +'getEstudianteId/'+ id)
+   }
+   deleteEstudianteById(){
+
+   }
+   updateEstudianteById(){
+
+   }
 }

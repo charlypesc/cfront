@@ -77,6 +77,7 @@ import { ReuPasoTresComponent } from './components/dashboard/reuniones-actas/reu
 import { DenunciaPasoTresComponent } from './components/dashboard/denuncia/denuncia-paso-tres/denuncia-paso-tres.component';
 import { PanelEstudianteComponent } from './components/dashboard/administracion/ingresos/estudiante/panel-estudiante/panel-estudiante.component';
 import { NuevoEstudianteComponent } from './components/dashboard/administracion/ingresos/estudiante/nuevo-estudiante/nuevo-estudiante.component';
+import { EditarEstudianteComponent } from './components/dashboard/administracion/ingresos/estudiante/editar-estudiante/editar-estudiante.component';
 
 
 
@@ -146,6 +147,7 @@ import { NuevoEstudianteComponent } from './components/dashboard/administracion/
     DenunciaPasoTresComponent,
     PanelEstudianteComponent,
     NuevoEstudianteComponent,
+    EditarEstudianteComponent,
     
 
   ],

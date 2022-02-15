@@ -1,0 +1,11 @@
+.reg{
+    text-align: center;
+}
+.material-icons{
+    cursor: pointer;
+}
+.ic{
+    position: relative;
+    top: 4px;
+    padding: 0;
+}
