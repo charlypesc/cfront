@@ -78,6 +78,10 @@ import { DenunciaPasoTresComponent } from './components/dashboard/denuncia/denun
 import { PanelEstudianteComponent } from './components/dashboard/administracion/ingresos/estudiante/panel-estudiante/panel-estudiante.component';
 import { NuevoEstudianteComponent } from './components/dashboard/administracion/ingresos/estudiante/nuevo-estudiante/nuevo-estudiante.component';
 import { EditarEstudianteComponent } from './components/dashboard/administracion/ingresos/estudiante/editar-estudiante/editar-estudiante.component';
+import { PanelEstablecimientoComponent } from './components/dashboard/administracion/ingresos/establecimiento/panel-establecimiento/panel-establecimiento.component';
+import { EditarEstablecimientoComponent } from './components/dashboard/administracion/ingresos/establecimiento/editar-establecimiento/editar-establecimiento.component';
+import { NuevoEstablecimientoComponent } from './components/dashboard/administracion/ingresos/establecimiento/nuevo-establecimiento/nuevo-establecimiento.component';
+
 
 
 
@@ -148,6 +152,10 @@ import { EditarEstudianteComponent } from './components/dashboard/administracion
     PanelEstudianteComponent,
     NuevoEstudianteComponent,
     EditarEstudianteComponent,
+    PanelEstablecimientoComponent,
+    EditarEstablecimientoComponent,
+    NuevoEstablecimientoComponent,
+
     
 
   ],

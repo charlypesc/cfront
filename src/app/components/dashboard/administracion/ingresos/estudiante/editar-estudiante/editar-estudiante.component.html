@@ -31,7 +31,7 @@
             <div class="col">
                 <p class="ml-1 text-secondary">Fecha de Nacimiento</p>   
                 <input type="date" class="form-control" id="fechaNac" formControlName="nacimiento" value="{{datosEs.nacimiento| date:'yyyy-MM-dd'}}"[readonly]="readonly ">
-                <div class="text-danger" *ngIf= "datosEstudiantes.get('nacimiento').hasError('required') && datosEstudiantes.get('nacimiento').touched">Debe ingresar fecha de Nacimiento</div>
+                <!-- <div class="text-danger">Debe ingresar fecha de Nacimiento</div> -->
             </div>
             <div class="col">
                 <p class="text-secondary">Sexo</p>
@@ -159,8 +159,8 @@
             </div>
         </div>
         <div class="form-row mt-4 mb-4 justify-content-center">
-            <button class="btn btn-primary" routerLink="/dashboard/administracion">Volver</button>
-            <button class="btn btn-success ml-4" [disabled] = "datosEstudiantes.invalid">Guardar</button>
+            <button class="btn btn-primary" routerLink="/dashboard/administracion/paneladm">Volver</button>
+            <button class="btn btn-success ml-4" [disabled]="datosEstudiantes.invalid">Guardar</button>
         </div>        
     </form>
     </div>  

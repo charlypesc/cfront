@@ -34,7 +34,7 @@ export class EstudianteService {
    deleteEstudianteById(){
 
    }
-   updateEstudianteById(){
-
+   updateEstudianteById(estudiante:Estudiante):Observable<any>{
+    return this.http.put(this.myAppUrl + this.myApiUrl, estudiante)
    }
 }

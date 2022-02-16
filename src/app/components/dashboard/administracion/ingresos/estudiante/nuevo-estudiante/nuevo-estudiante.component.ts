@@ -7,6 +7,8 @@ import { stringify } from 'querystring';
 import { Estudiante } from 'src/app/models/estudiante';
 import { EstudianteService } from 'src/app/services/estudiante.service';
 import { LoginService } from 'src/app/services/login.service';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nuevo-estudiante',
@@ -20,6 +22,7 @@ export class NuevoEstudianteComponent implements OnInit {
 	pieBool:boolean;
   constructor(private fb: FormBuilder,
     private LoginService:LoginService,
+            private router:Router,
             private toastr: ToastrService,
             private estudianteService: EstudianteService) {
               this.datosEstudiantes= this.fb.group({
@@ -67,7 +70,7 @@ export class NuevoEstudianteComponent implements OnInit {
   registrarEstudiante(){
 	  
     this.pieBo();
- 
+    var year = new Date
    const estudiante: Estudiante = {
        nombre:this.datosEstudiantes.value.nombre,
        apellido:this.datosEstudiantes.value.apellido,
@@ -96,13 +99,24 @@ export class NuevoEstudianteComponent implements OnInit {
      telefonoApoderadoSuplente:this.datosEstudiantes.value.telefonoApoderadoSuplente,
      correoApoderadoSuplente:this.datosEstudiantes.value.correoApoderadoSuplente,
      rbd:this.rbd,
-     pie:this.pieBool
+     pie:this.pieBool,
+     anoCursando:year.getFullYear(),
+     activo:1
    }
 
    this.estudianteService.guardarEstudiante(estudiante).subscribe(data => {
-     this.toastr.success('El estudiante ha sido ingresado correctamente, Estudiante registrado')
 
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: data.message,
+      showConfirmButton: false,
+      timer: 3000
+    })
+    this.router.navigate(['/dashboard/administracion/estudiante/panel-estudiante'])
    })
+
+ 
  }
 
 }

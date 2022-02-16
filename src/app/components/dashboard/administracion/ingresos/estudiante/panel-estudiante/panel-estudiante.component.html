@@ -26,6 +26,7 @@
         <div class="col">
             <table class="table table-bordered"  *ngIf="listadoEstudiantes.length!=0">
                 <tr>
+                    <th>Lista</th>
                     <th>Nombre</th>
                     <th>Curso</th>
                     <th>Rut</th>
@@ -33,6 +34,7 @@
                     <!-- <th class="reg">Borrar</th> -->
                 </tr>
                 <tr *ngFor="let item of listadoEstudiantes">
+                    <td>{{item.numeroLista}}</td>
                     <td>{{item.nombre}}</td>
                     <td>{{item.curso}}</td>
                     <td>{{item.run}}</td>

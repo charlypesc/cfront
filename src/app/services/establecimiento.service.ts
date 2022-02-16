@@ -19,4 +19,7 @@ export class EstablecimientoService {
    guardarEstablecimiento(establecimiento: Establecimiento): Observable<any>{
     return this.http.post(this.myAppUrl + this.myApiUrl, establecimiento);
   }
+    getEstablecimientos():Observable<any>{
+      return this.http.get(this.myAppUrl + this.myApiUrl+'/getEstablecimientos')
+    }
 }
