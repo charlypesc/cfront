@@ -81,6 +81,9 @@ import { EditarEstudianteComponent } from './components/dashboard/administracion
 import { PanelEstablecimientoComponent } from './components/dashboard/administracion/ingresos/establecimiento/panel-establecimiento/panel-establecimiento.component';
 import { EditarEstablecimientoComponent } from './components/dashboard/administracion/ingresos/establecimiento/editar-establecimiento/editar-establecimiento.component';
 import { NuevoEstablecimientoComponent } from './components/dashboard/administracion/ingresos/establecimiento/nuevo-establecimiento/nuevo-establecimiento.component';
+import { NuevoFuncionarioComponent } from './components/dashboard/administracion/ingresos/funcionario/nuevo-funcionario/nuevo-funcionario.component';
+import { EditarFuncionarioComponent } from './components/dashboard/administracion/ingresos/funcionario/editar-funcionario/editar-funcionario.component';
+import { PanelFuncionarioComponent } from './components/dashboard/administracion/ingresos/funcionario/panel-funcionario/panel-funcionario.component';
 
 
 
@@ -155,6 +158,9 @@ import { NuevoEstablecimientoComponent } from './components/dashboard/administra
     PanelEstablecimientoComponent,
     EditarEstablecimientoComponent,
     NuevoEstablecimientoComponent,
+    NuevoFuncionarioComponent,
+    EditarFuncionarioComponent,
+    PanelFuncionarioComponent,
 
     
 

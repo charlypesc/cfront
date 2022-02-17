@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3>Panel funcionario</h3>
+            <p>Agrega, modifica o elimina funcionarios del establecimiento(ya sean docentes o asistentes de la educacion)</p>
+        </div>
+        <div class="col">
+            <button class="btn btn-success" style="padding-bottom: 10px; padding-right: 16px;" routerLink="/dashboard/administracion/funcionario/nuevo-funcionario"><a style="position:relative;top:5px;"><span class="material-icons">add</span></a>Nuevo</button>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table table-bordered">
+            <tr>
+                <th>N°</th>
+                <th>Nombre </th>
+                <th>Cargo</th>
+                <th>Rut</th>
+                <th>Correo Electronico</th>
+                <th>Telefono</th>
+                <th>Edita</th>
+                <th>Elimina</th>
+            </tr>
+            <tr *ngFor="let i of datosFu; let x=index">
+                <td>{{x+1}}</td>
+                <td>{{i.nombre}} {{i.apellido}}</td>
+                <td>{{i.cargo}}</td>
+                <td>{{i.rut}}</td>
+                <td>{{i.correoElectronico}}</td>
+                <td>{{i.telefono}}</td>
+                <td><a><span class="material-icons text-success" [value]="i.id" (click)="edita($event.target.value)">article</span></a></td>
+                <td><span class="material-icons text-danger" [value]="i.id" (click)="elimina($event.target.value)">delete</span></td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -62,6 +62,9 @@ import { EditarEstudianteComponent } from './components/dashboard/administracion
 import { EditarEstablecimientoComponent } from './components/dashboard/administracion/ingresos/establecimiento/editar-establecimiento/editar-establecimiento.component';
 import { NuevoEstablecimientoComponent } from './components/dashboard/administracion/ingresos/establecimiento/nuevo-establecimiento/nuevo-establecimiento.component';
 import { PanelEstablecimientoComponent } from './components/dashboard/administracion/ingresos/establecimiento/panel-establecimiento/panel-establecimiento.component';
+import { NuevoFuncionarioComponent } from './components/dashboard/administracion/ingresos/funcionario/nuevo-funcionario/nuevo-funcionario.component';
+import { EditarFuncionarioComponent } from './components/dashboard/administracion/ingresos/funcionario/editar-funcionario/editar-funcionario.component';
+import { PanelFuncionarioComponent } from './components/dashboard/administracion/ingresos/funcionario/panel-funcionario/panel-funcionario.component';
 
 
 const routes: Routes = [
@@ -116,7 +119,12 @@ const routes: Routes = [
       { path: 'panelBienvenida', component: PanelBienvenidaComponent }, 
       { path: 'administracion', component: AdministracionComponent, children:[
         { path:'paneladm', component: PanelAdminComponent },
-        { path: 'funcionario', component: FuncionarioComponent },
+        { path: 'funcionario', component: FuncionarioComponent, children:[
+          { path: 'nuevo-funcionario', component: NuevoFuncionarioComponent },
+          { path: 'editar-funcionario/:funcionarioId', component: EditarFuncionarioComponent },
+          { path: 'panel-funcionario', component: PanelFuncionarioComponent }
+        ] 
+      },
         { path: 'ingresos', component: IngresosComponent },
         { path: 'estudiante', component: EstudianteComponent, children:[
           { path:'panel-estudiante', component:PanelEstudianteComponent},

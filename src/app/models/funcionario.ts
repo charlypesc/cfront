@@ -9,8 +9,9 @@ export class Funcionario{
     establecimiento:string;
     cargo: string;
     rbd:string;
+    activo?:number
 
-    constructor(nombre:string, apellido:string, rut:string, correoElectronico:string, establecimiento:string, cargo:string, rbd:string, id?:number, telefono?:string, direccion?:string){
+    constructor(nombre:string, apellido:string, rut:string, correoElectronico:string, establecimiento:string, cargo:string, rbd:string, id?:number, telefono?:string, direccion?:string, activo?:number){
     this.id = id;
     this.nombre = nombre;
     this.apellido= apellido;
@@ -21,5 +22,6 @@ export class Funcionario{
     this.establecimiento=establecimiento;
     this.cargo=cargo;
     this.rbd=rbd;
+    this.activo=activo
     }
 }

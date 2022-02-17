@@ -1,0 +1,64 @@
+<div class="container p-5 justify-content-center">
+    <div class="row mt-4">
+        <div class="col-10">
+            <h2>Datos del funcionario</h2><br>
+        </div>
+        <div class="col ml-auto mt-4"><button type="button" class="btn btn-success" (click)="editarBt()">Editar</button></div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <!-- <p>Ingresa los detalles del funcionario (Docente, asistente)</p> -->
+            <br>
+            <form [formGroup]="datosFuncionario">
+                <h4>Datos Personales</h4><br>
+                <div class="form-row">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Nombre" formControlName="nombre" [readonly]="readonly">
+                        <div class="text-danger" *ngIf= "datosFuncionario.get('nombre').hasError('required') && datosFuncionario.get('nombre').touched">El nombre es requerido</div>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Apellido" formControlName="apellido" [readonly]="readonly">
+                        <div class="text-danger" *ngIf= "datosFuncionario.get('apellido').hasError('required') && datosFuncionario.get('apellido').touched">El apellido es requerido</div>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="RUT sin puntos ni guiones" formControlName="rut" [readonly]="readonly">
+                        <div class="text-danger" *ngIf= "datosFuncionario.get('rut').hasError('required') && datosFuncionario.get('rut').touched">El rut es requerido</div>
+                    </div>    
+                </div>
+                <div class="form-row mt-4">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Telefono" formControlName="telefono" [readonly]="readonly">
+                        <div class="text-danger" *ngIf= "datosFuncionario.get('telefono').hasError('required') && datosFuncionario.get('telefono').touched">El telefono es requerido</div>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Correo Electronico" formControlName="correoElectronico" [readonly]="readonly">
+                        <div class="text-danger" *ngIf= "datosFuncionario.get('correoElectronico').hasError('required') && datosFuncionario.get('correoElectronico').touched">El correo electronico es requerido</div>
+                    </div>
+                </div>
+                <div class="form-group mt-3">
+                    <input type="text" class="form-control" placeholder="Direccion" formControlName="direccion" [readonly]="readonly">
+                    <div class="text-danger" *ngIf= "datosFuncionario.get('direccion').hasError('required') && datosFuncionario.get('direccion').touched">La direccion es requerida</div>
+                </div>
+                <h4>Datos Unidad de Servicio</h4>
+                <div class="form-row mt-4"> 
+                    <div class="col">
+                        <select class="form-control" formControlName="cargo" (change)="changeFn($event.target.value)">
+                            <option value="Docente">Docente</option>
+                            <option value="Asistente">Asistente</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                        <!-- <input type="text" class="form-control" placeholder="Cargo" formControlName="cargo">
+                        <div class="text-danger" *ngIf= "datosFuncionario.get('cargo').hasError('required') && datosFuncionario.get('cargo').touched">El cargo o funcion es requerido</div> -->
+                    </div>
+                </div>
+              <div class="row justify-content-center">
+                <div class=" mt-4">
+                    <button [disabled] = "datosFuncionario.invalid" class="btn btn-success mr-2" (click)="actualizarFuncionario()">Guardar</button>
+                    <button class="btn btn-primary " routerLink="/dashboard/administracion">Volver</button>
+                </div>
+              </div>
+            </form>
+        </div>
+    </div>
+</div>
+            

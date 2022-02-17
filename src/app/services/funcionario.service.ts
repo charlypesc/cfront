@@ -19,4 +19,19 @@ export class FuncionarioService {
    guardarFuncionario(funcionario:Funcionario): Observable<any>{
     return this.http.post(this.myAppUrl + this.myApiUrl, funcionario);
    }
+   getFuncionarioId(id:number):Observable<any>{
+    return this.http.get(this.myAppUrl + this.myApiUrl+'/funcionarioId/'+id)
+   }
+   getFuncionarioTodos():Observable<any>{
+    return this.http.get(this.myAppUrl + this.myApiUrl+'/getFuncionarioTodos')
+   }
+   getFuncionarioRut(rut:string):Observable<any>{
+    return this.http.get(this.myAppUrl + this.myApiUrl+'/getFuncionarioRut'+rut)
+   }
+   eliminaFuncionario(id:number):Observable<any>{
+    return this.http.delete(this.myAppUrl + this.myApiUrl+'/'+id)
+   }
+   actualizaFuncionario(funcionario:Funcionario):Observable<any>{
+    return this.http.put(this.myAppUrl + this.myApiUrl, funcionario)
+   }
 }
