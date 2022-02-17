@@ -22,4 +22,14 @@ export class EstablecimientoService {
     getEstablecimientos():Observable<any>{
       return this.http.get(this.myAppUrl + this.myApiUrl+'/getEstablecimientos')
     }
+    getEstablecimientoById(id:number):Observable<any>{
+      return this.http.get(this.myAppUrl + this.myApiUrl+'/getEstablecimientos/'+id)
+    }
+    editaEstablecimiento(establecimiento:Establecimiento):Observable<any>{
+      return this.http.put(this.myAppUrl+this.myApiUrl+'/', establecimiento);
+    }
+    eliminaEstablecimiento(id):Observable<any>{
+      return this.http.delete(this.myAppUrl+this.myApiUrl+'/'+id);
+    }
+
 }

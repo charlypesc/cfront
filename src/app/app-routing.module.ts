@@ -126,7 +126,7 @@ const routes: Routes = [
       },
         { path: 'establecimiento', component: EstablecimientoComponent,children:[
           { path: 'panel-establecimiento', component:PanelEstablecimientoComponent},
-          { path: 'edita-establecimiento', component: EditarEstablecimientoComponent },
+          { path: 'edita-establecimiento/:establecimientoId', component: EditarEstablecimientoComponent },
           { path:'nuevo-establecimiento', component:NuevoEstablecimientoComponent }
         ]},
         { path: 'usuarios', component: UsuarioComponent},
