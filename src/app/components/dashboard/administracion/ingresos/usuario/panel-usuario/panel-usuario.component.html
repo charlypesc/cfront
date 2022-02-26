@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-10 mt-4">
+            <h3>Panel Usuario</h3>
+            <p>Agrega, modifica, los USUARIOS del sistema.</p>
+            <p><strong>Nota:</strong> Usuario llamese a quienes formen parte del equipo de convivencia o hayan sido autorizados para gestionar la documentación de Convivencia Escolar</p>
+        </div>
+        <div class="col ml-auto">
+            <button class="btn btn-success" style="padding-bottom: 10px; padding-right: 16px;" routerLink="/dashboard/administracion/usuarios/nuevo-usuario"><a style="position:relative;top:5px;"><span class="material-icons">add</span></a>Nuevo</button>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <table class="table table-bordered">
+            <tr>
+                <th>Nombre</th>
+                <th>Nivel</th>
+                <th>Nombre de Usuario</th>
+                <th>Rut</th>
+                <th>Mail</th>
+                <th>Activo</th>
+                <th>Editar</th>
+                <th>Borrar</th>
+            </tr>
+            <tr *ngFor="let i of datosUs; let x=index">
+                <td>{{i.nombre}} {{i.apellido}}</td>
+                <td>{{i.nivel}}</td>
+                <td>{{i.nombreUsuario}}</td>
+                <td>{{i.rut}}</td>
+                <td>{{i.correoElectronico}}</td>
+                <td>{{i.activo}}</td>
+                <td><a><span [value]="i.id" class="material-icons text-secondary" style="cursor: not-allowed;">article</span></a></td>
+                <td><a ><span [value]="i.id" (click)=" elimina($event.target.value)"class="material-icons text-danger">delete</span></a></td>
+            </tr>
+        </table>
+    </div>
+    <div class="row justify-content-center">
+        <button class="btn btn-primary" routerLink="/dashboard/administracion/paneladm/">Volver</button>
+    </div>
+</div>

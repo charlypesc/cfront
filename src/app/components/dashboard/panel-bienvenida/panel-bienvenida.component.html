@@ -4,91 +4,95 @@
             <p>Unidad Educativa: <strong>{{establecimiento}} ({{rbd}})</strong></p>
         </div>
 </div>
-    <div class="row container-fluid">
-        <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mt-1">
-            <button class="adm" routerLink="/dashboard/busqueda/buspasouno">
-                <div class="card" style="background-color:#05b348;">
-                  <!-- style="background-color: #05a7b3;" -->
-                    <div class="card-body">
-                        <fa-icon [icon]="faSearch" class="icono" style="color:white ;"></fa-icon>
-                      <h5 class="card-title">Busqueda</h5>
-                      <h6 class="card-subtitle mb-2" style="color: rgb(235, 235, 235);">Buscar estudiante o funcionario</h6>
-                      <p class="card-text"></p>
-                    </div>
-                  </div>
-            </button>
-        </div>
-        <div class="col-12 col-sm-6 col-md-6 col-lg-2 col-xl-3 mt-1">
-            <button class="adm" routerLink="/dashboard/registro/regPasoDos">
-                <div class="card" style="background-color: #1375f5;">
-                    <div class="card-body">
-                        <fa-icon [icon]="faFileAlt" class="icono" style="color:white;"></fa-icon>
-                      <h5 class="card-title">Registro</h5>
-                      <h6 class="card-subtitle mb-2" style="color: rgb(235, 235, 235);">Ingreso de intervencion</h6>
-                      <p class="card-text"></p>
-                    </div>
-                  </div>
-            </button>
-        </div>
-        <!-- <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mt-1">
-          <button class="adm" routerLink="protocolos/panelprotocolo">
-              <div class="card" style="background-color: #8d36af;">
+    <div class="container" style="width: 100%;">
+      <div class="row">
+        <div class="col-12 col-sm-6 col-md-5 col-lg-4 mt-4 col-xl-4">
+          <button class="adm" routerLink="/dashboard/busqueda/buspasouno">
+              <div class="card" style="background-color:#05b348;">
+                <!-- style="background-color: #05a7b3;" -->
                   <div class="card-body">
-                      <fa-icon [icon]="faFileAlt" class="icono" style="color:rgb(255, 255, 255) ;"></fa-icon>
-                    <h5 class="card-title">Protocolos</h5>
-                    <h6 class="card-subtitle mb-2 text-white">Ver o ingresar nuevos protocolos...</h6>
+                      <fa-icon [icon]="faSearch" class="icono" style="color:white ;"></fa-icon>
+                    <h5 class="card-title">Busqueda</h5>
+                    <h6 class="card-subtitle mb-2" style="color: rgb(235, 235, 235);">Buscar estudiante o funcionario</h6>
                     <p class="card-text"></p>
                   </div>
                 </div>
           </button>
-        </div> -->
-        <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mt-4">
-            <button class="adm" routerLink="reuniones/reupasouno">
-                <div class="card none" style="background-color: #088d8d;">
-                    <div class="card-body">
-                        <fa-icon [icon]="faHandshake" class="icono" style="color:rgb(255, 255, 255);"></fa-icon>
-                      <h5 class="card-title">Reuniones</h5>
-                      <h6 class="card-subtitle mb-2 text-white">Ingresa Visitas Domiciliaria, Reuniones con docentes</h6>
-                      <p class="card-text"></p>
-                    </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-4 mt-4">
+          <button class="adm" routerLink="/dashboard/registro/regPasoDos">
+              <div class="card" style="background-color: #1375f5;">
+                  <div class="card-body">
+                      <fa-icon [icon]="faFileAlt" class="icono" style="color:white;"></fa-icon>
+                    <h5 class="card-title">Registro</h5>
+                    <h6 class="card-subtitle mb-2" style="color: rgb(235, 235, 235);">Ingreso de intervencion</h6>
+                    <p class="card-text"></p>
                   </div>
-            </button>
-        </div>
+                </div>
+          </button>
+      </div>
+     
+      <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-4 mt-4">
+          <button class="adm" routerLink="reuniones/reupasouno">
+              <div class="card" style="background-color: #088d8d;">
+                  <div class="card-body">
+                      <fa-icon [icon]="faHandshake" class="icono" style="color:rgb(255, 255, 255);"></fa-icon>
+                    <h5 class="card-title">Reuniones</h5>
+                    <h6 class="card-subtitle mb-2 text-white">Ingresa Visitas Domiciliaria, Reuniones con docentes</h6>
+                    <p class="card-text"></p>
+                  </div>
+                </div>
+          </button>
+      </div>
 
-        <div class="col-12 col-sm-6 col-md-6 col-lg-2 col-xl-3 mt-4">
-            <button class="adm" routerLink="/dashboard/denuncia/denunciapasouno">
-                <div class="card" style="background-color: #f3bc09">
-                    <div class="card-body">
-                        <fa-icon [icon]="faGavel" class="icono" style="color:white ;"></fa-icon>
-                      <h5 class="card-title">Denuncias</h5>
-                      <h6 class="card-subtitle mb-2 text-white">Ingresa una accion de terceros...</h6>
-                      <p class="card-text"></p>
-                    </div>
-                  </div>
-            </button>
-        </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mt-4">
-          <button class="adm" routerLink='/dashboard/programas'>
-              <div class="card none" style="background-color: #0fa6cc;background-color: grey; cursor: not-allowed;">
+      <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-4 mt-4">
+          <button class="adm" routerLink="/dashboard/denuncia/denunciapasouno">
+              <div class="card" style="background-color: #f3bc09">
                   <div class="card-body">
-                    <span class="material-icons">escalator_warning</span>
-                    <h5 class="card-title">Programas</h5>
-                    <h6 class="card-subtitle mb-2" style="color: rgb(235, 235, 235);">Agregar diferentes programas asociados...</h6>
+                      <fa-icon [icon]="faGavel" class="icono" style="color:white ;"></fa-icon>
+                    <h5 class="card-title">Denuncias</h5>
+                    <h6 class="card-subtitle mb-2 text-white">Ingresa una accion de terceros...</h6>
                     <p class="card-text"></p>
                   </div>
                 </div>
           </button>
-        </div> 
-        <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mt-1">
-          <button class="adm" routerLink='/dashboard/administracion/paneladm'>
-              <div class="card admin">
-                  <div class="card-body">
-                      <fa-icon [icon]="faCogs" class="icono" style="color:white ;"></fa-icon>
-                    <h5 class="card-title">Administracion</h5>
-                    <h6 class="card-subtitle mb-2" style="color: rgb(235, 235, 235);">Agregar usuarios, funcionarios...</h6>
-                    <p class="card-text"></p>
-                  </div>
+      </div>
+      
+      <div class="col-12 col-sm-6 col-md-5 col-lg-4 mt-4 ">
+        <button class="adm" routerLink='/dashboard/administracion/paneladm'>
+            <div class="card admin">
+                <div class="card-body">
+                    <fa-icon [icon]="faCogs" class="icono" style="color:white ;"></fa-icon>
+                  <h5 class="card-title">Administracion</h5>
+                  <h6 class="card-subtitle mb-2" style="color: rgb(235, 235, 235);">Agregar usuarios, funcionarios...</h6>
+                  <p class="card-text"></p>
                 </div>
-          </button>
-        </div>
+              </div>
+        </button>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mt-4">
+        <button class="adm" routerLink='/dashboard/seguimiento/panel-seguimiento'>
+            <div class="card none" style="background-color: #0fa6cc">
+                <div class="card-body">
+                  <span class="material-icons">escalator_warning</span>
+                  <h5 class="card-title">Seguimiento</h5>
+                  <h6 class="card-subtitle mb-2" style="color: rgb(235, 235, 235);">Estudiantes o Func en Seguimiento</h6>
+                  <p class="card-text"></p>
+                </div>
+              </div>
+        </button>
+      </div> 
+       <!-- <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mt-1">
+        <button class="adm" routerLink="protocolos/panelprotocolo">
+            <div class="card" style="background-color: #8d36af;">
+                <div class="card-body">
+                    <fa-icon [icon]="faFileAlt" class="icono" style="color:rgb(255, 255, 255) ;"></fa-icon>
+                  <h5 class="card-title">Protocolos</h5>
+                  <h6 class="card-subtitle mb-2 text-white">Ver o ingresar nuevos protocolos...</h6>
+                  <p class="card-text"></p>
+                </div>
+              </div>
+        </button>
+      </div> -->
+      </div>        
     </div>

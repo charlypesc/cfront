@@ -1,5 +1,6 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Funcionario } from 'src/app/models/funcionario';
@@ -38,7 +39,7 @@ datosFuncionario: FormGroup;
                         telefono:['', Validators.required],
                         correoElectronico:['',Validators.required],
                         direccion:['', Validators.required],
-                        cargo:['', Validators.required]
+                        cargo:[{value:'', disabled:true,}, Validators.required]
                       })
                 }
 
@@ -55,19 +56,26 @@ datosFuncionario: FormGroup;
       this.datosFuncionario.controls.correoElectronico.setValue(this.datosFu.correoElectronico)
       this.datosFuncionario.controls.direccion.setValue(this.datosFu.direccion)
       this.datosFuncionario.controls.cargo.setValue(this.datosFu.cargo)
+      //B T N   Crea el control status, que se valida internamente
+      this.datosFuncionario.addControl('status', this.fb.control('',Validators.required))
+      console.log(this.datosFuncionario)
     })
-
+  
    
   }
+
   editarBt(){
     if(this.readonly==true){
+      console.log("caigo en el true")
+      this.datosFuncionario.get('cargo').enable();
+      this.datosFuncionario.get('status').enable();
       this.readonly=false
-      this.datosFuncionario.controls.status.setValue('ok')
-      this.datosFuncionario.controls.cargo.setValue(this.datosFu)
     }else{
+      console.log("caigo en el else")
       this.readonly=true
-      this.datosFuncionario.controls.status.setValue(null)
+      this.datosFuncionario.get('cargo').disable();
       this.datosFuncionario.controls.status.setErrors;//quitar el error 
+
     }
   
   }

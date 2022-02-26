@@ -4,6 +4,12 @@
     
     
 }
+.other{
+    position: relative;
+    display: flex;
+    width: 100%;
+    padding: 0px!important;
+}
 
 
 .icono{

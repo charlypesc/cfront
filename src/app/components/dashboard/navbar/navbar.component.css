@@ -1,0 +1,15 @@
+.pers{
+    display: block;
+    border-radius: 10px;
+    padding: 10px;
+    border-color:rgb(6, 110, 170);
+}
+img{
+    width: 70px;
+}
+.nav-per{
+    color: rgb(6, 110, 170);
+}
+span{
+    cursor: pointer;
+}

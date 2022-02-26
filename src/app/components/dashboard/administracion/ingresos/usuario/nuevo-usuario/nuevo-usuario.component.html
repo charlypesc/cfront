@@ -1,0 +1,84 @@
+<div class="row mt-4">
+    <div class="col-lg-7 offset-lg-3 mt-4">
+        <h2>Ingresa datos del usuario</h2>
+        <p class="mt-3  text-secondary">En esta seccion ingresas al funcionario que trabajara en el sistema</p>
+        <form [formGroup]="datosUsuario"(ngSubmit)="registrarUsuario()">
+            <h4 class="mt-2 mb-4">Datos Personales</h4>
+            <div class="form-row  mt-2">
+                <div class="col">
+                    <p class="ml-1 text-secondary ">Nombres</p>
+                    <input type="text" class="form-control" formControlName="nombre">
+                    <div class="text-danger ml-1 mt-1" *ngIf= "datosUsuario.get('nombre').hasError('required') && datosUsuario.get('nombre').touched">El nombre es requerido</div>
+                </div>
+                <div class="col">
+                    <p class="ml-1  text-secondary">Apellidos</p>
+                    <input type="text" class="form-control"  formControlName="apellido">
+                    <div class="text-danger ml-1 mt-1" *ngIf= "datosUsuario.get('apellido').hasError('required') && datosUsuario.get('apellido').touched">El apellido es requerido</div>
+                </div>
+            </div>
+            <div class="form-row mt-3">
+                <div class="col">
+                    <p class="ml-1  text-secondary">Ingresa numero de RUT</p>
+                    <input type="text" class="form-control" placeholder="Ej: 17332111-K"  formControlName="rut">
+                    <div class="text-danger ml-1 mt-1" *ngIf= "datosUsuario.get('rut').hasError('required') && datosUsuario.get('rut').touched">El rut es requerido</div>
+                </div>
+                <div class="col">
+                    <p class="ml-1 text-secondary">Correo Electrónico</p>
+                    <input type="text" class="form-control" formControlName="correoElectronico">
+                    <div class="text-danger ml-1 mt-1" *ngIf= "datosUsuario.get('correoElectronico').hasError('required') && datosUsuario.get('correoElectronico').touched">El Correo Electrónico es requerido</div>
+                </div>
+            </div>
+            <!-- <h4 class="mt-4">Datos Establecimiento</h4> -->
+            <!-- <div class="form-row">
+                <div class="col mt-3">
+                    <p class="ml-1 text-secondary">Nombre Establecimiento</p>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col mt-3">
+                    <p class="ml-1 text-secondary">Rbd Establecimiento</p>
+                    <input type="text" class="form-control"></div>
+            </div> -->
+            <h3 class="mt-3">Datos Cuenta</h3>
+            <div class="form-row mt-3">
+                <div class="col">
+                    <p class="ml-1 text-secondary">Nombre de Usuario</p>
+                    <input type="text" class="form-control" formControlName="nombreUsuario">
+                    <div class="text-danger ml-1 mt-1" *ngIf= "datosUsuario.get('nombreUsuario').hasError('required') && datosUsuario.get('nombreUsuario').touched">El nombre de usuario es requerido</div>
+                </div>
+            </div>
+            <div class="form-row mt-4">
+                <div class="col-lg-6">
+                    <p class="ml-1 text-secondary">Contraseña</p>
+                    <input type="password" class="form-control" formControlName="password">
+                    <div class="text-danger ml-1 mt-1" *ngIf="datosUsuario.get('password').hasError('required') && datosUsuario.get('password').touched">Debes ingresar una contrasena</div>
+                    <div class="text-danger ml-1 mt-1" *ngIf="datosUsuario.get('password').hasError('minlength') && datosUsuario.get('password').touched">Minimo 8 caracteres</div>
+                </div>
+                <div class="col-lg-6">
+                    <p class="ml-1 text-secondary">Confirmar contraseña</p>
+                    <input type="password" class="form-control" formControlName="confirmPassword">
+                    <div class="text-danger ml-1 mt-1" *ngIf="datosUsuario.hasError('notSame')">Las contrasenas no coinciden</div>
+                </div>
+            </div>
+            <div class="form-row mt-4">
+                <div class="col">
+                    <p class="ml-1 text-secondary">Indica los privilegios de acceso del Usuario</p>
+                    <select class="form-control text-secondary" formControlName="nivel">
+                        <option class="text-secondary">Elegir</option>
+                        <option> SuperAdministrador</option>
+                        <option>Administrador</option>
+                        <option>Usuario</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class=" mt-4">
+                    <button class="btn btn-primary mr-2" routerLink="/dashboard/administracion/usuarios/panel-usuario">Volver</button>
+                    <button class="btn btn-success" [disabled]="datosUsuario.invalid">Guardar</button>
+                </div>
+              </div>
+        </form>
+    </div>
+</div>
+                
+                
+                

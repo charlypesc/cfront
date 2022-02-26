@@ -84,6 +84,13 @@ import { NuevoEstablecimientoComponent } from './components/dashboard/administra
 import { NuevoFuncionarioComponent } from './components/dashboard/administracion/ingresos/funcionario/nuevo-funcionario/nuevo-funcionario.component';
 import { EditarFuncionarioComponent } from './components/dashboard/administracion/ingresos/funcionario/editar-funcionario/editar-funcionario.component';
 import { PanelFuncionarioComponent } from './components/dashboard/administracion/ingresos/funcionario/panel-funcionario/panel-funcionario.component';
+import { NuevoUsuarioComponent } from './components/dashboard/administracion/ingresos/usuario/nuevo-usuario/nuevo-usuario.component';
+import { EditarUsuarioComponent } from './components/dashboard/administracion/ingresos/usuario/editar-usuario/editar-usuario.component';
+import { PanelUsuarioComponent } from './components/dashboard/administracion/ingresos/usuario/panel-usuario/panel-usuario.component';
+import { SeguimientoComponent } from './components/dashboard/seguimiento/seguimiento.component';
+import { IngresarSeguimientoComponent } from './components/dashboard/seguimiento/ingresar-seguimiento/ingresar-seguimiento.component';
+import { PanelSeguimientoComponent } from './components/dashboard/seguimiento/panel-seguimiento/panel-seguimiento.component';
+import { EditarSeguimientoComponent } from './components/dashboard/seguimiento/editar-seguimiento/editar-seguimiento.component';
 
 
 
@@ -161,6 +168,13 @@ import { PanelFuncionarioComponent } from './components/dashboard/administracion
     NuevoFuncionarioComponent,
     EditarFuncionarioComponent,
     PanelFuncionarioComponent,
+    NuevoUsuarioComponent,
+    EditarUsuarioComponent,
+    PanelUsuarioComponent,
+    SeguimientoComponent,
+    IngresarSeguimientoComponent,
+    PanelSeguimientoComponent,
+    EditarSeguimientoComponent,
 
     
 
