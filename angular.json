@@ -33,8 +33,7 @@
               "node_modules/ngx-simple-modal/styles/simple-modal.css"
             ],
             "scripts": [
-              "node_modules/html2canvas/dist/html2canvas.min.js",
-              "node_modules/jspdf/dist/jspdf.min.js"
+             
             ]
           },
           "configurations": {
@@ -42,8 +41,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "3mb",
+                  "maximumError": "10mb"
                 },
                 {
                   "type": "anyComponentStyle",
