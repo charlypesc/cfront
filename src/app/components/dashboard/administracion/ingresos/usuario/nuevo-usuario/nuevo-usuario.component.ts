@@ -56,6 +56,7 @@ export class NuevoUsuarioComponent implements OnInit {
       correoElectronico :this.datosUsuario.value.correoElectronico,
       establecimiento   :this.e,
       rbd               :this.r,
+      activo            :1
   
     }
   

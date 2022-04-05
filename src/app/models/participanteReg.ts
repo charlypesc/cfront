@@ -8,6 +8,7 @@ export class ParticipanteReg{
     usuarioId?:number;
     registroId?:number;
     rbd?:string;
+    
 
     constructor(id?:number, rut?:string, nombreParticipante?:string, fechaIngreso?:Date, asunto?:string, activo?:number, usuarioId?:number, registroId?:number, rbd?:string){
         this.id =id;
@@ -19,5 +20,6 @@ export class ParticipanteReg{
         this.usuarioId=usuarioId;
         this.registroId=registroId;
         this.rbd=rbd;
+        
     }
 }

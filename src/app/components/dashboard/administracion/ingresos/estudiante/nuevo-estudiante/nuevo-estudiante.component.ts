@@ -9,6 +9,7 @@ import { EstudianteService } from 'src/app/services/estudiante.service';
 import { LoginService } from 'src/app/services/login.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { CursoService } from 'src/app/services/curso.service';
 
 @Component({
   selector: 'app-nuevo-estudiante',
@@ -16,15 +17,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./nuevo-estudiante.component.css']
 })
 export class NuevoEstudianteComponent implements OnInit {
-	establecimiento:string
-	rbd:string
+	  establecimiento:string
+	  rbd:string
   	datosEstudiantes: FormGroup;
-	pieBool:boolean;
+	  pieBool:boolean;
+    curso:any=[]
   constructor(private fb: FormBuilder,
-    private LoginService:LoginService,
-            private router:Router,
-            private toastr: ToastrService,
-            private estudianteService: EstudianteService) {
+              private LoginService:LoginService,
+              private CursoService:CursoService,
+              private router:Router,
+              private toastr: ToastrService,
+              private estudianteService: EstudianteService) {
               this.datosEstudiantes= this.fb.group({
                 nombre:['', Validators.required],
                 apellido:['', Validators.required],
@@ -58,8 +61,20 @@ export class NuevoEstudianteComponent implements OnInit {
   ngOnInit(): void {
     this.establecimiento=this.LoginService.getTokenDecoded().Establecimiento
 	  this.rbd=this.LoginService.getTokenDecoded().Rbd
+    this.getCursos();
+    
   }
-  
+  //trae el select de curso
+  changeFn(e){
+    //fija el valor dentro del form
+    this.datosEstudiantes.controls.curso.setValue(e)
+  }
+  getCursos(){
+    this.CursoService.getCursos().subscribe(data=>{
+      this.curso=data;
+      console.log(this.curso)
+    })
+  }
   pieBo(){
 	  if(this.datosEstudiantes.value.pie == null || this.datosEstudiantes.value.pie == ''){
 		  this.pieBool = false;
@@ -103,7 +118,6 @@ export class NuevoEstudianteComponent implements OnInit {
      anoCursando:year.getFullYear(),
      activo:1
    }
-
    this.estudianteService.guardarEstudiante(estudiante).subscribe(data => {
 
     Swal.fire({

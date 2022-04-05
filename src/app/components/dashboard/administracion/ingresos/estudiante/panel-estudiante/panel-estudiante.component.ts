@@ -25,6 +25,7 @@ constructor(private estudianteService: EstudianteService,
     this.cursoService.getCursos().subscribe(data=>{
       this.curso=data;
       this.loadingListadoCursos=false;
+      console.log(data.message)
     });
   }
   buscarCurso(e:any){

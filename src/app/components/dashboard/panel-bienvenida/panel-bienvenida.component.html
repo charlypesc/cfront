@@ -58,7 +58,7 @@
           </button>
       </div>
       
-      <div class="col-12 col-sm-6 col-md-5 col-lg-4 mt-4 ">
+      <div class="col-12 col-sm-6 col-md-5 col-lg-4 mt-4 " *ngxPermissionsOnly="['SuperAdministrador','Administrador']">
         <button class="adm" routerLink='/dashboard/administracion/paneladm'>
             <div class="card admin">
                 <div class="card-body">
@@ -70,9 +70,9 @@
               </div>
         </button>
       </div>
-      <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mt-4">
+      <div  class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mt-4"  *ngxPermissionsOnly="['SuperAdministrador']">
         <button class="adm" routerLink='/dashboard/seguimiento/panel-seguimiento'>
-            <div class="card none" style="background-color: #0fa6cc">
+            <div class="card none" style="background-color: #0fa6cc" >
                 <div class="card-body">
                   <span class="material-icons">escalator_warning</span>
                   <h5 class="card-title">Seguimiento</h5>
