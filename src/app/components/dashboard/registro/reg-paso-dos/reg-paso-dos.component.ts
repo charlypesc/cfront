@@ -16,6 +16,7 @@ import Swal from 'sweetalert2';
 import { Tematicas } from 'src/app/models/tematicas';
 import { TematicasReg } from 'src/app/models/tematicasReg';
 import { TematicasService } from 'src/app/services/tematicas.service';
+import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-reg-paso-dos',
@@ -47,6 +48,7 @@ export class RegPasoDosComponent implements OnInit {
   protocolos:any=[];
   temporalProtocolos:Array<any>=[]
   tematicasReg:any;
+  numeroFolio:number;
 
   constructor(private fb:FormBuilder,
               private registroService: RegistroService,
@@ -71,15 +73,16 @@ export class RegPasoDosComponent implements OnInit {
   ngOnInit(): void 
 
   {
-    console.log(this.lstStaticData)
-    //this.asunto=this.registroService.asunto;
     this.fecha=this.registroService.fecha;
 	  this.profesional = this.loginService.getTokenDecoded().sub;
     this.rbd = this.loginService.getTokenDecoded().Rbd;
     this.usuarioId=this.loginService.getTokenDecoded().idUsuario;
     this.buscarProtocolos();
     this.cargarTematicas();
-
+    
+    this.registroService.searchFolio(this.rbd).subscribe(data=>{
+      this.numeroFolio=data;
+    })
     this.selectTematicas = new Array <number>();
     
   }
@@ -188,6 +191,7 @@ export class RegPasoDosComponent implements OnInit {
               acuerdos:this.datosRegFaltantes.value.acuerdos,
               usuarioId:this.usuarioId,
               rbd:this.rbd,
+              folio:this.numeroFolio +1,
               participanteReg:arrayPart,
               protocoloReg:protocolosDef,
               tematicasReg:this.tematicasReg

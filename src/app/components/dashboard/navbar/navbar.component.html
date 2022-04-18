@@ -8,9 +8,9 @@
     <div class="d-flex align-items-baseline"></div>
   </div>
   <div class="col-2 ml-auto">
-    <select class="pers">
+    <select class="pers" (change)="logOut($event.target.value)">
       <option selected><p class="mr-1 text-dark">Bienvenido! </p><strong class="text-primary">{{usuario}}</strong></option>
-      <option><a class="btn btn-outline-warning" (click)="logOut();">Cerrar Sesión</a></option>
+      <option><a class="btn btn-outline-warning" >Cerrar Sesión</a></option>
     </select>
   </div>
   <nav class="my-2 my-md-0 mr-md-3">

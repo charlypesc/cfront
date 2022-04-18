@@ -14,6 +14,7 @@ export class Registro{
     participanteReg?:ParticipanteReg[];
     protocoloReg?:ProtocolosActuacion[];
     tematicasReg?:TematicasReg[];
+    folio?:number;
 
     constructor(profesional:string, 
         asunto:string, 
@@ -24,6 +25,7 @@ export class Registro{
         usuarioId?:number,
         acuerdos?:string,
         rbd?:string, 
+        folio?:number,
         protocoloReg?:ProtocolosActuacion[],
         tematicasReg?:TematicasReg[])
         {
@@ -38,6 +40,6 @@ export class Registro{
         this.participanteReg=participanteReg; 
         this.protocoloReg=protocoloReg
         this.tematicasReg=tematicasReg
-
+        this.folio=folio
         }
 }

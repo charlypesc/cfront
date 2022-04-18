@@ -14,17 +14,24 @@ export class NavbarComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
+
+    if(localStorage.getItem('token')==null){
+      this.router.navigate(['/inicio/login'])
+    }
   this.dataLogin();
   }
 
-  logOut(){
-    console.log('llegando')
-    this.loginService.removeLocalStorage();
-    this.router.navigate(['/inicio/bienvenidos']);
+  logOut(e:any){
+    if(e=='Cerrar Sesión'){
+      
+      this.loginService.removeLocalStorage();
+      this.router.navigate(['/inicio/login']);
+     
+    }
   }  
-dataLogin(){
-  this.usuario=this.loginService.getTokenDecoded().sub;
-  
-}
+  dataLogin(){
+    this.usuario=this.loginService.getTokenDecoded().sub;
+    
+  }
 
 }

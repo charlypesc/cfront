@@ -19,12 +19,26 @@ datosUs:any=[];
 
     var rbd = this.loginService.getTokenDecoded().Rbd;
     this.usuarioService.getUsuarioRbd().subscribe(data=>{
-      this.datosUs=data;
-      console.log(this.datosUs)
+      // this.datosUs=data;
+      // console.log(data)
+      this.buscarSuperAdm(data);
     })
 
   }
-  
+    buscarSuperAdm(dato:any){
+      // console.log(dato.nivel)
+
+      for (let index = 0; index < dato.length; index++) {
+        
+        if(dato[index].nivel == 'SuperAdministrador'){
+          //console.log(this.datosUs[index].id)
+          // console.log(index)
+          dato.splice(index,1)//index es el 
+          this.datosUs = dato
+        }
+        
+      }
+  }
   edita(e:any){
 this.router.navigate(['/dashboard/administracion/usuarios/editar-usuario/'+e])
   }
