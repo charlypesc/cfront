@@ -1,3 +1,4 @@
+import { nullSafeIsEquivalent } from '@angular/compiler/src/output/output_ast';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataStorage } from 'src/app/models/dataStorage';
@@ -26,16 +27,28 @@ export class ReuPasoTresComponent implements OnInit {
               private router:Router,
               private aRoute:ActivatedRoute,
               private loginService:LoginService,
-              private createPdfService: CreatePdfService) {
-                var idReunion = this.aRoute.snapshot.paramMap.get('reunionId');
-                this.idParam=parseInt(idReunion);
-               }
+              private createPdfService: CreatePdfService) { }
 
   ngOnInit(): void {
+    this.rescateId();
     this.rbd = this.loginService.getTokenDecoded().Rbd;
     this.getReunion();
 
   }
+//Evaluar llegada desde el componente
+  rescateId(){
+      var idReunion = this.aRoute.snapshot.paramMap.get('reunionId');
+      console.log(idReunion)
+      if( idReunion == "undefined"){
+        
+
+      }else{
+        console.log("no he llegado aca")
+        this.idParam=parseInt(idReunion);
+
+      }
+  }
+
   getReunion(){
     this.reunionesService.getReunionById(this.idParam).subscribe(data=>{
       this.datosPasoUno=data

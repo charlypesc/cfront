@@ -29,4 +29,7 @@ export class DenunciaService {
   getDenuncia(id:number){
     return this.http.get(this.myAppUrl+this.myApiUrl+"/"+id)
   }
+  getDenunciaRut(rut:string){
+    return this.http.get(this.myAppUrl+this.myApiUrl+"/denunciaRut/"+rut)
+  }
 }

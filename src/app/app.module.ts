@@ -93,6 +93,9 @@ import { PanelSeguimientoComponent } from './components/dashboard/seguimiento/pa
 import { EditarSeguimientoComponent } from './components/dashboard/seguimiento/editar-seguimiento/editar-seguimiento.component';
 import { BusqReuPasoTresComponent } from './components/dashboard/busqueda/busq-reu-paso-tres/busq-reu-paso-tres.component';
 import { BusqDenunPasoTresComponent } from './components/dashboard/busqueda/busq-denun-paso-tres/busq-denun-paso-tres.component';
+import { BusqTabRegComponent } from './components/dashboard/busqueda/busq-tab-reg/busq-tab-reg.component';
+import { BusqTabReunComponent } from './components/dashboard/busqueda/busq-tab-reun/busq-tab-reun.component';
+import { BusqTabDenunComponent } from './components/dashboard/busqueda/busq-tab-denun/busq-tab-denun.component';
 
 
 
@@ -179,6 +182,9 @@ import { BusqDenunPasoTresComponent } from './components/dashboard/busqueda/busq
     EditarSeguimientoComponent,
     BusqReuPasoTresComponent,
     BusqDenunPasoTresComponent,
+    BusqTabRegComponent,
+    BusqTabReunComponent,
+    BusqTabDenunComponent,
 
     
 
