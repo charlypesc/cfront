@@ -91,6 +91,8 @@ import { SeguimientoComponent } from './components/dashboard/seguimiento/seguimi
 import { IngresarSeguimientoComponent } from './components/dashboard/seguimiento/ingresar-seguimiento/ingresar-seguimiento.component';
 import { PanelSeguimientoComponent } from './components/dashboard/seguimiento/panel-seguimiento/panel-seguimiento.component';
 import { EditarSeguimientoComponent } from './components/dashboard/seguimiento/editar-seguimiento/editar-seguimiento.component';
+import { BusqReuPasoTresComponent } from './components/dashboard/busqueda/busq-reu-paso-tres/busq-reu-paso-tres.component';
+import { BusqDenunPasoTresComponent } from './components/dashboard/busqueda/busq-denun-paso-tres/busq-denun-paso-tres.component';
 
 
 
@@ -175,6 +177,8 @@ import { EditarSeguimientoComponent } from './components/dashboard/seguimiento/e
     IngresarSeguimientoComponent,
     PanelSeguimientoComponent,
     EditarSeguimientoComponent,
+    BusqReuPasoTresComponent,
+    BusqDenunPasoTresComponent,
 
     
 

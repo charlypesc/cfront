@@ -17,6 +17,11 @@ rutParam:string;
 listadoRegistros:any=[];
 loading=false;
 
+//evalua el button de tabs
+//tabs lo que hace es mostrar un cuadro especifico
+
+tabs:number=1;
+
 
   constructor(private aRoute:ActivatedRoute,
               private busquedaService:BusquedaService,
@@ -32,12 +37,17 @@ loading=false;
     this.getlistadoRegistros();
   }
 
+  tabsFn(i:number){
+    this.tabs=i;
+    console.log(this.tabs)
+  }
+
   //busqueda de estudiante
    busqueda(){
      this.loading=true;
     this.estudianteService.getEstudianteByRut(this.rutParam).subscribe(data=>{
       this.dato=data;
-      console.log(this.dato)
+      // console.log(this.dato)
       const rut= this.rutParam;
       
     })
@@ -47,7 +57,7 @@ loading=false;
     this.registroService.getRegistros(this.rutParam).subscribe(data=>{
       this.listadoRegistros = data;
       this.loading=false;
-      console.log(data)
+      // console.log(data)
     })
   }
 

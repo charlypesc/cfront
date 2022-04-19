@@ -24,13 +24,13 @@
                         </tr>
                     </table>
                 </div>
-                <div class="row mt-5">
+                <!-- ------------registros-------------------    -->
+                <!-- <div class="row mt-5">
                     <div class="col">
                         <h4>Registros</h4>
                     </div>
-                </div>
-                   
-                <div class="row pt-5">
+                </div> -->
+                <!-- <div class="row pt-5">
                     <table class="table table-sm table-bordered reg">
                         <tr>
                             <th>Fecha Ingreso</th>
@@ -47,6 +47,40 @@
                             <td><a><span class="material-icons text-danger" (click)="deleteRegistro(item.registroId)">delete</span></a></td>
                         </tr>
                     </table>
+                </div> -->
+                <!-- <div class="row">
+                    <div class="col">
+                        <div class="button "><button class="btn btn-primary "(click)="tabsFn(1)">1</button></div>
+                        <div class="button "><button class="btn btn-success mt-2 mb-2" (click)="tabsFn(2)">2</button></div>
+                        <div class="button"><button class="btn btn-danger"(click)="tabsFn(3)">3</button></div>
+                    </div>
+                </div> -->
+                
+                <div class="row">
+                    <div class="col">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                              <a class="nav-link"[ngClass]="{'active':tabs==1 }" (click)="tabsFn(1)" >Registros</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" [ngClass]="{'active':tabs==2 }" (click)="tabsFn(2)">Reuniones</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" [ngClass]="{'active':tabs==3 }"(click)="tabsFn(3)">Denuncias</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link disabled">Seguimiento</a>
+                            </li>
+                          </ul>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <app-busq-denun-paso-tres  *ngIf="tabs==1"></app-busq-denun-paso-tres>
+                        <app-busq-reu-paso-tres  *ngIf="tabs==2"></app-busq-reu-paso-tres>
+                        <app-busq-denun-paso-tres *ngIf="tabs==3"></app-busq-denun-paso-tres>
+                    </div>
                 </div>
                 <div class="col d-flex justify-content-center">
                     <button class="btn btn-primary" routerLink="/dashboard">Volver</button>
