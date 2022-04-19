@@ -4,76 +4,75 @@
             <div class="card p-3">
                 <div #detalle class="" >
                     <div class="row">
-                        <div class="col colpdfisq" >
-                            <h3>Detalles de Registro</h3>
-                        </div>
-                        <div class="colpdfder">
-                            <p>Numero de Folio: <strong class="">{{item.folio}}</strong></p>
-                        </div>
-                    </div>
-                </div>
-                <div #datosRegistro class="card pt-4 pb-4 mt-4">
-                    <div class="b-rowdatos">
-                        <div class="col d-flex mt-2 b-coldatos">
-                            <div class="col-4 b-coldatos-inner-uno">
-                                <h6 class="text-primary">Fecha</h6>
-                            </div>
-                            <div class="col b-coldatos-inner-dos"><p>  : {{item.fecha|date:"dd/MM/yyyy"}}</p>
-                            </div>
-                        </div>
-                        <div class="col d-flex b-coldatos">
-                            <div class="col-4 b-coldatos-inner-uno">
-                                <h6 class="text-primary">Asunto</h6>
-                            </div>
-                            <div class="col b-coldatos-inner-dos"><p>  : {{item.asunto}}</p></div>
+                        <div class="col">
+                            <table class="table table-bordered">
+                                <th><h3>Detalles de Registro</h3></th>
+                                <tr>
+                                    <td>Numero de Folio: {{item.folio}}</td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </div>
-                <div #tablaParticipantes class="card pt-4 mt-4">
-                    <div class="col b-table-row">
-                       <table class="table table-bordered">
-                           <thead class="thead-light">
-                               <tr>
-                                <th>Participante</th>
-                                <th>Rut</th>
-                                <th style="display: none;" class="firmaParticipante"><p>Firma Participante</p></th>
-                               </tr>
-                            </thead>
-                            <tr *ngFor="let reg of item.participanteReg">
-                                <td >
-                                    {{reg.nombreParticipante}}
-                                </td>
-                                <td>{{reg.rut}}</td>
-                                <td style="display: none;" class="firmaParticipante"></td>
-                            </tr>
-
-                            
-                        </table> 
+                <div #datosRegistro class=" pt-4">
+                    <div class="row">
+                        <div class="col">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <td>Fecha</td>
+                                    <td>{{item.fecha|date:"dd/MM/yyyy"}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Asunto</td>
+                                    <td>{{item.asunto}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div #tablaParticipantes class="pt-4">
+                    <div class="row">
+                        <div class="col">
+                            <table class="table table-bordered">
+                                <thead class="thead-light">
+                                    <tr>
+                                     <th>Participante</th>
+                                     <th>Rut</th>
+                                     <th style="display: none;" class="firmaParticipante"><p>Firma Participante</p></th>
+                                    </tr>
+                                 </thead>
+                                 <tr *ngFor="let reg of item.participanteReg">
+                                     <td >
+                                         {{reg.nombreParticipante}}
+                                     </td>
+                                     <td>{{reg.rut}}</td>
+                                     <td style="display: none;" class="firmaParticipante"></td>
+                                 </tr>
+        
+                                 
+                             </table> 
+                        </div>
+                    </div>
+                 </div>
+                 <div #antecedentesAcuerdos class="pt-4 mt-4">
+                     <div class="row">
+                         <div class="col">
+                             <table class="table table-bordered">
+                                 <tr>
+                                     <td style="width: 30%"><strong>Antecedentes</strong></td>
+                                     <td>{{item.antecedentes}}</td>
+                                 </tr>
+                                 <tr>
+                                     <td><strong>Acuerdos</strong></td>
+                                     <td>{{item.acuerdos}}</td>
+                                 </tr>
+                             </table>
+                         </div>
                      </div>
                  </div>
-                 <div #antecedentesAcuerdos class="card pt-4 mt-4">
-                         <div class="b-rowdatos">
-                            <div class="col d-flex mt-2 b-coldatos"> 
-                                <div class="col-4 b-coldatos-inner-uno">
-                                    <h6 class="text-success">Antecedentes</h6>
-                                </div>
-                                <div class="col b-coldatos-inner-dos"> 
-                                        <p>: {{item.antecedentes}}</p>
-                                </div>
-                            </div>
-                            <div class="col d-flex mt-2 b-coldatos" >
-                                <div class="col-4 b-coldatos-inner-uno">
-                                    <h6 class="text-success">Acuerdos</h6>
-                                </div>
-                                <div class="col b-coldatos-inner-dos"> 
-                                        <p>: {{item.acuerdos}}</p>
-                                </div>
-                            </div>
-                         </div>
-                 </div>
-                 <div class="card pt-4 mt-4">
+                 <div class="pt-4 mt-4">
                     <div #tablaProtocolos class="col">
-                        <table class="table table-bordered b-table-row">
+                        <table class="table table-bordered">
                            <thead class="thead-light">
                                <tr>
                                     <th>N°</th>
