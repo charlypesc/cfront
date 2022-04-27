@@ -133,7 +133,8 @@ export class EditarEstudianteComponent implements OnInit {
         correoApoderadoSuplente:this.datosEstudiantes.value.correoApoderadoSuplente,
         rbd:this.rbd,
         anoCursando:year.getFullYear(),
-        activo:1
+        activo:1,
+        seguimiento:1
         // pie:this.pieBool
         
    }

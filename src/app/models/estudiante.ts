@@ -30,12 +30,13 @@ export class Estudiante{
     pie?:boolean;
     anoCursando?:number
     activo?:number
+    seguimiento?:number;
 
     constructor(nombre:string, apellido:string, curso:string, establecimiento:string, run:string, apoderado:string, 
                 direccionApoderado:string, telefonoApoderado:string, rbd:string, id?:number, nacimiento?:Date, sexo?:string, direccion?:string, comuna?:string,
                 correo?:string, telefono?:string, contactoEmergencia?:string, telefonoEmergencia?:string, grupoSanguineo?:string, prevision?:string, alergias?:string, medicamentosContraindicados?:string,
                 enfermedadesCronicas?:string, correoApoderado?:string, apoderadoSuplente?:string, direccionApoderadoSuplente?:string, telefonoApoderadoSuplente?:string,
-                correoApoderadoSuplente?:string, pie?:boolean, anoCursando?:number, activo?:number ){
+                correoApoderadoSuplente?:string, pie?:boolean, anoCursando?:number, activo?:number, seguimiento?:number ){
                     this.id=id
                     this.nombre  = nombre;
                     this.apellido = apellido;
@@ -67,7 +68,7 @@ export class Estudiante{
                     this.rbd = rbd;
                     this.anoCursando=anoCursando
                     this.activo=activo
-
+                    this.seguimiento=seguimiento;
 
     }
 }

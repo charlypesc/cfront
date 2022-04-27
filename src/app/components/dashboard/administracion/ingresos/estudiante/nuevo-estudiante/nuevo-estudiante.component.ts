@@ -10,6 +10,7 @@ import { LoginService } from 'src/app/services/login.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { CursoService } from 'src/app/services/curso.service';
+import { Seguimiento } from 'src/app/models/seguimiento';
 
 @Component({
   selector: 'app-nuevo-estudiante',
@@ -87,36 +88,38 @@ export class NuevoEstudianteComponent implements OnInit {
     this.pieBo();
     var year = new Date
    const estudiante: Estudiante = {
-       nombre:this.datosEstudiantes.value.nombre,
-       apellido:this.datosEstudiantes.value.apellido,
-       curso:this.datosEstudiantes.value.curso,
-       establecimiento:this.establecimiento,
-       run:this.datosEstudiantes.value.run,
-       nacimiento:this.datosEstudiantes.value.nacimiento,
-     sexo:this.datosEstudiantes.value.sexo,
-     direccion:this.datosEstudiantes.value.direccion,
-     comuna:this.datosEstudiantes.value.comuna,
-     correo:this.datosEstudiantes.value.correo,
-     telefono:this.datosEstudiantes.value.telefono,
+      nombre:this.datosEstudiantes.value.nombre,
+      apellido:this.datosEstudiantes.value.apellido,
+      curso:this.datosEstudiantes.value.curso,
+      establecimiento:this.establecimiento,
+      run:this.datosEstudiantes.value.run,
+      nacimiento:this.datosEstudiantes.value.nacimiento,
+      sexo:this.datosEstudiantes.value.sexo,
+      direccion:this.datosEstudiantes.value.direccion,
+      comuna:this.datosEstudiantes.value.comuna,
+      correo:this.datosEstudiantes.value.correo,
+      telefono:this.datosEstudiantes.value.telefono,
       contactoEmergencia:this.datosEstudiantes.value.contactoEmergencia,
-     telefonoEmergencia:this.datosEstudiantes.value.telefonoEmergencia,
-     grupoSanguineo:this.datosEstudiantes.value.grupoSanguineo,
-     prevision:this.datosEstudiantes.value.prevision,
-     alergias:this.datosEstudiantes.value.alergias,
-     medicamentosContraindicados:this.datosEstudiantes.value.medicamentosContraindicados,
-     enfermedadesCronicas:this.datosEstudiantes.value.enfermedadesCronicas,
-     apoderado:this.datosEstudiantes.value.apoderado,
-     direccionApoderado:this.datosEstudiantes.value.direccionApoderado,
-     telefonoApoderado:this.datosEstudiantes.value.telefonoApoderado,
-     correoApoderado:this.datosEstudiantes.value.correoApoderado,
-     apoderadoSuplente:this.datosEstudiantes.value.apoderadoSuplente,
-     direccionApoderadoSuplente:this.datosEstudiantes.value.direccionApoderadoSuplente,
-     telefonoApoderadoSuplente:this.datosEstudiantes.value.telefonoApoderadoSuplente,
-     correoApoderadoSuplente:this.datosEstudiantes.value.correoApoderadoSuplente,
-     rbd:this.rbd,
-     pie:this.pieBool,
-     anoCursando:year.getFullYear(),
-     activo:1
+      telefonoEmergencia:this.datosEstudiantes.value.telefonoEmergencia,
+      grupoSanguineo:this.datosEstudiantes.value.grupoSanguineo,
+      prevision:this.datosEstudiantes.value.prevision,
+      alergias:this.datosEstudiantes.value.alergias,
+      medicamentosContraindicados:this.datosEstudiantes.value.medicamentosContraindicados,
+      enfermedadesCronicas:this.datosEstudiantes.value.enfermedadesCronicas,
+      apoderado:this.datosEstudiantes.value.apoderado,
+      direccionApoderado:this.datosEstudiantes.value.direccionApoderado,
+      telefonoApoderado:this.datosEstudiantes.value.telefonoApoderado,
+      correoApoderado:this.datosEstudiantes.value.correoApoderado,
+      apoderadoSuplente:this.datosEstudiantes.value.apoderadoSuplente,
+      direccionApoderadoSuplente:this.datosEstudiantes.value.direccionApoderadoSuplente,
+      telefonoApoderadoSuplente:this.datosEstudiantes.value.telefonoApoderadoSuplente,
+      correoApoderadoSuplente:this.datosEstudiantes.value.correoApoderadoSuplente,
+      rbd:this.rbd,
+      pie:this.pieBool,
+      anoCursando:year.getFullYear(),
+      activo:1,
+      seguimiento:1
+     
    }
    this.estudianteService.guardarEstudiante(estudiante).subscribe(data => {
 
