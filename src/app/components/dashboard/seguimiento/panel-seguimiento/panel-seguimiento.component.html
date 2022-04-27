@@ -3,26 +3,26 @@
         <div class="col">
 
         <h5>Seguimiento</h5>
-        <p>Estudiantes y Funcionarios que se encuentran en</p><BR>
-        <p><strong class="text-danger">EN DESARROLLO SOLO CROQUIS</strong></p>
+        <p>Estudiantes  que se encuentran en seguimiento</p><BR>
+        <!-- <p><strong class="text-danger">EN DESARROLLO SOLO CROQUIS</strong></p> -->
         </div>
     </div>
-    <div class="row">
+    <div class="row" *ngFor="let item of dataSiguiendo; let i=index">
         <table class=" table table-bordered">
             <tr>
                 <th>N°</th>
                 <th>Nombre Apellido</th>
                 <th>Curso</th>
-                <th>Ingresado por</th>
+                <th>Rut</th>
                 <th>Ver</th>
                 
             </tr>
             <tr>
-                <td>1</td>
-                <td>Julieta Saldivia</td>
-                <td>8A</td>
-                <td>Yanina Espinoza</td>
-                <td><a><span class="material-icons text-primary" style="cursor: pointer;"routerLink="/dashboard/seguimiento/editar-seguimiento">article</span></a></td>
+                <td>{{i+1}}</td>
+                <td>{{item.nombre}} {{item.apellido}}</td>
+                <td>{{item.curso}}</td>
+                <td>{{item.run}}</td>
+                <td><a><span class="material-icons text-primary" style="cursor: pointer;" (click)="ver(item.run)">article</span></a></td>
             </tr>
         </table>
     </div>

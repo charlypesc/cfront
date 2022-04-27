@@ -1,19 +1,19 @@
 <div class="container mt-4 p-4">
     <div class="row mt-4 mb-4">
-        <div class="col-12">
-            <h4>Rut en Seguimiento : <strong class="text-primary">16768182</strong></h4><br>
+        <div class="col-6">
+            <h4>Rut en Seguimiento : <strong class="text-primary">{{dataEstudiante.run}}</strong></h4><br>
         </div>
-        <div class="col-12">
+        <!-- <div class="col-12">
             <h6>Caso: <strong>Maltrato</strong></h6>
-        </div>
+        </div> -->
         
-        <div class="col-12">
-            <h6>Fecha: <strong>12-12-2022</strong></h6>
+        <div class="col-4 ml-auto">
+            <h6>Nombre: <strong>{{dataEstudiante.nombre}}  {{dataEstudiante.apellido}}</strong></h6>
         </div>
     </div>
-    <div class="row mb-4">Datos de Estudiante o Funcionario</div>
+    <!-- <div class="row mb-4">Datos de Estudiante o Funcionario</div> -->
     <div class="row">
-        <table class="table-bordered table mr-1 mb-1">
+        <!-- <table class="table-bordered table mr-1 mb-1">
             <tr>
                 <th>Nombre</th>
                 <th>Curso</th>
@@ -26,47 +26,79 @@
                 <td>Mabel Mansilla</td>
                 <td>9 87766533</td>
             </tr>
-        </table>
-        <div class="row p-4 mt-4">
+        </table> -->
+        <!-- <div class="row p-4 mt-4">
             <button class="btn btn-success">Ingresar Accion</button>
             <button class="btn btn-primary ml-4">Asociar Programa</button>
         </div>
-        
+         -->
     </div>
+<div class="container square-dos mb-4">
     <div class="row">
-        <h5>Programas asociados o Intervenciones realizadas</h5>
-    </div>
-    <div class="row">
-        <table class=" table table-bordered ">
-            <tr>
-                <th>N°</th>
-                <th>Tipo</th>
-                <th>Accion</th>
-                <th>Fecha ingreso</th>
-                <th>Ver</th>
-               
-                
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Registro</td>
-                <td>Posible maltrato</td>
-                <td>16-03-2022</td>
-                <td><span class="material-icons text-success">article</span></td>
-                
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Programa</td>
-                <td>Derivacion a OPD</td>
-                <td>16-03-2022</td>
-                <td><span class="material-icons text-primary" routerLink="/dashboard/programas">article</span></td>
-                
-            </tr>
+        <div class="col">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link"[ngClass]="{'active':tabs==1 }" (click)="tabsFn(1)" >Registros</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" [ngClass]="{'active':tabs==2 }" (click)="tabsFn(2)">Reuniones</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" [ngClass]="{'active':tabs==3 }"(click)="tabsFn(3)">Denuncias</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled">Seguimiento</a>
+                </li>
+              </ul>
+        </div>
 
-        </table>
     </div>
     <div class="row">
-        <button class="btn-danger btn">Dejar de seguir</button>
+        <div class="col">
+            <app-busq-tab-reg  *ngIf="tabs==1"></app-busq-tab-reg>
+            <app-busq-tab-reun  *ngIf="tabs==2"></app-busq-tab-reun>
+            <app-busq-tab-denun *ngIf="tabs==3"></app-busq-tab-denun>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row square">
+        <div class="col">
+            <h5>Programas asociados</h5>
+            <table class=" table table-bordered ">
+                <tr>
+                    <th>N°</th>
+                    <th>Tipo</th>
+                    <th>Accion</th>
+                    <th>Fecha ingreso</th>
+                    <th>Ver</th>
+                   
+                    
+                </tr>
+                <!-- <tr>
+                    <td>1</td>
+                    <td>Registro</td>
+                    <td>Posible maltrato</td>
+                    <td>16-03-2022</td>
+                    <td><span class="material-icons text-success">article</span></td>
+                    
+                </tr> -->
+                <tr>
+                    <td>2</td>
+                    <td>Programa</td>
+                    <td>Derivacion a OPD</td>
+                    <td>16-03-2022</td>
+                    <td><span class="material-icons text-primary" routerLink="/dashboard/programas">article</span></td>
+                    
+                </tr>
+    
+            </table>
+        </div>
+    </div>
+</div>
+    <div class="row mt-4">
+       <div class="col offset-10">
+           <button class="btn-danger btn">Dejar de seguir</button>
+        </div>
     </div>
 </div>

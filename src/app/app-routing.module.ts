@@ -95,6 +95,7 @@ const routes: Routes = [
       ]},
       { path:'seguimiento', component:SeguimientoComponent,children:[
         {path:'editar-seguimiento', component:EditarSeguimientoComponent},
+        {path:'editar-seguimiento/:rut', component:EditarSeguimientoComponent},
         {path: 'ingresar-seguimiento', component: IngresarSeguimientoComponent},
         {path: 'panel-seguimiento', component: PanelSeguimientoComponent}
       ] },

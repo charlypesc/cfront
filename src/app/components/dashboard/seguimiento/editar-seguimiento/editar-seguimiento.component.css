@@ -1,0 +1,21 @@
+.reg{
+    text-align: center;
+}
+.material-icons{
+    cursor: pointer;
+}
+a{
+    cursor:pointer;
+}
+.square{
+    border-style: solid;
+    border-color: rgb(69, 224, 69);
+    padding: 20px 10px;
+    border-radius: 1em;
+}
+.square-dos{
+    border-style: solid;
+    border-color: rgb(184, 93, 233);
+    padding: 20px 10px;
+    border-radius: 1em;
+}

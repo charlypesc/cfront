@@ -37,4 +37,7 @@ export class EstudianteService {
    updateEstudianteById(estudiante:Estudiante):Observable<any>{
     return this.http.put(this.myAppUrl + this.myApiUrl, estudiante)
    }
+   getEnSeguimiento(): Observable<any>{
+     return this.http.get(this.myAppUrl + this.myApiUrl + 'getSiguiendo');
+   }
 }
