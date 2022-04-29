@@ -72,6 +72,10 @@ import { SeguimientoComponent } from './components/dashboard/seguimiento/seguimi
 import { EditarSeguimientoComponent } from './components/dashboard/seguimiento/editar-seguimiento/editar-seguimiento.component';
 import { IngresarSeguimientoComponent } from './components/dashboard/seguimiento/ingresar-seguimiento/ingresar-seguimiento.component';
 import { PanelSeguimientoComponent } from './components/dashboard/seguimiento/panel-seguimiento/panel-seguimiento.component';
+import { VerMiProgramaComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/mi-programa/ver-mi-programa/ver-mi-programa.component';
+import { MiProgramaComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/mi-programa/mi-programa.component';
+import { EditarMiProgramaComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/mi-programa/editar-mi-programa/editar-mi-programa.component';
+import { NuevoMiProgramaComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/mi-programa/nuevo-mi-programa/nuevo-mi-programa.component';
 
 
 const routes: Routes = [
@@ -163,6 +167,11 @@ const routes: Routes = [
             { path:'editartematicas/:numIdTematica', component: EditarTematicasComponent },
             { path:'nuevatematica', component:NuevaTematicasComponent }
           ]},
+          { path:'mi-programa', component:MiProgramaComponent,children:[
+            { path:'editar-programa/:id', component:EditarMiProgramaComponent },
+            { path: 'nuevo-programa', component: NuevoMiProgramaComponent  },
+            { path: 'ver-programa', component: VerMiProgramaComponent }
+          ] }
         ] },
         
       ]},

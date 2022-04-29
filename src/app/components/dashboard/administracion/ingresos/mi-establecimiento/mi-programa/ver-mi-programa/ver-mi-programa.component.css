@@ -1,0 +1,10 @@
+.bor{
+    border-style: solid;
+    border-color: #0c94ee;
+}
+span{
+    cursor:pointer;
+}
+th,td{
+    text-align: center;
+}

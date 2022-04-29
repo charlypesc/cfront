@@ -96,6 +96,10 @@ import { BusqDenunPasoTresComponent } from './components/dashboard/busqueda/busq
 import { BusqTabRegComponent } from './components/dashboard/busqueda/busq-tab-reg/busq-tab-reg.component';
 import { BusqTabReunComponent } from './components/dashboard/busqueda/busq-tab-reun/busq-tab-reun.component';
 import { BusqTabDenunComponent } from './components/dashboard/busqueda/busq-tab-denun/busq-tab-denun.component';
+import { MiProgramaComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/mi-programa/mi-programa.component';
+import { EditarMiProgramaComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/mi-programa/editar-mi-programa/editar-mi-programa.component';
+import { VerMiProgramaComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/mi-programa/ver-mi-programa/ver-mi-programa.component';
+import { NuevoMiProgramaComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/mi-programa/nuevo-mi-programa/nuevo-mi-programa.component';
 
 
 
@@ -185,7 +189,10 @@ import { BusqTabDenunComponent } from './components/dashboard/busqueda/busq-tab-
     BusqTabRegComponent,
     BusqTabReunComponent,
     BusqTabDenunComponent,
-
+    MiProgramaComponent,
+    EditarMiProgramaComponent,
+    VerMiProgramaComponent,
+    NuevoMiProgramaComponent,
     
 
   ],

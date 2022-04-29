@@ -16,11 +16,14 @@ export class NuevaTematicasComponent implements OnInit {
   datosNuevaTematica:FormGroup
 
   rbd:string
-  constructor(private fb:FormBuilder,
-  private toastr: ToastrService,
-  private router: Router,
-  private LoginService:LoginService,
-  private TematicaService:TematicasService) 
+  constructor
+  (
+    private fb:FormBuilder,
+    private toastr: ToastrService,
+    private router: Router,
+    private LoginService:LoginService,
+    private TematicaService:TematicasService
+  ) 
   { 
     this.datosNuevaTematica=this.fb.group({
       nombreTematica:['', Validators.required],

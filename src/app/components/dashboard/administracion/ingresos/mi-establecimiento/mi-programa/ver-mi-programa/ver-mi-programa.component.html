@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row" style="width: 100%;">
+        <div class="col-lg-10 offset-lg-1">
+            <div class="card p-4 bor">
+                <div class="card-body">
+                    <div class="row d-flex align-items-center">
+                        <div>
+                            <h5 class="card-title">Programas</h5>
+                            <p class="card-text">Listado de programas ingresados al establecimiento</p>
+                        </div>
+                        <div class="ml-auto">
+                            <button class="btn btn-success" routerLink="/dashboard/administracion/miestablecimiento/mi-programa/nuevo-programa"><fa-icon [icon]="faPlus"></fa-icon> Nuevo Programa</button>
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>N°</th>
+                        <th>Nombre Tematica</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                    <tr *ngFor="let item of dataProgramas; let x=index">
+                        <td>{{x+1}}</td>
+                        <td>{{item.nombrePrograma}}</td>
+                        <td class="text-center text-success"><span class="material-icons" routerLink="/dashboard/administracion/miestablecimiento/mi-programa/editar-programa/{{item.id}}">note_add</span></td>
+                        <td class="text-center text-danger"><span class="material-icons" (click)="delPrograma(item.id)">delete</span></td>
+                    </tr>
+                </table>
+                <div class="row d-flex justify-content-center pt-4 pb-4">
+                    <button class="btn btn-primary" routerLink="/dashboard/administracion/miestablecimiento/paneladm">Volver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

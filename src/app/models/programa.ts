@@ -2,7 +2,7 @@ export class Programa {
     id?:number;
     creadoPor?:string
     fechaCreacionPrograma?:Date
-    nombrePrograma?:Date
+    nombrePrograma?:string
     descripcionPrograma?:string
     activo?:number
     rbd?:string
@@ -12,7 +12,7 @@ export class Programa {
         id?:number,
         creadoPor?:string,
         fechaCreacionPrograma?:Date,
-        nombrePrograma?:Date,
+        nombrePrograma?:string,
         descripcionPrograma?:string,
         activo?:number,
         rbd?:string,
