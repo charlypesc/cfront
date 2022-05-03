@@ -37,7 +37,7 @@
                               <a class="nav-link" [ngClass]="{'active':tabs==3 }"(click)="tabsFn(3)">Denuncias</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link disabled">Seguimiento</a>
+                              <a class="nav-link" [ngClass]="{'active':tabs==4 }"(click)="tabsFn(4)">Seguimiento</a>
                             </li>
                           </ul>
                     </div>
@@ -48,6 +48,7 @@
                         <app-busq-tab-reg  *ngIf="tabs==1"></app-busq-tab-reg>
                         <app-busq-tab-reun  *ngIf="tabs==2"></app-busq-tab-reun>
                         <app-busq-tab-denun *ngIf="tabs==3"></app-busq-tab-denun>
+                        <app-busq-tab-segui *ngIf="tabs==4"></app-busq-tab-segui>
                     </div>
                 </div>
                 <div class="col d-flex justify-content-center">

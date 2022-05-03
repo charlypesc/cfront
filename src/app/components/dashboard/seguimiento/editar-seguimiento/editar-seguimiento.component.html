@@ -11,94 +11,171 @@
             <h6>Nombre: <strong>{{dataEstudiante.nombre}}  {{dataEstudiante.apellido}}</strong></h6>
         </div>
     </div>
-    <!-- <div class="row mb-4">Datos de Estudiante o Funcionario</div> -->
-    <div class="row">
-        <!-- <table class="table-bordered table mr-1 mb-1">
-            <tr>
-                <th>Nombre</th>
-                <th>Curso</th>
-                <th>Apoderado</th>
-                <th>Telefono</th>
-            </tr>
-            <tr>
-                <td>Julieta Salvivia </td>
-                <td>8a</td>
-                <td>Mabel Mansilla</td>
-                <td>9 87766533</td>
-            </tr>
-        </table> -->
-        <!-- <div class="row p-4 mt-4">
-            <button class="btn btn-success">Ingresar Accion</button>
-            <button class="btn btn-primary ml-4">Asociar Programa</button>
+    <div class="container " *ngFor="let it of dataSeguimiento">
+        <div class="row square">
+            <div class="col-12">
+                <h4>Instancia de Seguimiento</h4>
+                <p>Al finalizar la instancia de seguimiento, esta permanecera guardada para el registro del estudiante</p>
+                <p><strong class="text-warning">Nota:  </strong> La anotacion es visible al profesor jefe, úsala para entregar una breve reseña del seguimiento</p>
+                <table class="table table-bordered">
+                    <thead class="thead">
+                        <tr>
+                            <th width="25%">Inicio Seguimiento</th>  
+                            <th width="30%">Ingresado por</th>  
+                            <th>Anotación</th>  
+                        </tr>
+                        <tr>
+                            <td>{{it.fechaInicioSeguimiento|date:"dd-MM-yyyy"}}</td>
+                            <td>Pendiente</td>
+                            <td >{{it.nota}}</td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="col" >
+                <h5 style="color: green;">Programas asociados</h5>
+                <p>Estudiante ha sido derivado a los siguientes programas</p>
+                <table class=" table table-bordered ">
+                    <tr>
+                        <th>Fecha ingreso a Programa</th>
+                        <th>Derivado a </th>
+                        <th>Fecha Egreso Programa</th>
+                        <th>Anotación Programa</th>
+                        <th>Borrar</th>
+                    </tr>
+                    <tr *ngFor="let ite of it.seguimientoProg">
+                        <td>{{ite.fechaIngreso | date:"dd-mm-yyyy"}}</td>
+                        <td>{{ite.nombrePrograma}}</td>
+                        <td>{{ite.fechaEgreso|date:"dd-mm-yyyy"}}</td>
+                        <td>{{ite.notaPrograma}}</td>
+                        <td><span class="material-icons text-danger" routerLink="/dashboard/programas">delete</span></td>
+                    </tr>
+                </table>
+                <div class="row">
+                        <!-- <button class="btn btn-danger ml-auto">Deja de Seguir</button> -->
+                        <div class="col">
+                            
+                            <button class="btn btn-success  d-flex align-item-center" (click)="openModalmd(programa)"><span class="material-icons">add</span>Programa</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-         -->
-    </div>
-<div class="container square-dos mb-4">
-    <div class="row">
+        <div class="row mt-2  mb-2">
+            <div class="col offset-10">
+                <button class="btn btn-warning ml-auto butt" (click)="openModalInstanciamd(instancia)">Finalizar instancia</button>
+            </div>
+        </div>
+    <div class="container square-3 mb-4">
+        <div class="row">
+            <div class="col">
+                <h3>Seguimientos finalizados</h3>
+            </div>
+        </div>
         <div class="col">
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                  <a class="nav-link"[ngClass]="{'active':tabs==1 }" (click)="tabsFn(1)" >Registros</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" [ngClass]="{'active':tabs==2 }" (click)="tabsFn(2)">Reuniones</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" [ngClass]="{'active':tabs==3 }"(click)="tabsFn(3)">Denuncias</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled">Seguimiento</a>
-                </li>
-              </ul>
+            <p>No se registran antiguos seguimientos</p>
         </div>
+    </div>
+    <div class="container square-dos mb-4">
+        <div class="row">
+            <div class="col-12">
+                <h4>Sumario de Reportes</h4>
+                <p>Acceso a los registros, reuniones y denuncias</p>
+            </div>
+            <div class="col">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                    <a class="nav-link"[ngClass]="{'active':tabs==1 }" (click)="tabsFn(1)" >Registros</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" [ngClass]="{'active':tabs==2 }" (click)="tabsFn(2)">Reuniones</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" [ngClass]="{'active':tabs==3 }"(click)="tabsFn(3)">Denuncias</a>
+                    </li>
+                </ul>
+            </div>
 
+        </div>
+        <div class="row ">
+            <div class="col">
+                <app-busq-tab-reg  *ngIf="tabs==1"></app-busq-tab-reg>
+                <app-busq-tab-reun  *ngIf="tabs==2"></app-busq-tab-reun>
+                <app-busq-tab-denun *ngIf="tabs==3"></app-busq-tab-denun>
+               
+            </div>
+        </div>
     </div>
+
+</div>
+<div class="container mb-4 mt-2">
     <div class="row">
         <div class="col">
-            <app-busq-tab-reg  *ngIf="tabs==1"></app-busq-tab-reg>
-            <app-busq-tab-reun  *ngIf="tabs==2"></app-busq-tab-reun>
-            <app-busq-tab-denun *ngIf="tabs==3"></app-busq-tab-denun>
+            <button class="btn btn-primary" routerLink="/dashboard/">Volver al menu</button>
         </div>
     </div>
 </div>
-<div class="container">
-    <div class="row square">
-        <div class="col">
-            <h5>Programas asociados</h5>
-            <table class=" table table-bordered ">
-                <tr>
-                    <th>N°</th>
-                    <th>Tipo</th>
-                    <th>Accion</th>
-                    <th>Fecha ingreso</th>
-                    <th>Ver</th>
-                   
-                    
-                </tr>
-                <!-- <tr>
-                    <td>1</td>
-                    <td>Registro</td>
-                    <td>Posible maltrato</td>
-                    <td>16-03-2022</td>
-                    <td><span class="material-icons text-success">article</span></td>
-                    
-                </tr> -->
-                <tr>
-                    <td>2</td>
-                    <td>Programa</td>
-                    <td>Derivacion a OPD</td>
-                    <td>16-03-2022</td>
-                    <td><span class="material-icons text-primary" routerLink="/dashboard/programas">article</span></td>
-                    
-                </tr>
-    
-            </table>
+
+<!-- M O D A L       C O N T  E N I D O -->
+
+    <ng-template #programa let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title">Ingresar nueva derivación a programa</h4>
+          <button  class="close" aria-label="close"  type="button"(click)="modal.dismiss()">
+              <span aria-hidden="true"  class="material-icons">close</span>
+          </button>
         </div>
-    </div>
-</div>
-    <div class="row mt-4">
-       <div class="col offset-10">
-           <button class="btn-danger btn">Dejar de seguir</button>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-3">
+                    <p>Ingresa Fecha</p>
+                    <input type="date" class="form-control">
+                </div>
+                <div class="col">
+                    <p>Ingresa el programa que vas a ingresar</p>
+                    <select class="form-control" >
+                        <option *ngFor="let item of dataPrograma">{{item.nombrePrograma}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>Ingresar Anotación a programa</p>
+                    <textarea class="form-control" id="" cols="10" rows="3"></textarea>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success" (click)="modal.close()">Ok</button>
+        </div>
+      </ng-template>
+      
+      <!-- <button class="btn btn-lg btn-outline-primary" (click)="modalService.open(contenido)">Lanzar</button> -->
+      <ng-template #instancia let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title">Indica datos para finalizar seguimiento</h4>
+          <button  class="close" aria-label="close"  type="button"(click)="modal.dismiss()">
+              <span aria-hidden="true"  class="material-icons">close</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-3">
+                    <p>Ingresa fecha finalización</p>
+                    <input type="date" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p><strong>Ingresar Anotación</strong></p>
+                    <p>Esto será visible para los profesores profesores jefes</p>
+                    <textarea class="form-control" id="" cols="10" rows="3"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" (click)="modal.close()">Finalizar Seguimiento</button>
+            <button class="btn btn-primary" (click)="modal.dismiss()">Cancelar</button>
+        </div>
+      </ng-template>
+      

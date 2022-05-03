@@ -39,5 +39,8 @@ export class EstudianteService {
    }
    getEnSeguimiento(): Observable<any>{
      return this.http.get(this.myAppUrl + this.myApiUrl + 'getSiguiendo');
+    }
+    getActivaSeguimiento(rut:string, val:number):Observable<any>{
+      return this.http.get(this.myAppUrl + this.myApiUrl + 'activaSeguimiento/'+ rut + '/'+ val);
    }
 }

@@ -25,11 +25,12 @@ import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 })
 export class RegPasoDosComponent implements OnInit {
   profesional:string;
+  usuarioId:number;
+  rbd: string;
   asunto:string;
   fecha:Date;
   antecedentes:string;
   acuerdos:string;
-  usuarioId:number;
   registro: any;
   idProtocolo:number;
   html:any;
@@ -44,7 +45,6 @@ export class RegPasoDosComponent implements OnInit {
   numRut:string;
   datosRegFaltantes:FormGroup;
   listParticipantes: ParticipanteReg[]=[]
-  rbd: string;
   protocolos:any=[];
   temporalProtocolos:Array<any>=[]
   tematicasReg:any;

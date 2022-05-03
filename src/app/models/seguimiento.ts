@@ -1,6 +1,7 @@
 export class Seguimiento {
-    id:number;
+    id?:number;
     rutEstudiante?: string;
+    nota?:string;
     fechaInicioSeguimiento?:Date
     fechaFinSeguimiento?:Date
     usuarioId?:number
@@ -11,6 +12,7 @@ export class Seguimiento {
         (
             id:number,
             rutEstudiante?: string,
+            nota?:string,
             fechaInicioSeguimiento?:Date,
             fechaFinSeguimiento?:Date,
             usuarioId?:number,
@@ -21,6 +23,7 @@ export class Seguimiento {
 
             this.id=id;
             this.rutEstudiante=rutEstudiante
+            this.nota=nota;
             this.fechaInicioSeguimiento =fechaInicioSeguimiento
             this.fechaFinSeguimiento=fechaFinSeguimiento
             this.usuarioId=usuarioId

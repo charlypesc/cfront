@@ -1,0 +1,42 @@
+<div class="container mt-4">
+    <div class="row">
+        <div class="col" *ngIf="seguimientoActivo==0">
+            <h4>Activar seguimiento a estudiante</h4>
+            <button class="btn btn-danger" (click)="openModalmd(instancia)">Activar seguimiento</button>
+        </div>
+        <div class="col"  *ngIf="seguimientoActivo==1">
+            <h4>Estudiante ya se encuentra en seguimiento</h4>
+            <button class="btn btn-success" routerLink="/dashboard/seguimiento/editar-seguimiento/{{rutParam}}">Ir a seguimiento</button>
+        </div>
+    </div>
+</div>
+
+<ng-template #instancia let-modal>
+    <form [formGroup]="formSeguimiento"(ngSubmit)="activarSeg()">
+    <div class="modal-header">
+      <h4 class="modal-title">Indica datos para iniciar seguimiento</h4>
+      <button  class="close" aria-label="close"  type="button"(click)="modal.dismiss()">
+          <span aria-hidden="true"  class="material-icons">close</span>
+      </button>
+    </div>
+    <div class="modal-body">
+            <div class="row">
+                <div class="col-3">
+                    <p>Ingresa fecha de inicio</p>
+                    <input type="date" class="form-control"formControlName="fechaInicioSeguimiento">
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col">
+                    <p><strong>Ingresar Anotación</strong></p>
+                    <p>Esto será visible para los profesores profesores jefes:</p>
+                    <textarea class="form-control" id="" cols="10" rows="3"formControlName="nota"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" (click)="activarSeg(1)" [disabled]="formSeguimiento.invalid">Iniciar Seguimiento</button>
+            <button class="btn btn-secondary" (click)="modal.dismiss()">Cancelar</button>
+        </div>
+    </form>
+  </ng-template>

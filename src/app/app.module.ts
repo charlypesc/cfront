@@ -100,6 +100,9 @@ import { MiProgramaComponent } from './components/dashboard/administracion/ingre
 import { EditarMiProgramaComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/mi-programa/editar-mi-programa/editar-mi-programa.component';
 import { VerMiProgramaComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/mi-programa/ver-mi-programa/ver-mi-programa.component';
 import { NuevoMiProgramaComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/mi-programa/nuevo-mi-programa/nuevo-mi-programa.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TestComponent } from './components/test/test.component';
+import { BusqTabSeguiComponent } from './components/dashboard/busqueda/busq-tab-segui/busq-tab-segui.component';
 
 
 
@@ -193,6 +196,8 @@ import { NuevoMiProgramaComponent } from './components/dashboard/administracion/
     EditarMiProgramaComponent,
     VerMiProgramaComponent,
     NuevoMiProgramaComponent,
+    TestComponent,
+    BusqTabSeguiComponent,
     
 
   ],
@@ -206,7 +211,7 @@ import { NuevoMiProgramaComponent } from './components/dashboard/administracion/
     FormsModule,
     FontAwesomeModule,
     NgxPermissionsModule.forRoot(),
-    SimpleModalModule
+    NgbModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AddTokenInterceptor, multi:true}],
   bootstrap: [AppComponent]

@@ -1,15 +1,17 @@
 .pers{
     display: block;
-    border-radius: 10px;
-    padding: 10px;
-    border-color:rgb(6, 110, 170);
+    border-radius: 5px;
+    padding: 5px;
+    border-color:rgb(95, 179, 227);
 }
 img{
-    width: 70px;
+    width: 50px;
 }
-.nav-per{
+.nav-per, select{
     color: rgb(6, 110, 170);
+    
 }
+
 span{
     cursor: pointer;
 }

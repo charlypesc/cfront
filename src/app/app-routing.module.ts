@@ -76,6 +76,7 @@ import { VerMiProgramaComponent } from './components/dashboard/administracion/in
 import { MiProgramaComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/mi-programa/mi-programa.component';
 import { EditarMiProgramaComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/mi-programa/editar-mi-programa/editar-mi-programa.component';
 import { NuevoMiProgramaComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/mi-programa/nuevo-mi-programa/nuevo-mi-programa.component';
+import { TestComponent } from './components/test/test.component';
 
 
 const routes: Routes = [
@@ -89,6 +90,7 @@ const routes: Routes = [
     { path: 'pregunta' , component: PreguntaComponent},
     { path: 'respuestaCuestionario', component: RespuestaCuestionarioComponent }
   ]},
+  { path:'test', component:TestComponent },
   { path:'dashboard', component: DashboardComponent, children: [
       { path: '',component: PanelBienvenidaComponent },
       { path: 'cambiarPassword', component: CambiarPasswordComponent },
