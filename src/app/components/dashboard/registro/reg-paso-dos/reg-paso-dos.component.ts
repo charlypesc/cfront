@@ -37,9 +37,9 @@ export class RegPasoDosComponent implements OnInit {
   loading:boolean=false;
   tematicaPedagogica:any
   pedagogico:any
-
   lstStaticData:any;
   selectTematicas:number[];
+  
   @ViewChild ('registro')registroPdf:ElementRef;
 
   numRut:string;
@@ -103,7 +103,9 @@ export class RegPasoDosComponent implements OnInit {
     }else
     {
       console.log(id + 'UnChecked')
-      this.selectTematicas = this.selectTematicas.filter(m=>m!=id)//LOGICA: metodo crea un nuevo array que llena con elementos provistas por la funcion (funcion no llena el array con el elemento coincidente)
+
+      //LOGICA: metodo crea un nuevo array que llena con elementos provistas por la funcion (funcion no llena el array con el elemento coincidente)
+      this.selectTematicas = this.selectTematicas.filter(m=>m!=id)
       this.createTematicaObj(id)
     }
     console.log(this.selectTematicas)
@@ -152,10 +154,8 @@ export class RegPasoDosComponent implements OnInit {
 
             const arrayRuts= this.arrayRutParticipantesService.arrayRutParticipante
             const arrayPart: ParticipanteReg[] = []
-            
             const protocolosDef: ProtocolosActuacion[]=[]
-            
-
+          
             // L I S T A -- P A R T I C I P A N T E S
             for(let i=0; i < arrayRuts.length;i++){
               const arrayParticipantes: ParticipanteReg = new ParticipanteReg()
@@ -181,6 +181,7 @@ export class RegPasoDosComponent implements OnInit {
             this.acuerdos=this.datosRegFaltantes.value.acuerdos;
             console.log('P R O T O C O L O S')
             console.log(protocolosDef)
+
           // R E G I S T R O - - - C O M P L E T O
 
             const registro: Registro={

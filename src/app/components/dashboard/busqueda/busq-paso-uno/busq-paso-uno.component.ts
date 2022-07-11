@@ -11,9 +11,11 @@ import { EstudianteService } from 'src/app/services/estudiante.service';
   styleUrls: ['./busq-paso-uno.component.css']
 })
 export class BusqPasoUnoComponent implements OnInit {
+
 rutBusqueda: FormGroup;
 rutBuscar:string;
 rtaRutBuscar : any = {};
+tabs:number=1;
   constructor(private fb: FormBuilder,
               private toastr: ToastrService,
               private estudianteService:EstudianteService,
@@ -25,10 +27,12 @@ rtaRutBuscar : any = {};
               }
 
   ngOnInit(): void {
- 
+    
   }
 
-
+navfn(i:number){
+  this.tabs=i;
+}
   busqueda(){
     //el primero tra el rut del form y se lo pasa al segundo metodo valida que existe y sino lanza el alerta
     this.rutBuscar = this.rutBusqueda.get('rut').value;

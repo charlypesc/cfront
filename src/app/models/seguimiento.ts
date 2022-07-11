@@ -1,3 +1,5 @@
+import { SeguimientoProg } from "./seguimientoProg";
+
 export class Seguimiento {
     id?:number;
     rutEstudiante?: string;
@@ -6,18 +8,19 @@ export class Seguimiento {
     fechaFinSeguimiento?:Date
     usuarioId?:number
     activo?:number
-    rbd?: string;
-    // seguimientoProg= seguimientoProg=[]
+    rbd?: string
+    seguimientoProg?: SeguimientoProg = {}
    constructor
         (
-            id:number,
+            id?:number,
             rutEstudiante?: string,
             nota?:string,
             fechaInicioSeguimiento?:Date,
             fechaFinSeguimiento?:Date,
             usuarioId?:number,
             activo?:number,
-            rbd?: string
+            rbd?: string,
+            seguimientoProg?:SeguimientoProg
         )
         {
 
@@ -29,6 +32,7 @@ export class Seguimiento {
             this.usuarioId=usuarioId
             this.activo=activo
             this.rbd=rbd
+            this.seguimientoProg=seguimientoProg
 
         }
 }

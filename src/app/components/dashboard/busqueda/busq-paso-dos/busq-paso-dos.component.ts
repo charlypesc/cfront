@@ -39,7 +39,7 @@ tabs:number=1;
 
   tabsFn(i:number){
     this.tabs=i;
-    console.log(this.tabs)
+    //console.log(this.tabs)
   }
 
   //busqueda de estudiante
@@ -68,28 +68,6 @@ tabs:number=1;
 
   //elimina el registro
 
-  deleteRegistro(idReg:number){
-
-    Swal.fire({
-      title:'Estas Seguro?',
-        text:'No se puede deshacer',
-        icon:'question',
-        showCancelButton:true,
-        cancelButtonText:'Cancelar',
-        confirmButtonColor:'#3085d6',
-        cancelButtonColor:'#d33',
-        confirmButtonText:'Si, Borrarlo'
-  }).then(respuesta=>{
-      if(respuesta.isConfirmed){
-        this.registroService.delRegistro(idReg).subscribe(data=>{
-          console.log(data)
-          this.getlistadoRegistros();
-        })    
-        
-      }
-    })
-    
-  }
 }
 
 

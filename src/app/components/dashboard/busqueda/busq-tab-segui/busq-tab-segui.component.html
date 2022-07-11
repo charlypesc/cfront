@@ -5,7 +5,7 @@
             <button class="btn btn-danger" (click)="openModalmd(instancia)">Activar seguimiento</button>
         </div>
         <div class="col"  *ngIf="seguimientoActivo==1">
-            <h4>Estudiante ya se encuentra en seguimiento</h4>
+            <h4>Estudiante en seguimiento</h4>
             <button class="btn btn-success" routerLink="/dashboard/seguimiento/editar-seguimiento/{{rutParam}}">Ir a seguimiento</button>
         </div>
     </div>

@@ -40,7 +40,7 @@ export class RegistroService {
     return this.http.post(this.myAppUrl+this.myApiUrl, registro, httpOptions)
   }
 
-  getRegistros(rut):Observable<any>{
+  getRegistros(rut:string):Observable<any>{
 
     return this.http.get(this.myAppUrl+this.myApiUrl+'/'+rut)
   }

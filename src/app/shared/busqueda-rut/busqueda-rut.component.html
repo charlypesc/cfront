@@ -34,11 +34,19 @@
                 </thead>
                 <tr *ngFor="let item of nuevoRutArray.controls; let i=index">
                     <td>{{i+1}}</td>
-                    <td>{{item.value.nombre}}</td>
+                    <td>{{item.value.nombre}} {{item.value.apellido}}</td>
                     <td>{{item.value.run}}</td>
                     <td><span class="material-icons delete-icon text-danger" (click)="eliminaRut(i)">delete</span></td>
                     <td style="display: none;"></td>
                 </tr>
+            </table>
+            <table class="table table-bordered">
+                <tr>
+                    <td width="20%">Funcionario</td>
+                    <td>{{funcionario}}</td>
+                    <td align="left" class="text-secondary" style="font-size: 10px;">Firma:</td>
+                </tr>
+
             </table>
         </div>
 

@@ -3,7 +3,9 @@ import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ParticipanteReg } from 'src/app/models/participanteReg';
 import { EstudianteService } from 'src/app/services/estudiante.service';
+import { LoginService } from 'src/app/services/login.service';
 import { RutParticipanteService } from 'src/app/services/rut-participante.service';
+import { ThisTypeNode } from 'typescript';
 
 @Component({
   selector: 'app-busqueda-rut',
@@ -11,7 +13,7 @@ import { RutParticipanteService } from 'src/app/services/rut-participante.servic
   styleUrls: ['./busqueda-rut.component.css']
 })
 export class BusquedaRutComponent implements OnInit {
-
+funcionario:any;
 nuevoParticipante: FormGroup;
 nuevaConsultaRut:string;
 rtaNuevoParticipante : any={};
@@ -20,6 +22,7 @@ codigoRtaRut:boolean;
   constructor(private fb: FormBuilder,
               private toastr:ToastrService,
               private estudianteService: EstudianteService,
+              private loginService:LoginService,
               private arrayRutService: RutParticipanteService) 
               {
                 this.nuevoParticipante = this.fb.group({
@@ -29,12 +32,16 @@ codigoRtaRut:boolean;
                }
 
   ngOnInit(): void {
+    this.funcionarioBusca();
   }
 
   get nuevoRutArray() {
     return this.nuevoParticipante.get('rutArray') as FormArray;
   }
-
+  
+funcionarioBusca(){
+  this.funcionario=this.loginService.getTokenDecoded().sub;
+}
 //paso 1 - trae el rut del formulario
   agregarRutParticipante()
   {

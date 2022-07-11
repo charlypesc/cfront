@@ -119,6 +119,7 @@
 <!-- M O D A L       C O N T  E N I D O -->
 
     <ng-template #programa let-modal>
+        <form [formGroup]="formPrograma">
         <div class="modal-header">
           <h4 class="modal-title">Ingresar nueva derivación a programa</h4>
           <button  class="close" aria-label="close"  type="button"(click)="modal.dismiss()">
@@ -129,25 +130,26 @@
             <div class="row">
                 <div class="col-3">
                     <p>Ingresa Fecha</p>
-                    <input type="date" class="form-control">
+                    <input type="date" class="form-control" formControlName="fechaInicioIngreso">
                 </div>
                 <div class="col">
-                    <p>Ingresa el programa que vas a ingresar</p>
-                    <select class="form-control" >
-                        <option *ngFor="let item of dataPrograma">{{item.nombrePrograma}}</option>
+                    <p>Seleccionar el programa a ingresar</p>
+                    <select class="form-control" formControlName="programa">
+                        <option *ngFor="let item of dataPrograma" >{{item.nombrePrograma}}</option>
                     </select>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <p>Ingresar Anotación a programa</p>
-                    <textarea class="form-control" id="" cols="10" rows="3"></textarea>
+                    <textarea class="form-control" id="" cols="10" rows="3" formControlName="programaNota"></textarea>
                 </div>
             </div>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-success" (click)="modal.close()">Ok</button>
+            <button type="button" class="btn btn-success" (click)="agregarPrograma()">Agregar programa</button>
         </div>
+    </form>
       </ng-template>
       
       <!-- <button class="btn btn-lg btn-outline-primary" (click)="modalService.open(contenido)">Lanzar</button> -->

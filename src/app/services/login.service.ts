@@ -22,13 +22,12 @@ data:string;
    login(usuario: Usuario): Observable<any>{
      return this.http.post(this.myAppUrl+this.myApiUrl, usuario)
    }
-
-   setLocalStorage(data):void{
-     
-     localStorage.setItem('token', data);
+   getTokenRefresh():Observable<any>{
+    return this.http.get(this.myAppUrl+this.myApiUrl+'/getIdUsuario');
    }
-
-
+   setLocalStorage(data):void{
+      localStorage.setItem('token', data);
+   }
     getTokenDecoded():any{
       const helper = new JwtHelperService();
       const decodedToken = helper.decodeToken(localStorage.getItem('token'))

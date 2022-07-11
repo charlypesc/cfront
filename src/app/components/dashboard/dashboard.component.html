@@ -1,4 +1,15 @@
 <app-navbar></app-navbar>
-<div class="container-fluid">
+<div class="container">
+	<div class="row ml-2 mt-4">
+		<div class="col-11 col-lg-3 col-sm-6">
+			<div class="d-flex">
+				<p class="mr-1">Sesión finaliza en:</p>
+				<p *ngIf="time.minutes<10"> 0</p>
+				<span>{{time.minutes}} : </span>
+				<p *ngIf="time.seconds<10">0</p>
+				<span> {{time.seconds}}</span>
+			</div>
+		</div>
+	</div>
 	<router-outlet></router-outlet>
 </div>

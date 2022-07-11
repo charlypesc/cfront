@@ -39,6 +39,7 @@ changeFn(e)//Protocolos paso 2; del evento del select, pasa el valor Id a la fun
 protocolosArrayTemporal() //protocolos paso 3 se crea el array temporal con los protocolos seleccionados
   {
       this.temporalProtocolos.push(this.protocolos[this.idProtocolo])
+//lo carga al servicio
       this.protocolosService.lstProtocolosData=this.temporalProtocolos
       // console.log(this.temporalProtocolos)
   }

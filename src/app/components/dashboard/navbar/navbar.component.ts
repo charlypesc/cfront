@@ -20,7 +20,10 @@ export class NavbarComponent implements OnInit {
     }
   this.dataLogin();
   }
+  ngAfterContentChecked(){
+    //console.log("llegue al dash");
 
+  } 
   logOut(e:any){
     if(e=='Cerrar Sesión'){
       

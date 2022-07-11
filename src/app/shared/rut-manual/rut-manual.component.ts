@@ -36,7 +36,7 @@ export class RutManualComponent implements OnInit {
         partManual.rut=rut
         partManual.nombreParticipante=nombre
         this.listParticipantesManual.push(partManual)
-        console.log(this.listParticipantesManual)
+        // console.log(this.listParticipantesManual)
         this.participanteManualService.lstParticipanteManual=this.listParticipantesManual
         Swal.fire({
           position: 'top-end',

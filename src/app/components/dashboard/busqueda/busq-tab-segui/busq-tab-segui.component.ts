@@ -41,18 +41,22 @@ seguimientoActivo:number;
     this.profesional = this.loginService.getTokenDecoded().sub;
     this.rbd = this.loginService.getTokenDecoded().Rbd;
     this.usuarioId=this.loginService.getTokenDecoded().idUsuario;
+    // console.log(this.seguimientoActivo)
   }
 traerEstudiante(){
   this.estudianteService.getEstudianteByRut(this.rutParam).subscribe(data=>{
+    // console.log(data)
     if(data.seguimiento==1){
       this.seguimientoActivo=1;
+    }else{
+      this.seguimientoActivo=0
     }
   })
 }
 
   activarSeg(val:number){
     //primer se debe activar al estudiante el seguimiento, esto lo realiza de manera automatica el back end
-    console.log(val)
+    // console.log(val)
     this.estudianteService.getActivaSeguimiento(this.rutParam, val).subscribe(data=>{
       //si la respuesta es valida del backend, pasamos al paso 2 donde creamos obj y creamos la instancia
 
@@ -66,13 +70,15 @@ traerEstudiante(){
             activo:1,
             rbd:this.rbd,
           }
+          // console.log(seguimiento)
           this.seguimientoService.createSeguimiento(seguimiento).subscribe(data=>{
+            this.seguimientoActivo=1;
 
           })
         }
       })
       this.modalService.dismissAll();
-      this.formSeguimiento.reset();
+      // this.formSeguimiento.reset();
       
   }
   openModalmd(programa:any) {

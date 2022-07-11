@@ -14,6 +14,9 @@
                 <th>Ver</th>
                 <th>Borrar</th>
             </tr>
+            <tr *ngIf="listadoRegistros==null">
+                No hay registros para mostrar
+            </tr>
             <tr *ngFor="let item of listadoRegistros">
                 <td>{{item.fechaIngreso | date:"dd/MM/YY"}}</td>
                 <td>{{item.asunto}}</td>
