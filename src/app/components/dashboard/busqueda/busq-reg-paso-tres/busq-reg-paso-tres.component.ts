@@ -47,7 +47,7 @@ funcionario:any;
 getRegById(id){
   this.RegistroService.getRegistroById(id).subscribe(data=>{
     this.datoRegistro = data;
-
+    console.log(data)
   })
 }
 //va para atras

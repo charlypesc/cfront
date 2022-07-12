@@ -26,9 +26,9 @@
                                 <option value="Otra">Otra</option>
                             </select>
                         </div>
-                        <div class="mt-2 text-danger" *ngIf= "datosReuniones.get('tipoReunion').hasError('required')&& datosReuniones.get('tipoReunion').touched"><p>Debes ingresar el tipo de reunión</p></div>
+                        <div class="mt-2 text-danger" *ngIf="datosReuniones.get('tipoReunion').hasError('required')&& datosReuniones.get('tipoReunion').touched"><p>Debes ingresar el tipo de reunión</p></div>
                     </div>
-                    <div class="form-row justify-content-between">
+                    <div class="form-row justify-content-between" *ngIf="flagReunion==0">
                         <div class="col-4">
                             <p class="mr-3 mt-2">N° Rut a asociar</p>
                         </div>
@@ -62,7 +62,7 @@
                             <div class="mt-2 text-danger" style="display: none;"><p>Debes ingresar la fecha</p></div>   
                         </div>
                     </div>
-                    <div class="mt-2 text-danger d-flex justify-content-center" *ngIf= "datosReuniones.get('asunto').hasError('required') && datosReuniones.get('asunto').touched"><p>Debes ingresar asunto</p></div>
+                    <div class="mt-2 text-danger d-flex justify-content-center" *ngIf="datosReuniones.get('asunto').hasError('required') && datosReuniones.get('asunto').touched"><p>Debes ingresar asunto</p></div>
                     <div class="row mt-4">
                         <div class="col d-flex justify-content-center">
                             <button class="btn btn-success text-white mr-3"  type="button" (click)="guardaReunion()" [disabled]="datosReuniones.invalid">Guardar</button>

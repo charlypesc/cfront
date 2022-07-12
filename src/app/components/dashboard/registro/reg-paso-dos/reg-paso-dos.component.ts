@@ -74,7 +74,7 @@ export class RegPasoDosComponent implements OnInit {
 
   {
     this.fecha=this.registroService.fecha;
-	  this.profesional = this.loginService.getTokenDecoded().sub;
+	  this.profesional = this.loginService.getTokenDecoded().name;
     this.rbd = this.loginService.getTokenDecoded().Rbd;
     this.usuarioId=this.loginService.getTokenDecoded().idUsuario;
     this.buscarProtocolos();

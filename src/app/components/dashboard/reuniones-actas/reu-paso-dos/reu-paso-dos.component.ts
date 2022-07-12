@@ -60,12 +60,10 @@ export class ReuPasoDosComponent implements OnInit {
   getReunion(){
     this.reunionesService.getReunionById(this.idParam).subscribe(data=>{
       this.datosPasoUno=data
-      
       console.log("datos")
       console.log(data)
     })
   }
-
   guardarReunion(){
     console.log("empezando a guardar")
     

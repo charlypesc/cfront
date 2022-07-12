@@ -26,4 +26,7 @@ export class ReunionesService {
    getReunionByRut(rut:string):Observable<any>{
      return this.http.get(this.myAppUrl + this.myApiUrl+'/getReunionByRut/'+rut);
    }
+   getReunionFolio(rbd:string):Observable<any>{
+    return this.http.get(this.myAppUrl + this.myApiUrl+'/folioReuniones/'+rbd);
+   }
 }

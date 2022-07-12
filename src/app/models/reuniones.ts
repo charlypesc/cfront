@@ -17,6 +17,7 @@ export class Reuniones
     activo?:number;
     tipo?:string;
     usuarioId?:number;
+    folio?:number;
     participanteManual?:ParticipanteManual[];
     protocoloReu?:ProtocoloReu[];
     tematicasReu?:TematicasReu[];
@@ -34,6 +35,7 @@ export class Reuniones
         activo?:number,
         tipo?:string,
         usuarioId?:number,
+        folio?:number,
         participanteManual?:ParticipanteManual[],
         protocoloReu?:ProtocoloReu[],
         tematicasReu?:TematicasReu[])
@@ -54,7 +56,7 @@ export class Reuniones
             this.participanteManual=participanteManual
             this.protocoloReu=protocoloReu
             this.tematicasReu=tematicasReu    
-
+            this.folio=folio
         }
 
 }

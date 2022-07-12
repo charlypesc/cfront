@@ -1,23 +1,25 @@
-<div class="container-fluid pt-1 mb-2  bg-white border-bottom shadow-sm">
-  <div class="row">
-    <div class="col-4 d-flex align-items-center nav-per">
-      <span><img src="./../../../../assets/img/logo_400x400.png" routerLink="/dashboard"></span>
-      <h5 class="my-0 mr-md-auto font-weight-normal ml-3">Convivencia en Escuela</h5>
-    </div>
-    <div class="col-2">
-      <div class="d-flex align-items-baseline"></div>
-    </div>
-    <div class="col-2 ml-auto mt-2">
-      <select class="pers" (change)="logOut($event.target.value)">
-        <option selected><p class="mr-1 text-dark">Bienvenido! </p><strong class="text-primary">{{usuario}}</strong></option>
-        <option><a class="btn btn-outline-warning" >Cerrar Sesión</a></option>
-      </select>
-    </div>
-      <nav class="my-2 my-md-0 mr-md-3">
-        <!-- <a class="p-2 text-dark" routerLink="/dashboard">Cuestionarios</a> -->
-        <!-- <a class="p-2 text-dark" routerLink="/dashboard/cambiarPassword">Cambiar contraseña</a> -->
-      </nav>
-    
-  </div>
+<div class="container-fluid mb-2  bg-white border-bottom shadow-sm">
+  <div class="container">
+      <div class="row p-3">
+        <div class="col-4 d-flex align-items-center nav-per">
+          <span><img src="./../../../../assets/img/logo_400x400.png" routerLink="/dashboard"></span>
+          <h5 class="my-0 mr-md-auto font-weight-normal ml-3">Convivencia en Escuela</h5>
+        </div>
+        <div class="col-2">
+          <div class="d-flex align-items-baseline"></div>
+        </div>
+        <div class="col-2 ml-auto mt-2">
+          <select class="pers" (change)="logOut($event.target.value)">
+            <option selected><p class="mr-1 text-dark">Bienvenido! </p><strong class="text-primary">{{usuario}}</strong></option>
+            <option><a class="btn btn-outline-warning" >Cerrar Sesión</a></option>
+          </select>
+        </div>
+          <nav class="my-2 my-md-0 mr-md-3">
+            <!-- <a class="p-2 text-dark" routerLink="/dashboard">Cuestionarios</a> -->
+            <!-- <a class="p-2 text-dark" routerLink="/dashboard/cambiarPassword">Cambiar contraseña</a> -->
+          </nav>
+        
+      </div>
+  </div>  
 </div>
      
