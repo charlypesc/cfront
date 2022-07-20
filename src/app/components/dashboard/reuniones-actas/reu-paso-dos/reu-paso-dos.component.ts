@@ -10,10 +10,8 @@ import { ReunionesService } from 'src/app/services/reuniones.service';
 import { TematicasService } from 'src/app/services/tematicas.service';
 import Swal from 'sweetalert2';
 import { ProtocolosService } from 'src/app/services/protocolos.service';
-import { ParticipanteManual } from 'src/app/models/participanteManual';
 import { ParticipantesManualService } from 'src/app/services/participantes-manual.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CambiarPasswordComponent } from '../../cambiar-password/cambiar-password.component';
 
 @Component({
   selector: 'app-reu-paso-dos',
@@ -60,12 +58,9 @@ export class ReuPasoDosComponent implements OnInit {
   getReunion(){
     this.reunionesService.getReunionById(this.idParam).subscribe(data=>{
       this.datosPasoUno=data
-      console.log("datos")
-      console.log(data)
     })
   }
   guardarReunion(){
-    console.log("empezando a guardar")
     
     const arrayTematicas: TematicasReu[] = []
     const arrayTematicasDef= this.tematicasService.lstDataTematica
@@ -74,7 +69,6 @@ export class ReuPasoDosComponent implements OnInit {
     const arrayParticipantesManual=this.participanteManualService.lstParticipanteManual
     
     
-    console.log(arrayTematicasDef)
     if(arrayTematicasDef==undefined){
       Swal.fire('Debes ingresar una temática!')
 
@@ -95,8 +89,6 @@ export class ReuPasoDosComponent implements OnInit {
       arrayTematicas.push(arr)
     }
 
-    console.log("T E M A T I C A ")
-    console.log(arrayTematicas)
 
     // L I S T A -- P R O T O C O L O S
 
@@ -108,8 +100,6 @@ export class ReuPasoDosComponent implements OnInit {
         arrayProtocolos.push(arrp);
 
       }
-      console.log('P R O T O C O L O S')
-      console.log(arrayProtocolos)
 
       //L I S T A    P A R T I C I P A N T E S   M A N U A L
 
@@ -134,7 +124,6 @@ export class ReuPasoDosComponent implements OnInit {
        
 
       }
-      console.log(reunion)
       this.reunionesService.actualizaReunion(reunion).subscribe(data=>{
         Swal.fire({
           position: 'top-end',

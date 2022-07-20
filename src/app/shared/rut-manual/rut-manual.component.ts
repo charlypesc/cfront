@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 import { ParticipanteManual } from 'src/app/models/participanteManual';
 import { ParticipanteReg } from 'src/app/models/participanteReg';
+import { EstudianteService } from 'src/app/services/estudiante.service';
 import { ParticipantesManualService } from 'src/app/services/participantes-manual.service';
 import Swal from 'sweetalert2';
 
@@ -12,7 +14,8 @@ import Swal from 'sweetalert2';
 export class RutManualComponent implements OnInit {
   listParticipantesManual:ParticipanteManual[]=[]
 
-  constructor(private participanteManualService: ParticipantesManualService) { }
+  constructor(private participanteManualService: ParticipantesManualService,
+              private estudianteService: EstudianteService) { }
 
   ngOnInit(): void {
   }
@@ -25,27 +28,41 @@ export class RutManualComponent implements OnInit {
     })
     
     if (rut) {
-      const { value: nombre } = await Swal.fire({
-        title: 'Ingresa Nombre y Apellido',
-        input: 'text',
-        inputLabel: 'Nombre y apellido',
-        inputPlaceholder: 'Ej: Carlos Escobar'
+      this.estudianteService.getEstudianteByRut(rut).subscribe(async data=>{
+        // si el resultado es positivo debe llenar los datos
+        console.log(data)
+        if(data.codigo !=0){
+          const partManual: ParticipanteManual = new ParticipanteManual()
+            partManual.rut=data.run
+            partManual.nombreParticipante=data.nombre
+          this.listParticipantesManual.push(partManual)
+          
+        }
+        else{
+
+          const { value: nombre } = await Swal.fire({
+          title: 'Ingresa Nombre y Apellido',
+          input: 'text',
+          inputLabel: 'Nombre y apellido',
+          inputPlaceholder: 'Ej: Carlos Escobar'
+          })
+          if(rut && nombre){
+            const partManual: ParticipanteManual = new ParticipanteManual()
+            partManual.rut=rut
+            partManual.nombreParticipante=nombre
+            this.listParticipantesManual.push(partManual)
+            // console.log(this.listParticipantesManual)
+            this.participanteManualService.lstParticipanteManual=this.listParticipantesManual
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Participante manual ingresado correctamente',
+              showConfirmButton: false,
+              timer: 1000
+            })
+          }
+        }
       })
-      if(rut && nombre){
-        const partManual: ParticipanteManual = new ParticipanteManual()
-        partManual.rut=rut
-        partManual.nombreParticipante=nombre
-        this.listParticipantesManual.push(partManual)
-        // console.log(this.listParticipantesManual)
-        this.participanteManualService.lstParticipanteManual=this.listParticipantesManual
-        Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: 'Participante manual ingresado correctamente',
-          showConfirmButton: false,
-          timer: 1000
-        })
-      }
     }
   }
 
