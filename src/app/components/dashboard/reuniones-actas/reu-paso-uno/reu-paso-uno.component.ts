@@ -57,11 +57,13 @@ rbd:string;
   // V E R I F I C A     R U T 
   changeFn(e:any){
     this.tipoReunionObj=e;
-    console.log(e)
+    // console.log(e)
     if (e==='Reunion con Profesionales'){
       this.flagReunion=1;
-      console.log(this.flagReunion)
+      // console.log(this.flagReunion)
       this.datosReuniones.controls.rut.setValue('No se asocia rut')
+    }else{
+      this.flagReunion=0;
     }
   }
   verificaRut(){
@@ -72,7 +74,7 @@ rbd:string;
         
         }else{
           this.rutBuscaResponse=2;
-          console.log(data)
+          // console.log(data)
         }
         
       })

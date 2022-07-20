@@ -6,7 +6,7 @@ import { interval } from 'rxjs';
 import { map } from 'rxjs/internal/operators/map';
 import { LoginService } from 'src/app/services/login.service';
 import Swal from 'sweetalert2';
-import { textChangeRangeIsUnchanged } from 'typescript';
+import { convertTypeAcquisitionFromJson, textChangeRangeIsUnchanged } from 'typescript';
 
 @Component({
   selector: 'app-dashboard',
@@ -56,14 +56,22 @@ export class DashboardComponent implements OnInit {
     const dateNow= new Date(Date.now());
     const diffe = dateToken.getTime() - dateNow.getTime();
     const min= Math.floor(diffe / (1000*60))
-    if(min < 5 && this.flag==0){
+    if(min < 9 && this.flag==0){
       this.flag=1
+      let timerInterval;
       Swal.fire({
         title: 'Deseas mantener tu sesion activa?',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Sí, dame más tiempo!'
+        confirmButtonText: 'Sí, dame más tiempo!',
+        timer:480000,
+        didOpen:()=>{
+          timerInterval = setInterval(()=>{})
+        },
+        willClose:()=>{
+          clearInterval(timerInterval)
+        }
       }).then((result) => {
         if (result.isConfirmed) {
           
@@ -72,6 +80,7 @@ export class DashboardComponent implements OnInit {
             localStorage.removeItem('token');
             
             this.Login.setLocalStorage(data.token)
+            this.flag=0
           })
         
         }
@@ -79,6 +88,8 @@ export class DashboardComponent implements OnInit {
       
 
     }
+     
+
 
     if(min < 1){
       this.Login.removeLocalStorage();

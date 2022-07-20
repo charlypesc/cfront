@@ -124,7 +124,7 @@ export class ReuPasoDosComponent implements OnInit {
         acuerdos:this.datosForm.value.acuerdos,
         tipoReunion:this.datosPasoUno[0].reunion,
         rutAsociado:this.datosPasoUno[0].rutAsociado,
-
+        folio:this.datosPasoUno[0].folio,
         usuarioId:this.datosPasoUno[0].usuarioId,
         activo:1,
         tipo:this.datosPasoUno[0].tipo,

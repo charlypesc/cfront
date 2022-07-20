@@ -38,14 +38,12 @@ export class ReuPasoTresComponent implements OnInit {
 //Evaluar llegada desde el componente
   rescateId(){
       var idReunion = this.aRoute.snapshot.paramMap.get('reunionId');
-      console.log(idReunion)
+      // console.log(idReunion)
       if( idReunion == "undefined"){
         
 
       }else{
-        console.log("no he llegado aca")
         this.idParam=parseInt(idReunion);
-
       }
   }
 
@@ -53,7 +51,7 @@ export class ReuPasoTresComponent implements OnInit {
     this.reunionesService.getReunionById(this.idParam).subscribe(data=>{
       this.datosPasoUno=data
       
-      console.log("datos")
+      // console.log("datos")
       console.log(this.datosPasoUno)
     })
   }
