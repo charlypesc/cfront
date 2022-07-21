@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row" style="width: 100%;">
+    <div class="row">
         <div  class="col">
             <div class="card text-left p-4">
                 <h2 class="text-primary">Resumen</h2>
@@ -11,18 +11,21 @@
 </div>
 
 <div #detalle class="container mt-1" *ngFor="let item of datosPasoUno">
-    <div class="row" style="width: 100%;" >
+    <div class="row" >
         <div  class="col">
             <div class="card text-left p-4">
-                <h3>Detalles de Reunion</h3>
+                <div class="pdf_logo">
+                    <img src="https://convivenciaenescuela.cl/wp-content/uploads/2022/03/cropped-logo_400x400-3-150x150.png" class="" alt="sss">
+                    <h3>Detalles de Reunion</h3>
+                </div>
                 <div class="form-row mt-3">
                     <table class="table table-bordered">
                         <tr>
-                            <td style="width: 25%;" class="principal"><strong>Numero de Folio</strong></td>
+                            <td class="principal"><strong>Numero de Folio</strong></td>
                             <td>{{item.folio}}</td>
                         </tr>
                         <tr>
-                            <td style="width: 25%;" class="principal"><strong>Profesional</strong></td>
+                            <td class="principal"><strong>Profesional</strong></td>
                             <td>{{item.profesional}}</td>
                         </tr>
                         <tr>
@@ -46,7 +49,7 @@
             </div>
         </div>
     </div>
-    <div class="row mt-2 " style="width: 100%;">
+    <div class="row mt-2">
         <div class="col">
             <div class="card p-4">
                 <h3>Temáticas ingresadas</h3>
@@ -65,7 +68,7 @@
             </div>
         </div>
     </div>
-    <div class="row mt-4" style="width: 100%;">
+    <div class="row mt-4">
         <div class="col">
             <div class="card p-4">
                 <h3>Listado de Participantes</h3>
@@ -88,7 +91,7 @@
             </div>
         </div>
     </div>
-    <div class="row mt-4" style="width: 100%;">
+    <div class="row mt-4">
         <div class="col">
             <div class="card p-4">
                 <h3>Protocolos Activados</h3>
@@ -115,11 +118,11 @@
                 <h3>Antecedentes y Acuerdos</h3>
                 <div class="card mt-3">
                     <table class="table">
-                        <tr>
-                            <td style="width: 20%;"><strong>Antecedentes</strong></td>
+                        <tr class="antecedentes">
+                            <td><strong>Antecedentes</strong></td>
                             <td>: {{item.antecedentes}}</td>
                         </tr>
-                        <tr>
+                        <tr class="acuerdos">
                             <td><strong>Acuerdos</strong></td>
                             <td>: {{item.acuerdos}}</td>
                         </tr>
