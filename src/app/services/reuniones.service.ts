@@ -29,4 +29,10 @@ export class ReunionesService {
    getReunionFolio(rbd:string):Observable<any>{
     return this.http.get(this.myAppUrl + this.myApiUrl+'/folioReuniones/'+rbd);
    }
+   getMisReusByUserId():Observable<any>{
+    return this.http.get(this.myAppUrl + this.myApiUrl+'/reunionesByUserId');
+   }
+   deleteReu(e:any):Observable<any>{
+    return this.http.delete(this.myAppUrl + this.myApiUrl+'/'+e)
+   }
 }

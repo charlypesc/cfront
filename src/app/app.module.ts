@@ -103,6 +103,8 @@ import { NuevoMiProgramaComponent } from './components/dashboard/administracion/
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TestComponent } from './components/test/test.component';
 import { BusqTabSeguiComponent } from './components/dashboard/busqueda/busq-tab-segui/busq-tab-segui.component';
+import { MisReusComponent } from './components/dashboard/reuniones-actas/mis-reus/mis-reus.component';
+import { MiniPanReuComponent } from './components/dashboard/reuniones-actas/mini-pan-reu/mini-pan-reu.component';
 
 
 
@@ -198,6 +200,8 @@ import { BusqTabSeguiComponent } from './components/dashboard/busqueda/busq-tab-
     NuevoMiProgramaComponent,
     TestComponent,
     BusqTabSeguiComponent,
+    MisReusComponent,
+    MiniPanReuComponent,
     
 
   ],

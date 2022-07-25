@@ -77,6 +77,8 @@ import { MiProgramaComponent } from './components/dashboard/administracion/ingre
 import { EditarMiProgramaComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/mi-programa/editar-mi-programa/editar-mi-programa.component';
 import { NuevoMiProgramaComponent } from './components/dashboard/administracion/ingresos/mi-establecimiento/mi-programa/nuevo-mi-programa/nuevo-mi-programa.component';
 import { TestComponent } from './components/test/test.component';
+import { MiniPanReuComponent } from './components/dashboard/reuniones-actas/mini-pan-reu/mini-pan-reu.component';
+import { MisReusComponent } from './components/dashboard/reuniones-actas/mis-reus/mis-reus.component';
 
 
 const routes: Routes = [
@@ -129,6 +131,8 @@ const routes: Routes = [
       ]},
       { path: 'visitas', component: VisitaDomicialiariaComponent },
       { path: 'reuniones', component: ReunionesActasComponent, children:[
+        { path:'panel-reu',component: MiniPanReuComponent},
+        { path:'mis-reus',component: MisReusComponent},
         { path:'reupasouno', component: ReuPasoUnoComponent },
         { path: 'reupasodos/:reunionId', component: ReuPasoDosComponent },
         { path: 'reupasotres/:reunionId', component: ReuPasoTresComponent }
